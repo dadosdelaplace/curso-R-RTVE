@@ -21,7 +21,7 @@ GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org
    
 * **Código diapositivas** (https://github.com/dadosdelaplace/curso-R-RTVE/tree/main/index.qmd)
                         
-* **Scripts del curso**: (https://github.com/dadosdelaplace/curso-R-RTVE/tree/main/scripts)
+* **Documentación paquetes**: (https://github.com/dadosdelaplace/curso-R-RTVE/tree/main/fichas%20paquetes)
 
 * **Manual introductorio de R**: (https://dadosdelaplace.github.io/courses-intro-R/)
 
