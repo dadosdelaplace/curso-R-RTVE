@@ -2,7 +2,7 @@
 title: "MANEJO DE DATOS EN R"
 subtitle: "Análisis y visualización de datos en R"
 title-slide-attributes:
-  data-background-image: /img/rtve.jpeg
+  data-background-image: img/rtve.webp
   data-background-size: contain
   data-background-opacity: "0.25"
 author: "Curso impartido en RTVE • 28 y 30 de marzo de 2023"
