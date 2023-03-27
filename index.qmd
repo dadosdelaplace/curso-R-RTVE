@@ -51,7 +51,7 @@ execute:
 
 . . .
 
-Actualmente soy [**investigador y docente en la Facultad de Estadística de la UCM**]{.hl-purple}. Intentando eso de la divulgación por [**Twitter**](https://twitter.com/dadosdelaplace) e [**Instagram**](https://instagram.com/javieralvarezliebana)
+Actualmente, soy [**investigador y docente en la Facultad de Estadística de la UCM**]{.hl-purple}. Intentando eso de la divulgación por [**Twitter**](https://twitter.com/dadosdelaplace) e [**Instagram**](https://instagram.com/javieralvarezliebana)
 
 ---
 
