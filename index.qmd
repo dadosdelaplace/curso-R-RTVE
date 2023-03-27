@@ -28,7 +28,7 @@ execute:
 
 [**Dejad vuestras hojas de cálculo a un lado**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## ¡Buenas!
 
@@ -54,7 +54,7 @@ execute:
 
 Actualmente soy [**investigador y docente en la Facultad de Estadística de la UCM**]{.hl-purple}. Intentando eso de la divulgación por [**Twitter**](https://twitter.com/dadosdelaplace) e [**Instagram**](https://instagram.com/javieralvarezliebana)
 
-------------------------------------------------------------------------
+---
 
 ## Objetivos
 
@@ -82,7 +82,7 @@ Actualmente soy [**investigador y docente en la Facultad de Estadística de la U
 
 [**Instalando R y RStudio**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## Requisitos
 
@@ -106,7 +106,7 @@ Para el curso los únicos requisitos serán:
 :::
 :::
 
-------------------------------------------------------------------------
+---
 
 ::: columns
 ::: {.column width="50%"}
@@ -130,7 +130,7 @@ Programaremos como escribimos (castellano, por ejemplo) → `R` es [**lenguaje**
 :::
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Instalación de R
 
@@ -150,7 +150,7 @@ El lenguaje `R` será nuestra [**gramática y ortografía**]{.hl-yellow} (nuestr
 Siempre que tengas que descargar algo de CRAN (ya sea el propio R o un paquete), [**asegúrate de tener conexión a internet**]{.hl-red}.
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Primera operación
 
@@ -175,7 +175,7 @@ Esa «pantalla blanca» se llama [**consola**]{.hl-yellow} y podemos hacer un pr
 a <- 1
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Primera operación
 
@@ -207,7 +207,7 @@ b <- 2
 En `R` usaremos `<-` como una flecha: la variable a la izquierda de dicha flecha le asignamos el valor que hay a la derecha (por ejemplo, `a <- 1`)
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Primera operación
 
@@ -232,7 +232,7 @@ b <- 2
 a + b
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Instalación de R Studio
 
@@ -246,7 +246,7 @@ a + b
 -   [**Paso 3**]{.hl-yellow}: tras descargar el ejecutable, hay que abrirlo como otro cualquier otro y dejar que termine la instalación.
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Organización de RStudio
 
@@ -256,7 +256,7 @@ Al abrir `RStudio` seguramente tengas tres ventanas:
 
 ![](img/consola_rstudio.jpg){width="420"}
 
-------------------------------------------------------------------------
+---
 
 ## Organización de RStudio
 
@@ -266,7 +266,7 @@ Al abrir `RStudio` seguramente tengas tres ventanas:
 
 ![](img/environment.jpg){width="420"}
 
-------------------------------------------------------------------------
+---
 
 ## Organización de RStudio
 
@@ -280,13 +280,13 @@ Al abrir `RStudio` seguramente tengas tres ventanas:
 
 [**¿Cuáles son las ventajas? Primer uso**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## ¿Qué es R? ¿Por qué R?
 
 ![](img/meme_barco.jpg)
 
-------------------------------------------------------------------------
+---
 
 ## ¿Qué es R? ¿Por qué R?
 
@@ -306,13 +306,13 @@ Al abrir `RStudio` seguramente tengas tres ventanas:
 -   [**Lenguaje de alto nivel**]{.hl-yellow}: facilita la programación (como Python) [→ ]{.fragment .fade-in}[**menor curva de aprendizaje**]{.hl-purple}
 :::
 
-------------------------------------------------------------------------
+---
 
 ## ¿Qué es R? ¿Por qué R?
 
 ![](img/incel_excel.png)
 
-------------------------------------------------------------------------
+---
 
 ## ¿Por qué programar?
 
@@ -326,7 +326,7 @@ Al abrir `RStudio` seguramente tengas tres ventanas:
 
 ![](img/the_general_problem.png)
 
-------------------------------------------------------------------------
+---
 
 ## Idea fundamental: paquetes
 
@@ -358,7 +358,7 @@ library(ggplot2)
 :::
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Idea fundamental: paquetes
 
@@ -390,7 +390,7 @@ ggplot2::geom_point()
 :::
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Te vas equivocar
 
@@ -415,7 +415,7 @@ Durante tu aprendizaje va a ser muy habitual que las cosas no salgan a la primer
 sqrt(-1)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Antes de arrancar: scripts
 
@@ -435,7 +435,7 @@ Un [**script**]{.hl-yellow} será el documento en el que programamos, nuestro ar
 Es importante **no abusar de la consola**: todo lo que no escribas en un script, cuando cierres, [**lo habrás perdido**]{.hl-red}.
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Ejecutando el primer script
 
@@ -457,7 +457,7 @@ Ahora tenemos una **cuarta ventana**: la ventana donde [**escribiremos nuestros 
 -   [**Seleccionar líneas**]{.hl-yellow} y `Ctrl+Enter`
 -   [**Activar Source on save**]{.hl-yellow} a la derecha de guardar: no solo guarda sino que ejecuta el código **completo**.
 
-------------------------------------------------------------------------
+---
 
 ## 💻 Tu turno
 
@@ -546,7 +546,7 @@ Comandos como `sqrt()`, `abs()` o `max()` son lo que llamamos [**funciones**]{.h
 
 [**¿Qué tipos de datos existen?**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## De la CELDA a la TABLA
 
@@ -562,7 +562,7 @@ Comandos como `sqrt()`, `abs()` o `max()` son lo que llamamos [**funciones**]{.h
 -   [**Lista**]{.hl-yellow}: concatenación de variables de [**distinto tipo y distinta longitud**]{.hl-purple}
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Celdas: tipos de datos
 
@@ -600,7 +600,7 @@ soltero <- TRUE
 -   Su fecha de nacimiento será precisamente eso, una [**fecha**]{.hl-yellow}.
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Variables numéricos
 
@@ -641,7 +641,7 @@ Con las variables numéricas podemos realizar las [**operaciones aritméticas**]
 a^2
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Variables de texto
 
@@ -673,7 +673,7 @@ nombre + 1 # error al sumar número a texto
 Las variables de tipo texto (character o stringr) van siempre [**entre comillas**]{.hl-orange}.
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Primera función: paste
 
@@ -693,7 +693,7 @@ Fíjate que [**por defecto**]{.hl-yellow} nos pega las cadenas con un espacio, p
 paste("Javier", "Álvarez", sep = "*")
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Primera función: paste
 
@@ -717,7 +717,7 @@ Existe una función similar llamada `paste0()` que pega por defecto con `sep = "
 paste0("Javier", "Álvarez")
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Primer paquete: glue
 
@@ -752,7 +752,7 @@ unidades <- "días"
 glue("La edad es de {edad * 365} {unidades}")
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Variables lógicas
 
@@ -781,7 +781,7 @@ TRUE + 1
 ```
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Condiciones lógicas
 
@@ -817,7 +817,7 @@ nombre != "Javi"
 No es lo mismo `<-` (asignación) que una [**comparación lógica**]{.hl-yellow} con `==` (estamos preguntando).
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Condiciones lógicas
 
@@ -840,7 +840,7 @@ edad < 32 # ¿Es la edad menor de 32 años?
 edad >= 38
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Variables de fecha
 
@@ -870,7 +870,7 @@ fecha + 1
 class(fecha)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Variables de fecha
 
@@ -900,7 +900,7 @@ year(fecha)
 month(fecha)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Resúmenes de paquetes
 
@@ -912,7 +912,7 @@ month(fecha)
 Tienes un resumen en pdf de los paquetes más importantes en la [**carpeta «fichas paquetes»**]{.hl-green}
 :::
 
-------------------------------------------------------------------------
+---
 
 ## 💻 Tu turno
 
@@ -967,7 +967,7 @@ today() - fecha_nacimiento
 
 [**¿Cómo concatenamos valores? ¿Cómo creamos una columna?**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## Vectores: concatenar
 
@@ -992,7 +992,7 @@ edades
 Un número individual `x <- 1` es en realidad un vector de longitud uno.
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Vectores: concatenar
 
@@ -1028,7 +1028,7 @@ También podemos [**concatenar vectores**]{.hl-yellow}
 c(edades, edades, 8)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Secuencias numéricas
 
@@ -1049,7 +1049,7 @@ El comando `1:n` nos devuelve lo mismo que `seq(1, n)` (si el elemento inicial e
 7:-3
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Secuencias numéricas
 
@@ -1079,7 +1079,7 @@ Incluso puede nos interese generar un vector de [**n elementos repetidos**]{.hl-
 rep(0, 7) # vector de 7 ceros
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Vectores de caracteres
 
@@ -1103,7 +1103,7 @@ vector
 length(vector)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Vectores de caracteres
 
@@ -1129,7 +1129,7 @@ c(3, 4, TRUE, FALSE)
 
 Es importante entender que los valores lógicos en realidad están [**almacenados internamente como 0/1**]{.hl-yellow}
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1155,7 +1155,7 @@ x * 2
 Salvo que indiquemos lo contrario, en `R` las operaciones con vectores son siempre [**elemento a elemento**]{.hl-orange}
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1182,7 +1182,7 @@ x + z
 
 Lo que hace es [**reciclar elementos**]{.hl-yellow}: si tiene un vector de 4 elementos y sumamos otro de 3 elementos, lo que hará será reciclar del vector con menor longitud.
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1211,7 +1211,7 @@ y <- c(15, 20, NA, 31, 27, 7, 29, 10)
 y < 22
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1238,7 +1238,7 @@ any(x < 30)
 all(x < 30)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1266,7 +1266,7 @@ Por defecto, si tenemos un dato ausente, la [**operación también será ausente
 sum(x, na.rm = TRUE)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1281,7 +1281,7 @@ x <- c(2, 4, 6)
 sum(x < 3)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1296,7 +1296,7 @@ x <- c(165, 170, 181, 191, 150, 155, 167, NA, 173, 177)
 mean(x, na.rm = TRUE)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1320,7 +1320,7 @@ quantile(x) # por defecto percentiles 0-25-50-75-100
 quantile(x, probs = c(0.1, 0.4, 0.9))
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1346,7 +1346,7 @@ y[c(1:2, 4)] # primer, segundo y cuarto elemento
 Para acceder al último, sin preocuparnos de cuál, podemos pasarle como índice la longitud `x[length(x)]`
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1369,7 +1369,7 @@ nombres <- c("javi", "maría", "laura", "carla", "luis")
 nombres[edades < 18] # nombres de los menores de edad
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Operaciones con vectores
 
@@ -1392,7 +1392,7 @@ order(x)
 x[order(x)]
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 💻 Tu turno
 
@@ -1477,7 +1477,7 @@ mean(y, na.rm = TRUE)
 
 [**¿Cómo construimos una tabla? Matrices, data.frame y tibble**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## Primer intento: matrices
 
@@ -1499,7 +1499,7 @@ cbind(estaturas, pesos)
 
 [**No profundizaremos**]{.hl-red} más ya que nuestro objetivo es tener variables de misma longitud pero [**tipos diferentes**]{.hl-yellow} (pero que sepas que existen).
 
-------------------------------------------------------------------------
+---
 
 ## Segundo intento: data.frame
 
@@ -1525,7 +1525,7 @@ tabla <- data.frame(edades, soltero, nombres)
 tabla
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Segundo intento: data.frame
 
@@ -1547,7 +1547,7 @@ tabla <- data.frame("edad" = edades, "estado" = soltero, "nombre" = nombres,
 tabla
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Segundo intento: data.frame
 
@@ -1555,7 +1555,7 @@ tabla
 
 ![](img/view_tabla.jpg)
 
-------------------------------------------------------------------------
+---
 
 ## Segundo intento: data.frame
 
@@ -1579,7 +1579,7 @@ También tiene ventajas de una [**«base» de datos**]{.hl-yellow} : podemos [**
 :::
 :::
 
-------------------------------------------------------------------------
+---
 
 ## Segundo intento: data.frame
 
@@ -1609,7 +1609,7 @@ dim(tabla)
 tabla[c(1, 3), "nombre"]
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Intento final: tibble
 
@@ -1635,7 +1635,7 @@ tibble("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70),
        "IMC" = peso / (estatura^2))
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Intento final: tibble
 
@@ -1655,7 +1655,7 @@ Las tablas en formato `tibble` nos permitirá una [**gestión más ágil, eficie
 
 -   [**Recursividad**]{.hl-yellow}: permite definir las variables secuencialmente (como hemos visto)
 
-------------------------------------------------------------------------
+---
 
 ## Intento final: tibble
 
@@ -1682,7 +1682,7 @@ tribble(~colA, ~colB,
 El paquete `{datapasta}` nos permite [**copiar y pegar**]{.hl-green} tablas de páginas web y documentos sencillos
 :::
 
-------------------------------------------------------------------------
+---
 
 ## 💻 Tu turno
 
@@ -1759,7 +1759,7 @@ names(airquality_tb) <- c("ozono", "rad_solar", "viento", "temp", "mes", "dia")
 
 [**Spoiler: un multiverso de datos limpios**]{style="color:#444442;"}
 
-------------------------------------------------------------------------
+---
 
 ## R base vs Tidyverse
 
@@ -1777,7 +1777,7 @@ Si conoces algún otro lenguaje de programación (o tienes gente cercana que pro
 
 Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles) [→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a ]{.fragment .fade-in}[**Tidyverse**]{.hl-yellow}
 
-------------------------------------------------------------------------
+---
 
 ## ¿Qué es tidyverse?
 
@@ -1793,7 +1793,7 @@ Y aunque conocer dichas estructuras puede sernos en algún momento interesante, 
 
 `{tidyverse}` es un [**«universo» de paquetes**]{.hl-yellow} para garanatizar un flujo de trabajo (de inicio a fin) eficiente, coherente y lexicográficamente sencillo de entender, basado en la idea de que [**nuestros datos están limpios y ordenados (tidy)**]{.hl-purple}
 
-------------------------------------------------------------------------
+---
 
 ## ¿Qué es tidyverse?
 
@@ -1815,8 +1815,30 @@ Y aunque conocer dichas estructuras puede sernos en algún momento interesante, 
 
 También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, `{readxl}` para importar archivos .xls y .xlsx, `{rvest}` para web scraping y `{rmarkdown}` para comunicar resultados.
 
-------------------------------------------------------------------------
+---
 
-## Recursos y bibiliografía
 
-dsada
+## ¿Qué es tidyverse?
+
+::: columns
+::: {.column width="45%"}
+![](img/tidyverrse_universe.jpg)
+:::
+
+::: {.column width="55%"}
+-   `{tibble}`: [**optimizando data.frame**]{.hl-yellow}
+-   `{tidyr}`: [**limpieza de datos**]{.hl-yellow}
+-   `{readr}`: [**carga datos**]{.hl-yellow} rectangulares (.csv)
+-   `{dplyr}`: [**gramática para depurar**]{.hl-yellow}
+-   `{stringr}`: manejo de textos
+-   `{ggplot2}`: visualización de datos
+-   `{tidymodels}`: modelización/predicción
+:::
+:::
+
+También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, `{readxl}` para importar archivos .xls y .xlsx, `{rvest}` para web scraping y `{rmarkdown}` para comunicar resultados.
+
+# ¡GRACIAS!
+
+[**El jueves más y mejor :)**]{style="color:#444442;"}
+
