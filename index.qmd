@@ -19,7 +19,6 @@ format:
       width: normal
     footer: "[<strong>Javier Álvarez Liébana</strong>](...) • Curso de R impartido en RTVE • 28 y 30 de marzo de 2023"
     slide-number: c/t
-editor: visual
 execute:
   echo: true
 ---
@@ -290,20 +289,19 @@ Al abrir `RStudio` seguramente tengas tres ventanas:
 
 ## ¿Qué es R? ¿Por qué R?
 
-`R` es el [**lenguaje estadístico por excelencia**]{.hl-yellow}, creado por y para estadísticos/as, con 4 ventajas fundamentales [**frente a Excel**]{.hl-red}:
+`R` es el [**lenguaje estadístico por excelencia**]{.hl-yellow}, creado por y para estadísticos/as, con 5 ventajas fundamentales [**frente a Excel**]{.hl-red}:
 
- 
 
 ::: incremental
--   [**Lenguaje de programación**]{.hl-yellow}: la obviedad [→ análisis ]{.fragment .fade-in}[**replicables**]{.hl-purple}
+-   [**Lenguaje de programación**]{.hl-yellow}: la obviedad [→ análisis [**replicables**]{.hl-purple}]{.fragment .fade-in}
 
--   [**Gratuito**]{.hl-yellow}: la filosofía de la comunidad de `R` es el compartir código bajo **copyleft** [→ ]{.fragment .fade-in}[**uso ético de dinero público**]{.hl-purple}
+-   [**Gratuito**]{.hl-yellow}: la filosofía de la comunidad de `R` es el compartir código bajo **copyleft** [→ [**uso ético de dinero público**]{.hl-purple}]{.fragment .fade-in}
 
--   [**Software libre**]{.hl-yellow}: no solo es gratis sino que permite acceder libremente a código ajeno, incluso al **propio código fuente** [→ ]{.fragment .fade-in}[**flexibilidad y transparencia**]{.hl-purple}
+-   [**Software libre**]{.hl-yellow}: no solo es gratis sino que permite acceder libremente a código ajeno, incluso al **propio código fuente** [→ [**flexibilidad y transparencia**]{.hl-purple}]{.fragment .fade-in}
 
--   [**Lenguaje modular**]{.hl-yellow}: hemos instalado lo mínimo, pero existen códigos de otras personas que podemos reusar (casi 20 000 [**paquetes**]{.hl-yellow}) [→ ]{.fragment .fade-in}[**ahorro de tiempo**]{.hl-purple}
+-   [**Lenguaje modular**]{.hl-yellow}: hemos instalado lo mínimo, pero existen códigos de otras personas que podemos reusar (casi 20 000 [**paquetes**]{.hl-yellow}) [→ [**ahorro de tiempo**]{.hl-purple}]{.fragment .fade-in}
 
--   [**Lenguaje de alto nivel**]{.hl-yellow}: facilita la programación (como Python) [→ ]{.fragment .fade-in}[**menor curva de aprendizaje**]{.hl-purple}
+-   [**Lenguaje de alto nivel**]{.hl-yellow}: facilita la programación (como Python) [→ [**menor curva de aprendizaje**]{.hl-purple}]{.fragment .fade-in}
 :::
 
 ---
@@ -1133,9 +1131,8 @@ Es importante entender que los valores lógicos en realidad están [**almacenado
 
 ## Operaciones con vectores
 
-Con los vectores numéricos podemos hacer las mismas [**operaciones aritméticas**]{.hl-yellow} que con los números [→ un ]{.fragment .fade-in}[**número es un vector**]{.hl-purple} (de longitud uno)
+Con los vectores numéricos podemos hacer las mismas [**operaciones aritméticas**]{.hl-yellow} que con los números [→ un [**número es un vector**]{.hl-purple} (de longitud uno)]{.fragment .fade-in}
 
- 
 
 . . .
 
@@ -1775,7 +1772,7 @@ Si conoces algún otro lenguaje de programación (o tienes gente cercana que pro
 
 . . .
 
-Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles) [→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a ]{.fragment .fade-in}[**Tidyverse**]{.hl-yellow}
+Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles) [→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a [**Tidyverse**]{.hl-yellow}]{.fragment .fade-in}
 
 ---
 
