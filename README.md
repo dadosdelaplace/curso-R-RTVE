@@ -1,4 +1,4 @@
-Material docente (códigos R + diapositivas) del curso de Programación R para periodistas impartido para la sección de datos de RTVE
+Material docente del curso de Programación R para periodistas impartido en RTVE
 ======
 
 [![License:
@@ -14,7 +14,7 @@ GPLv3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org
 
 <a href="https://www.buymeacoffee.com/dadosdelaplace" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
-<img width="1179" alt="image" src="https://user-images.githubusercontent.com/26646492/227980189-f1eab6d6-d915-45ad-b62b-c770fb6e241c.png">
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/26646492/227980189-f1eab6d6-d915-45ad-b62b-c770fb6e241c.png">
 
             
 * **Diapositivas** (https://dadosdelaplace.github.io/curso-R-RTVE/index.html)
