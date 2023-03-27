@@ -28,7 +28,7 @@ execute:
 
 [**Dejad vuestras hojas de cálculo a un lado**]{style="color:#444442;"}
 
----
+------------------------------------------------------------------------
 
 ## ¡Buenas!
 
@@ -54,7 +54,7 @@ execute:
 
 Actualmente soy [**investigador y docente en la Facultad de Estadística de la UCM**]{.hl-purple}. Intentando eso de la divulgación por [**Twitter**](https://twitter.com/dadosdelaplace) e [**Instagram**](https://instagram.com/javieralvarezliebana)
 
----
+------------------------------------------------------------------------
 
 ## Objetivos
 
@@ -82,7 +82,7 @@ Actualmente soy [**investigador y docente en la Facultad de Estadística de la U
 
 [**Instalando R y RStudio**]{style="color:#444442;"}
 
----
+------------------------------------------------------------------------
 
 ## Requisitos
 
@@ -106,7 +106,7 @@ Para el curso los únicos requisitos serán:
 :::
 :::
 
----
+------------------------------------------------------------------------
 
 ::: columns
 ::: {.column width="50%"}
@@ -130,7 +130,7 @@ Programaremos como escribimos (castellano, por ejemplo) → `R` es [**lenguaje**
 :::
 :::
 
----
+------------------------------------------------------------------------
 
 ## Instalación de R
 
@@ -146,13 +146,11 @@ El lenguaje `R` será nuestra [**gramática y ortografía**]{.hl-yellow} (nuestr
 
 . . .
 
-::: {.callout-important}
-
+::: callout-important
 Siempre que tengas que descargar algo de CRAN (ya sea el propio R o un paquete), [**asegúrate de tener conexión a internet**]{.hl-red}.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Primera operación
 
@@ -170,7 +168,6 @@ Esa «pantalla blanca» se llama [**consola**]{.hl-yellow} y podemos hacer un pr
 
 . . .
 
-    
 [**Idea**]{.hl-yellow}: a una variable llamada `a` le asignaremos el valor `1` (escribiremos el código de abajo en la consola y daremos «enter»)
 
 ```{r}
@@ -178,7 +175,7 @@ Esa «pantalla blanca» se llama [**consola**]{.hl-yellow} y podemos hacer un pr
 a <- 1
 ```
 
----
+------------------------------------------------------------------------
 
 ## Primera operación
 
@@ -194,7 +191,6 @@ Esa «pantalla blanca» se llama [**consola**]{.hl-yellow} y podemos hacer un pr
 :::
 :::
 
-    
 [**Idea**]{.hl-yellow}: definiremos otra variable llamada `b` y le asignaremos el valor `2`
 
 ```{r}
@@ -205,15 +201,13 @@ b <- 2
 
 . . .
 
-::: {.callout-note}
-
+::: callout-note
 ## Fíjate que...
 
 En `R` usaremos `<-` como una flecha: la variable a la izquierda de dicha flecha le asignamos el valor que hay a la derecha (por ejemplo, `a <- 1`)
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Primera operación
 
@@ -229,7 +223,6 @@ Esa «pantalla blanca» se llama [**consola**]{.hl-yellow} y podemos hacer un pr
 :::
 :::
 
-    
 [**Idea**]{.hl-yellow}: haremos la suma `a + b` y nos devolverá su resultado
 
 ```{r}
@@ -239,144 +232,123 @@ b <- 2
 a + b
 ```
 
-
----
+------------------------------------------------------------------------
 
 ## Instalación de R Studio
 
 `RStudio` será el [**Word**]{.hl-purple} que usaremos para escribir (lo que se conoce como un [**IDE: entorno integrado de desarrollo**]{.hl-yellow}).
 
 ::: incremental
+-   [**Paso 1**]{.hl-yellow}: entra la [web oficial de RStudio](https://posit.co/download/rstudio-desktop/) (ahora llamado Posit) y selecciona la descarga gratuita.
 
--  [**Paso 1**]{.hl-yellow}: entra la [web oficial de RStudio](https://posit.co/download/rstudio-desktop/) (ahora llamado Posit) y selecciona la descarga gratuita.
+-   [**Paso 2**]{.hl-yellow}: selecciona el ejecutable que te aparezca acorde a tu sistema operativo.
 
-- [**Paso 2**]{.hl-yellow}: selecciona el ejecutable que te aparezca acorde a tu sistema operativo. 
-
-- [**Paso 3**]{.hl-yellow}: tras descargar el ejecutable, hay que abrirlo como otro cualquier otro y dejar que termine la instalación.
-
+-   [**Paso 3**]{.hl-yellow}: tras descargar el ejecutable, hay que abrirlo como otro cualquier otro y dejar que termine la instalación.
 :::
 
----
+------------------------------------------------------------------------
 
 ## Organización de RStudio
 
 Al abrir `RStudio` seguramente tengas tres ventanas:
 
-
-
-* [**Consola**]{.hl-yellow}: es el nombre para llamar a la ventana grande que te ocupa buena parte de tu pantalla. Prueba a escribir el mismo código que antes (la suma de las variables) en ella. La consola será donde [**ejecutaremos órdenes y mostraremos resultados**]{.hl-purple}.
+-   [**Consola**]{.hl-yellow}: es el nombre para llamar a la ventana grande que te ocupa buena parte de tu pantalla. Prueba a escribir el mismo código que antes (la suma de las variables) en ella. La consola será donde [**ejecutaremos órdenes y mostraremos resultados**]{.hl-purple}.
 
 ![](img/consola_rstudio.jpg){width="420"}
 
-
----
+------------------------------------------------------------------------
 
 ## Organización de RStudio
 
 Al abrir `RStudio` seguramente tengas tres ventanas:
 
-
-
-* [**Environment**]{.hl-yellow}: la pantalla pequeña (puedes ajustar los márgenes con el ratón a tu gusto) que tenemos en la parte superior derecha. Nos mostrará las [**variables que tenemos definidas**]{.hl-purple}.
-
+-   [**Environment**]{.hl-yellow}: la pantalla pequeña (puedes ajustar los márgenes con el ratón a tu gusto) que tenemos en la parte superior derecha. Nos mostrará las [**variables que tenemos definidas**]{.hl-purple}.
 
 ![](img/environment.jpg){width="420"}
 
----
+------------------------------------------------------------------------
 
 ## Organización de RStudio
 
 Al abrir `RStudio` seguramente tengas tres ventanas:
 
-
-* [**Panel multiusos**]{.hl-yellow}: la ventana que tenemos en la parte inferior derecha no servirá para buscar [**ayuda de funciones**]{.hl-purple}, además de para [**visualizar gráficos**]{.hl-purple}. 
+-   [**Panel multiusos**]{.hl-yellow}: la ventana que tenemos en la parte inferior derecha no servirá para buscar [**ayuda de funciones**]{.hl-purple}, además de para [**visualizar gráficos**]{.hl-purple}.
 
 ![](img/multiusos.jpg){width="420"}
-
 
 # ¿Qué es R? Primeros usos
 
 [**¿Cuáles son las ventajas? Primer uso**]{style="color:#444442;"}
 
----
+------------------------------------------------------------------------
 
 ## ¿Qué es R? ¿Por qué R?
 
 ![](img/meme_barco.jpg)
 
-
----
+------------------------------------------------------------------------
 
 ## ¿Qué es R? ¿Por qué R?
 
 `R` es el [**lenguaje estadístico por excelencia**]{.hl-yellow}, creado por y para estadísticos/as, con 4 ventajas fundamentales [**frente a Excel**]{.hl-red}:
 
-&nbsp;
+ 
 
 ::: incremental
+-   [**Lenguaje de programación**]{.hl-yellow}: la obviedad [→ análisis ]{.fragment .fade-in}[**replicables**]{.hl-purple}
 
-* [**Lenguaje de programación**]{.hl-yellow}: la obviedad [→ análisis [**replicables**]{.hl-purple}]{.fragment .fade-in}
+-   [**Gratuito**]{.hl-yellow}: la filosofía de la comunidad de `R` es el compartir código bajo **copyleft** [→ ]{.fragment .fade-in}[**uso ético de dinero público**]{.hl-purple}
 
-* [**Gratuito**]{.hl-yellow}: la filosofía de la comunidad de `R` es el compartir código bajo **copyleft** [→ [**uso ético de dinero público**]{.hl-purple}]{.fragment .fade-in}
+-   [**Software libre**]{.hl-yellow}: no solo es gratis sino que permite acceder libremente a código ajeno, incluso al **propio código fuente** [→ ]{.fragment .fade-in}[**flexibilidad y transparencia**]{.hl-purple}
 
-* [**Software libre**]{.hl-yellow}: no solo es gratis sino que permite acceder libremente a código ajeno, incluso al **propio código fuente** [→ [**flexibilidad y transparencia**]{.hl-purple}]{.fragment .fade-in}
+-   [**Lenguaje modular**]{.hl-yellow}: hemos instalado lo mínimo, pero existen códigos de otras personas que podemos reusar (casi 20 000 [**paquetes**]{.hl-yellow}) [→ ]{.fragment .fade-in}[**ahorro de tiempo**]{.hl-purple}
 
-* [**Lenguaje modular**]{.hl-yellow}: hemos instalado lo mínimo, pero existen códigos de otras personas que podemos reusar (casi 20 000 [**paquetes**]{.hl-yellow}) [→ [**ahorro de tiempo**]{.hl-purple}]{.fragment .fade-in}
-
-
-* [**Lenguaje de alto nivel**]{.hl-yellow}: facilita la programación (como Python) [→ [**menor curva de aprendizaje**]{.hl-purple}]{.fragment .fade-in}
-
+-   [**Lenguaje de alto nivel**]{.hl-yellow}: facilita la programación (como Python) [→ ]{.fragment .fade-in}[**menor curva de aprendizaje**]{.hl-purple}
 :::
 
----
+------------------------------------------------------------------------
 
 ## ¿Qué es R? ¿Por qué R?
 
 ![](img/incel_excel.png)
 
----
+------------------------------------------------------------------------
 
 ## ¿Por qué programar?
 
-* [**Automatizar**]{.hl-yellow} → te permitirá automatizar tareas recurrentes (ejemplo: datos covid) de forma que solo tendrás que programarlo uno vez.
+-   [**Automatizar**]{.hl-yellow} → te permitirá automatizar tareas recurrentes (ejemplo: datos covid) de forma que solo tendrás que programarlo uno vez.
 
-* [**Replicabilidad**]{.hl-yellow} → podrás replicar tu análisis siempre de la misma manera.
+-   [**Replicabilidad**]{.hl-yellow} → podrás replicar tu análisis siempre de la misma manera.
 
-* [**Flexibilidad**]{.hl-yellow} → podrás adaptar el software a tus necesidades.
+-   [**Flexibilidad**]{.hl-yellow} → podrás adaptar el software a tus necesidades.
 
-* [**Transparencia**]{.hl-yellow} → ser auditado por la comunidad.
+-   [**Transparencia**]{.hl-yellow} → ser auditado por la comunidad.
 
 ![](img/the_general_problem.png)
 
----
-
+------------------------------------------------------------------------
 
 ## Idea fundamental: paquetes
 
 Una de las ideas claves de `R` es el [**uso de paquetes**]{.hl-yellow}: códigos que otras personas han implementado para **resolver un problema**
 
-:::: columns
+::: columns
 ::: {.column width="35%"}
 ![](img/paquetes.png)
 :::
 
 ::: {.column width="65%"}
-
-::: {.fragment fragment-index=1}
-
-* [**Instalación**]{.hl-yellow}: descargamos los códigos de la web (necesitamos internet) → [**comprar un libro**]{.hl-purple}, solo una vez (por ordenador)
-
+::: {.fragment fragment-index="1"}
+-   [**Instalación**]{.hl-yellow}: descargamos los códigos de la web (necesitamos internet) → [**comprar un libro**]{.hl-purple}, solo una vez (por ordenador)
 
 ```{r}
 #| eval: false
 install.packages("ggplot2")
 ```
-
 :::
 
-::: {.fragment fragment-index=2}
-
-* [**Carga**]{.hl-yellow}: con el paquete descargado, indicamos qué paquetes queremos usar cada vez que abramos `RStudio` → [**traer el libro de la estantería**]{.hl-purple}
+::: {.fragment fragment-index="2"}
+-   [**Carga**]{.hl-yellow}: con el paquete descargado, indicamos qué paquetes queremos usar cada vez que abramos `RStudio` → [**traer el libro de la estantería**]{.hl-purple}
 
 ```{r}
 #| eval: false
@@ -384,46 +356,41 @@ library(ggplot2)
 ```
 :::
 :::
+:::
 
-::::
-
----
+------------------------------------------------------------------------
 
 ## Idea fundamental: paquetes
 
-:::: columns
+::: columns
 ::: {.column width="35%"}
 ![](img/paquetes.png)
 :::
 
 ::: {.column width="65%"}
-
 Una vez instalado, hay dos manera de usar un paquete (traerlo de la estantería)
 
-::: {.fragment fragment-index=1}
-
-* [**Paquete entero**]{.hl-yellow}: con `library()`, usando el nombre del paquete sin comillas, cargamos en la sesión [**todo el libro**]{.hl-purple}
+::: {.fragment fragment-index="1"}
+-   [**Paquete entero**]{.hl-yellow}: con `library()`, usando el nombre del paquete sin comillas, cargamos en la sesión [**todo el libro**]{.hl-purple}
 
 ```{r}
 #| eval: false
 library(ggplot2)
 ```
-
 :::
 
-::: {.fragment fragment-index=2}
-* [**Funciones concretas**]{.hl-yellow} usando `paquete::funcion` le índicamos que solo queremos una [**página concreta de ese libro**]{.hl-purple}
+::: {.fragment fragment-index="2"}
+-   [**Funciones concretas**]{.hl-yellow} usando `paquete::funcion` le índicamos que solo queremos una [**página concreta de ese libro**]{.hl-purple}
 
 ```{r}
 #| eval: false
 ggplot2::geom_point()
 ```
-
+:::
+:::
 :::
 
-:::
-::::
----
+------------------------------------------------------------------------
 
 ## Te vas equivocar
 
@@ -431,7 +398,7 @@ Durante tu aprendizaje va a ser muy habitual que las cosas no salgan a la primer
 
 . . .
 
-* [**Mensajes de error**]{.hl-red}: precedidos de **«Error in…»** y serán aquellos fallos que [**impidan la ejecución**]{.hl-yellow}
+-   [**Mensajes de error**]{.hl-red}: precedidos de **«Error in...»** y serán aquellos fallos que [**impidan la ejecución**]{.hl-yellow}
 
 ```{r}
 #| error: true
@@ -440,7 +407,7 @@ Durante tu aprendizaje va a ser muy habitual que las cosas no salgan a la primer
 
 . . .
 
-* [**Mensajes de warning**]{.hl-orange}: precedidos de **«Warning in…»** son los (posibles) fallos más delicados ya que son incoherencias que [**no impiden la ejecución**]{.hl-yellow}
+-   [**Mensajes de warning**]{.hl-orange}: precedidos de **«Warning in...»** son los (posibles) fallos más delicados ya que son incoherencias que [**no impiden la ejecución**]{.hl-yellow}
 
 ```{r}
 #| warning: true
@@ -448,28 +415,27 @@ Durante tu aprendizaje va a ser muy habitual que las cosas no salgan a la primer
 sqrt(-1)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Antes de arrancar: scripts
 
-:::: columns
+::: columns
 ::: {.column width="35%"}
 ![](img/abrir_script.jpg){width="350"}
 :::
 
 ::: {.column width="65%"}
-
 Un [**script**]{.hl-yellow} será el documento en el que programamos, nuestro archivo `.doc` (aquí con extensión `.R`) donde escribiremos las órdenes. Para **abrir nuestro primero script**, haz click en el menú en `File << New File << R Script`.
 :::
+:::
 
-::::
-
-::: {.callout-warning}
+::: callout-warning
 ## Cuidado
+
 Es importante **no abusar de la consola**: todo lo que no escribas en un script, cuando cierres, [**lo habrás perdido**]{.hl-red}.
 :::
 
----
+------------------------------------------------------------------------
 
 ## Ejecutando el primer script
 
@@ -477,28 +443,27 @@ Ahora tenemos una **cuarta ventana**: la ventana donde [**escribiremos nuestros 
 
 . . .
 
-1. **Escribimos** el código a ejecutar.
+1.  **Escribimos** el código a ejecutar.
 
 . . .
 
-2. **Guardamos** el archivo .R haciendo click en `Save current document`.
+2.  **Guardamos** el archivo .R haciendo click en `Save current document`.
 
 . . .
 
-3. El código no se ejecuta salvo que se lo indiquemos. Tenemos tres opciones:
+3.  El código no se ejecuta salvo que se lo indiquemos. Tenemos tres opciones:
 
-  - [**Copiar y pegar**]{.hl-yellow} en consola.
-  - [**Seleccionar líneas**]{.hl-yellow} y `Ctrl+Enter`
-  - [**Activar Source on save**]{.hl-yellow} a la derecha de guardar: no solo guarda sino que ejecuta el código **completo**.
+-   [**Copiar y pegar**]{.hl-yellow} en consola.
+-   [**Seleccionar líneas**]{.hl-yellow} y `Ctrl+Enter`
+-   [**Activar Source on save**]{.hl-yellow} a la derecha de guardar: no solo guarda sino que ejecuta el código **completo**.
 
----
+------------------------------------------------------------------------
 
 ## 💻 Tu turno
- 
+
 [**Ejecuta tu primer script**: crea un script de cero, programa lo indicado debajo y ejecútalo (de las 3 maneras posibles)]{style="color:#444442;"}
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Define una variable de nombre `a` y cuyo valor sea -1
@@ -519,7 +484,6 @@ b <- 5
 a * b # sin guardar
 multiplicacion <- a * b # guardado
 ```
-
 
 ### [**Ejercicio 3**]{.hl-yellow}
 
@@ -543,7 +507,6 @@ division <- c / d # guardado
 ### [**Ejercicio 4**]{.hl-yellow}
 
 📝 Asigna un valor positivo a `x` y calcula su raíz cuadrada; asigna otro negativo `y` y calcula su valor absoluto con la función `abs()`.
-
 
 ```{r}
 #| code-fold: true
@@ -571,38 +534,35 @@ z
 z <- x - 5
 z
 ```
-
 :::
 
-::: {.callout-note}
+::: callout-note
 ## Toma nota
+
 Comandos como `sqrt()`, `abs()` o `max()` son lo que llamamos [**funciones**]{.hl-purple}: líneas de código que hemos «encapsulado» bajo un nombre, y dado unos argumentos de entrada, ejecuta las órdenes (una especie de atajo).
 :::
 
-
 # Primeros datos: variables
- 
+
 [**¿Qué tipos de datos existen?**]{style="color:#444442;"}
 
----
+------------------------------------------------------------------------
 
 ## De la CELDA a la TABLA
- 
 
 ¿Qué [**tipo de dato**]{.hl-yellow} podemos tener en cada celda de una **tabla**?
-
 
 ![](img/celdas.jpg){fig-align="middle"}
 
 ::: incremental
-* [**Celda**]{.hl-yellow}: dato individual de un tipo concreto.
-* [**Variable**]{.hl-yellow}: **concatenación** de valores del mismo tipo ([**vectores**]{.hl-purple}).
-* [**Matriz**]{.hl-yellow}: concatenación de variables del **mismo tipo y longitud**.
-* [**Tabla**]{.hl-yellow}: concatenación de variables de [**distinto tipo pero igual longitud**]{.hl-purple}
-* [**Lista**]{.hl-yellow}: concatenación de variables de [**distinto tipo y distinta longitud**]{.hl-purple}
+-   [**Celda**]{.hl-yellow}: dato individual de un tipo concreto.
+-   [**Variable**]{.hl-yellow}: **concatenación** de valores del mismo tipo ([**vectores**]{.hl-purple}).
+-   [**Matriz**]{.hl-yellow}: concatenación de variables del **mismo tipo y longitud**.
+-   [**Tabla**]{.hl-yellow}: concatenación de variables de [**distinto tipo pero igual longitud**]{.hl-purple}
+-   [**Lista**]{.hl-yellow}: concatenación de variables de [**distinto tipo y distinta longitud**]{.hl-purple}
 :::
 
----
+------------------------------------------------------------------------
 
 ## Celdas: tipos de datos
 
@@ -613,42 +573,34 @@ Comandos como `sqrt()`, `abs()` o `max()` son lo que llamamos [**funciones**]{.h
 Piensa por ejemplo en los datos guardados de una persona:
 
 ::: {.fragment .fade-up}
-
-* La edad o el peso será un [**número**]{.hl-yellow}.
+-   La edad o el peso será un [**número**]{.hl-yellow}.
 
 ```{r}
 edad <- 33
 ```
-
 :::
 
 ::: {.fragment .fade-up}
-
-* Su nombre será una cadena de [**texto (string o char)**]{.hl-yellow}.
+-   Su nombre será una cadena de [**texto (string o char)**]{.hl-yellow}.
 
 ```{r}
 nombre <- "javi"
 ```
-
 :::
 
 ::: {.fragment .fade-up}
-
-* A la pregunta «¿está usted soltero/a?» la respuesta será lo que llamamos una [**variable lógica**]{.hl-yellow} (`TRUE` si está soltero/a o `FALSE` en otro caso).
+-   A la pregunta «¿está usted soltero/a?» la respuesta será lo que llamamos una [**variable lógica**]{.hl-yellow} (`TRUE` si está soltero/a o `FALSE` en otro caso).
 
 ```{r}
 soltero <- TRUE
 ```
-
 :::
 
 ::: {.fragment .fade-up}
-
-* Su fecha de nacimiento será precisamente eso, una [**fecha**]{.hl-yellow}.
-
+-   Su fecha de nacimiento será precisamente eso, una [**fecha**]{.hl-yellow}.
 :::
 
----
+------------------------------------------------------------------------
 
 ## Variables numéricos
 
@@ -669,18 +621,17 @@ b <- 2
 a + b
 ```
 
-
-&nbsp;
+ 
 
 . . .
 
-Para saber el tipo de una variable tenemos la función `class()` 
+Para saber el tipo de una variable tenemos la función `class()`
 
 ```{r}
 class(a)
 ```
 
-&nbsp;
+ 
 
 . . .
 
@@ -690,8 +641,7 @@ Con las variables numéricas podemos realizar las [**operaciones aritméticas**]
 a^2
 ```
 
-
----
+------------------------------------------------------------------------
 
 ## Variables de texto
 
@@ -702,7 +652,7 @@ nombre <- "Javier"
 class(nombre)
 ```
 
-&nbsp;
+ 
 
 . . .
 
@@ -713,18 +663,17 @@ Las [**cadenas de texto**]{.hl-yellow} son un tipo con el que obviamente [**no p
 nombre + 1 # error al sumar número a texto
 ```
 
-&nbsp;
+ 
 
 . . .
 
-::: {.callout-warning}
+::: callout-warning
 ## Recuerda que...
 
 Las variables de tipo texto (character o stringr) van siempre [**entre comillas**]{.hl-orange}.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Primera función: paste
 
@@ -734,22 +683,21 @@ Como hemos comentado, una [**función**]{.hl-yellow} es un trozo de **código en
 paste("Javier", "Álvarez")
 ```
 
-&nbsp;
+ 
 
 . . .
 
 Fíjate que [**por defecto**]{.hl-yellow} nos pega las cadenas con un espacio, pero podemos añadir un [**argumento opcional**]{.hl-yellow} para indicarle el separador
 
-
 ```{r}
 paste("Javier", "Álvarez", sep = "*")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Primera función: paste
 
-:::: columns
+::: columns
 ::: {.column width="50%"}
 ![](img/paste_help.jpg)
 :::
@@ -757,20 +705,19 @@ paste("Javier", "Álvarez", sep = "*")
 ::: {.column width="50%"}
 ¿Cómo saber que argumentos tiene una función? Escribiendo en consola `? paste` te aparecerá una [**ayuda**]{.hl-yellow} en el panel multiusos.
 
-En dicha ayuda podrás ver en su cabecera que argumentos ya tiene asignados por defecto la función 
+En dicha ayuda podrás ver en su cabecera que argumentos ya tiene asignados por defecto la función
 :::
-::::
+:::
 
 . . .
 
 Existe una función similar llamada `paste0()` que pega por defecto con `sep = ""` (sin nada).
 
-
 ```{r}
 paste0("Javier", "Álvarez")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Primer paquete: glue
 
@@ -805,15 +752,15 @@ unidades <- "días"
 glue("La edad es de {edad * 365} {unidades}")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Variables lógicas
 
 Una [**variable lógica o binaria**]{.hl-yellow} es aquella que toma **dos valores**:
 
-* `TRUE`: [**verdadero**]{.hl-yellow} guardado internamente como un 1.
-* `FALSE`: [**falso**]{.hl-yellow} guardado internamente como un 0.
-* `NA`: [**dato ausente**]{.hl-yellow} son las siglas de _not available_.
+-   `TRUE`: [**verdadero**]{.hl-yellow} guardado internamente como un 1.
+-   `FALSE`: [**falso**]{.hl-yellow} guardado internamente como un 0.
+-   `NA`: [**dato ausente**]{.hl-yellow} son las siglas de *not available*.
 
 ```{r}
 soltero <- TRUE # ¿Es soltero? --> SÍ
@@ -822,8 +769,7 @@ class(soltero)
 
 . . .
 
-::: {.callout-important}
-
+::: callout-important
 ## Importante
 
 Las variables lógicas [**NO son variables de texto**]{.hl-red}: `"TRUE"` es un texto, `TRUE` es un valor lógico.
@@ -833,10 +779,9 @@ Las variables lógicas [**NO son variables de texto**]{.hl-red}: `"TRUE"` es un 
 TRUE + 1
 "TRUE" + 1
 ```
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Condiciones lógicas
 
@@ -846,7 +791,7 @@ Los valores lógicos suelen ser resultado de [**evaluar condiciones lógicas**]{
 nombre <- "María"
 ```
 
-&nbsp;
+ 
 
 . . .
 
@@ -866,22 +811,19 @@ nombre != "Javi"
 
 . . .
 
-::: {.callout-note}
-
+::: callout-note
 ## Fíjate que...
 
 No es lo mismo `<-` (asignación) que una [**comparación lógica**]{.hl-yellow} con `==` (estamos preguntando).
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Condiciones lógicas
 
-Además de las comparaciones «igual a»  frente «distinto», también comparaciones de orden como `<, <=, > o >=`.
+Además de las comparaciones «igual a» frente «distinto», también comparaciones de orden como `<, <=, > o >=`.
 
-
-&nbsp;
+ 
 
 **¿Tiene la persona menos de 32 años?**
 
@@ -890,7 +832,7 @@ edad <- 38
 edad < 32 # ¿Es la edad menor de 32 años?
 ```
 
-&nbsp;
+ 
 
 **¿La edad es mayor o igual que 38 años?**
 
@@ -898,7 +840,7 @@ edad < 32 # ¿Es la edad menor de 32 años?
 edad >= 38
 ```
 
----
+------------------------------------------------------------------------
 
 ## Variables de fecha
 
@@ -928,13 +870,13 @@ fecha + 1
 class(fecha)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Variables de fecha
 
 En dicho paquete tenemos funciones muy útiles para [**manejar fechas**]{.hl-yellow}:
 
-* Con `today()` podemos obtener directamente la [**fecha actual**]{.hl-purple}.
+-   Con `today()` podemos obtener directamente la [**fecha actual**]{.hl-purple}.
 
 ```{r}
 today()
@@ -942,7 +884,7 @@ today()
 
 . . .
 
-* Con `now()` podemos obtener la [**fecha y hora actual**]{.hl-purple}
+-   Con `now()` podemos obtener la [**fecha y hora actual**]{.hl-purple}
 
 ```{r}
 now()
@@ -950,7 +892,7 @@ now()
 
 . . .
 
-* Con `year()`, `month()` o `day()` podemos [**extraer el año, mes y día**]{.hl-purple}
+-   Con `year()`, `month()` o `day()` podemos [**extraer el año, mes y día**]{.hl-purple}
 
 ```{r}
 fecha <- today()
@@ -958,26 +900,25 @@ year(fecha)
 month(fecha)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Resúmenes de paquetes
 
 ![](img/lubridate.png)
 
-::: {.callout-note}
+::: callout-note
 ## Amplia contenido
 
 Tienes un resumen en pdf de los paquetes más importantes en la [**carpeta «fichas paquetes»**]{.hl-green}
 :::
 
----
+------------------------------------------------------------------------
 
 ## 💻 Tu turno
- 
+
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Define una variable que guarde tu edad y otra con tu nombre
@@ -1003,7 +944,7 @@ fecha_nacimiento <- as_date("1989-09-10")
 ### [**Ejercicio 3**]{.hl-yellow}
 
 📝 Define otra variable con tus apellidos y junta con `glue()` las variables `nombre` y `apellidos` (una coma entre ellos) en una sola variable `nombre_completo`.
- 
+
 ```{r}
 #| code-fold: true
 #| eval: false
@@ -1013,27 +954,26 @@ glue("{nombre}, {apellidos}")
 
 ### [**Ejercicio 4**]{.hl-yellow}
 
-📝 Calcula los días que han pasado desde la fecha de tu nacimiento, haciendo la resta entre la fecha de hoy y la fecha de nacimiento definida en el ejercicio 2. 
+📝 Calcula los días que han pasado desde la fecha de tu nacimiento, haciendo la resta entre la fecha de hoy y la fecha de nacimiento definida en el ejercicio 2.
 
 ```{r}
 #| code-fold: true
 #| eval: false
 today() - fecha_nacimiento
 ```
-
 :::
 
 # Primeros datos: vectores
- 
+
 [**¿Cómo concatenamos valores? ¿Cómo creamos una columna?**]{style="color:#444442;"}
 
----
+------------------------------------------------------------------------
 
 ## Vectores: concatenar
 
 Cuando trabajamos con datos normalmente tendremos [**columnas que representan variables**]{.hl-yellow}: llamaremos [**vectores**]{.hl-yellow} a una [**concatenación**]{.hl-purple} de variables del [**mismo tipo**]{.hl-purple}
 
-&nbsp;
+ 
 
 . . .
 
@@ -1044,41 +984,35 @@ edades <- c(33, 27, 60, 61)
 edades
 ```
 
-&nbsp;
+ 
 
 . . .
 
-::: {.callout-tip}
-
+::: callout-tip
 Un número individual `x <- 1` es en realidad un vector de longitud uno.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Vectores: concatenar
 
-:::: columns
-
+::: columns
 ::: {.column width="40%"}
 ![](img/edades_environment.jpg)
 :::
 
 ::: {.column width="60%"}
-
 Como ves ahora en el `environment` tenemos una **colección de elementos** guardada
 
 ```{r}
 edades
 ```
-
 :::
-::::
-
+:::
 
 . . .
 
-&nbsp;
+ 
 
 La [**longitud de un vector**]{.hl-yellow} se puede calcular con `length()`
 
@@ -1094,8 +1028,7 @@ También podemos [**concatenar vectores**]{.hl-yellow}
 c(edades, edades, 8)
 ```
 
-
----
+------------------------------------------------------------------------
 
 ## Secuencias numéricas
 
@@ -1105,9 +1038,9 @@ En muchas ocasiones querremos crear [**secuencias numéricas**]{.hl-yellow} (por
 seq(1, 31)
 ```
 
-&nbsp;
+ 
 
-. . . 
+. . .
 
 El comando `1:n` nos devuelve lo mismo que `seq(1, n)` (si el elemento inicial es mayor que el final, entenderá que la secuencia es **decreciente**)
 
@@ -1116,10 +1049,9 @@ El comando `1:n` nos devuelve lo mismo que `seq(1, n)` (si el elemento inicial e
 7:-3
 ```
 
----
+------------------------------------------------------------------------
 
 ## Secuencias numéricas
-
 
 También podemos definir [**otro tipo de distancia**]{.hl-yellow} (paso) entre consecutivos
 
@@ -1129,7 +1061,7 @@ seq(1, 7, by = 0.5) # secuencia desde 1 a 7 de 0.5 en 0.5
 
 . . .
 
-&nbsp;
+ 
 
 Otras veces nos interesará definir una [**secuencia con una longitud concreta**]{.hl-yellow}
 
@@ -1139,7 +1071,7 @@ seq(1, 50, l = 7) # secuencia desde 1 a 50 de longitud 7
 
 . . .
 
-&nbsp;
+ 
 
 Incluso puede nos interese generar un vector de [**n elementos repetidos**]{.hl-yellow}
 
@@ -1147,13 +1079,11 @@ Incluso puede nos interese generar un vector de [**n elementos repetidos**]{.hl-
 rep(0, 7) # vector de 7 ceros
 ```
 
-
----
+------------------------------------------------------------------------
 
 ## Vectores de caracteres
 
 Un vector es una **concatenación** de elementos del [**mismo tipo**]{.hl-yellow}, pero no tienen porque ser necesariamente números. Vamos a crear una frase de ejemplo.
-
 
 ```{r}
 frase <- "Me llamo Javi"
@@ -1161,7 +1091,7 @@ frase
 length(frase)
 ```
 
-&nbsp;
+ 
 
 . . .
 
@@ -1173,13 +1103,13 @@ vector
 length(vector)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Vectores de caracteres
 
 ¿Qué sucederá si [**concatenamos elementos de diferente tipo**]{.hl-yellow}?
 
-&nbsp;
+ 
 
 . . .
 
@@ -1189,7 +1119,7 @@ c(1, 2, "javi", "3", TRUE)
 
 Fíjate que como todos tienen que ser del mismo tipo, lo que hace `R` es [**convertir**]{.hl-yellow} todo a texto, violando la [**integridad del dato**]{.hl-red}
 
-&nbsp;
+ 
 
 . . .
 
@@ -1199,14 +1129,13 @@ c(3, 4, TRUE, FALSE)
 
 Es importante entender que los valores lógicos en realidad están [**almacenados internamente como 0/1**]{.hl-yellow}
 
-
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
-Con los vectores numéricos podemos hacer las mismas [**operaciones aritméticas**]{.hl-yellow} que con los números [→ un [**número es un vector**]{.hl-purple} (de longitud uno)]{.fragment .fade-in}
+Con los vectores numéricos podemos hacer las mismas [**operaciones aritméticas**]{.hl-yellow} que con los números [→ un ]{.fragment .fade-in}[**número es un vector**]{.hl-purple} (de longitud uno)
 
-&nbsp;
+ 
 
 . . .
 
@@ -1220,14 +1149,13 @@ x + 1
 x * 2
 ```
 
-::: {.callout-warning}
+::: callout-warning
 ## Cuidado
 
 Salvo que indiquemos lo contrario, en `R` las operaciones con vectores son siempre [**elemento a elemento**]{.hl-orange}
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
@@ -1239,9 +1167,9 @@ y <- c(1, 3, 5)
 x + y
 ```
 
-&nbsp;
+ 
 
-. . . 
+. . .
 
 Dado que la operación (por ejemplo, una suma) se realiza elemento a elemento, ¿qué sucederá si [**sumamos dos vectores de distinta longitud**]{.hl-yellow}?
 
@@ -1254,7 +1182,7 @@ x + z
 
 Lo que hace es [**reciclar elementos**]{.hl-yellow}: si tiene un vector de 4 elementos y sumamos otro de 3 elementos, lo que hará será reciclar del vector con menor longitud.
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
@@ -1283,20 +1211,19 @@ y <- c(15, 20, NA, 31, 27, 7, 29, 10)
 y < 22
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
 Las [**condiciones lógicas pueden ser combinadas**]{.hl-yellow} de dos maneras:
 
-
-* [**Intersección**]{.hl-yellow}: [**todas**]{.hl-purple} las condiciones concatenadas se deben cumplir ([**conjunción y**]{.hl-purple} con `&`) para devolver un `TRUE`
+-   [**Intersección**]{.hl-yellow}: [**todas**]{.hl-purple} las condiciones concatenadas se deben cumplir ([**conjunción y**]{.hl-purple} con `&`) para devolver un `TRUE`
 
 ```{r}
 x < 30 & x > 15
 ```
 
-* [**Unión**]{.hl-yellow}: basta con que [**al menos una**]{.hl-purple} se cumpla ([**conjunción o**]{.hl-purple} con `|`)
+-   [**Unión**]{.hl-yellow}: basta con que [**al menos una**]{.hl-purple} se cumpla ([**conjunción o**]{.hl-purple} con `|`)
 
 ```{r}
 x < 30 | x > 15
@@ -1311,19 +1238,18 @@ any(x < 30)
 all(x < 30)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
-También podemos hacer uso de [**operaciones estadísticas**]{.hl-yellow}
-como por ejemplo `sum()` que, dado un vector, nos devuelve la suma de todos sus elementos.
+También podemos hacer uso de [**operaciones estadísticas**]{.hl-yellow} como por ejemplo `sum()` que, dado un vector, nos devuelve la suma de todos sus elementos.
 
 ```{r}
 x <- c(1, -2, 3, -1)
 sum(x)
 ```
 
-&nbsp;
+ 
 
 [**¿Qué sucede cuando falta un dato (ausente)?**]{.hl-yellow}
 
@@ -1340,49 +1266,45 @@ Por defecto, si tenemos un dato ausente, la [**operación también será ausente
 sum(x, na.rm = TRUE)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
 Como hemos comentado que los valores lógicos son guardados internamente como 0 y 1, podremos usarlos en operaciones aritméticas.
 
-&nbsp;
+ 
 
-Por ejemplo, si queremos [**averiguar el número de elementos que cumplen una condición**]{.hl-yellow} (por ejemplo, menores que 3), los que lo hagan tendrán asignado un 1 (`TRUE`) y los que no un 0 (`FALSE`) , por lo que basta con sumar dicho vector lógico para obtener el número de elementos que cumplen 
+Por ejemplo, si queremos [**averiguar el número de elementos que cumplen una condición**]{.hl-yellow} (por ejemplo, menores que 3), los que lo hagan tendrán asignado un 1 (`TRUE`) y los que no un 0 (`FALSE`) , por lo que basta con sumar dicho vector lógico para obtener el número de elementos que cumplen
 
 ```{r}
 x <- c(2, 4, 6)
 sum(x < 3)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
 Otras operaciones habituales son la [**media**]{.hl-yellow}, [**mediana**]{.hl-yellow}, [**percentiles**]{.hl-yellow}, etc.
 
-&nbsp;
+ 
 
-* [**Media**]{.hl-yellow}: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la [**menos robusta**]{.hl-red}: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.
-
+-   [**Media**]{.hl-yellow}: medida de centralidad que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. La más conocida pero la [**menos robusta**]{.hl-red}: dado un conjunto, si se introducen valores atípicos o outliers (valores muy grandes o muy pequeños), la media se perturba con mucha facilidad.
 
 ```{r}
 x <- c(165, 170, 181, 191, 150, 155, 167, NA, 173, 177)
 mean(x, na.rm = TRUE)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
 Otras operaciones habituales son la [**media**]{.hl-yellow}, [**mediana**]{.hl-yellow}, [**percentiles**]{.hl-yellow}, etc.
 
+ 
 
-&nbsp;
-
-
-* [**Mediana**]{.hl-yellow}: medida de centralidad que consiste en ordenar los elementos y quedarse con el que ocupa la mitad.
-
+-   [**Mediana**]{.hl-yellow}: medida de centralidad que consiste en ordenar los elementos y quedarse con el que ocupa la mitad.
 
 ```{r}
 x <- c(165, 170, 181, 191, 150, 155, 167, 173, 177)
@@ -1391,14 +1313,14 @@ median(x)
 
 . . .
 
-* [**Percentiles**]{.hl-yellow}: medidas de posición (nos dividen en partes iguales los datos).
+-   [**Percentiles**]{.hl-yellow}: medidas de posición (nos dividen en partes iguales los datos).
 
 ```{r}
 quantile(x) # por defecto percentiles 0-25-50-75-100
 quantile(x, probs = c(0.1, 0.4, 0.9))
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
@@ -1409,9 +1331,9 @@ edades <- c(20, 30, 33, NA, 61)
 edades[3] # accedemos a la edad de la tercera persona 
 ```
 
-. . . 
+. . .
 
-&nbsp;
+ 
 
 Dado que un número no es más que un vector de longitud uno, esta operación también la podemos aplicar usando un [**vector de índices a seleccionar**]{.hl-yellow}
 
@@ -1420,13 +1342,11 @@ y <- c("hola", "qué", "tal", "estás", "?")
 y[c(1:2, 4)] # primer, segundo y cuarto elemento
 ```
 
-::: {.callout-tip}
-
+::: callout-tip
 Para acceder al último, sin preocuparnos de cuál, podemos pasarle como índice la longitud `x[length(x)]`
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
@@ -1437,7 +1357,7 @@ y
 y[-2]
 ```
 
-&nbsp;
+ 
 
 . . .
 
@@ -1449,13 +1369,13 @@ nombres <- c("javi", "maría", "laura", "carla", "luis")
 nombres[edades < 18] # nombres de los menores de edad
 ```
 
----
+------------------------------------------------------------------------
 
 ## Operaciones con vectores
 
 Por último, una acción habitual es saber [**ordenar valores**]{.hl-yellow}:
 
-* `sort()`: devuelve el [**vector ordenado**]{.hl-yellow}. Por defecto de menor a mayor pero con `decreasing = TRUE` podemos cambiarlo
+-   `sort()`: devuelve el [**vector ordenado**]{.hl-yellow}. Por defecto de menor a mayor pero con `decreasing = TRUE` podemos cambiarlo
 
 ```{r}
 edades <- c(81, 7, 25, 41, 65, 20, 33, 23, 77)
@@ -1465,23 +1385,20 @@ sort(edades, decreasing = TRUE)
 
 . . .
 
-* `order()`: devuelve el [**vector de índices**]{.hl-yellow} que tendríamos que usar para tener el vector ordenado
+-   `order()`: devuelve el [**vector de índices**]{.hl-yellow} que tendríamos que usar para tener el vector ordenado
 
 ```{r}
 order(x)
 x[order(x)]
 ```
 
-
----
-
+------------------------------------------------------------------------
 
 ## 💻 Tu turno
- 
+
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Define el vector `x` como la concatenación de los 5 primeros números impares, y calcula su suma.
@@ -1554,14 +1471,13 @@ y <- x[-2]
 sum(y, na.rm = TRUE)
 mean(y, na.rm = TRUE)
 ```
-
 :::
 
 # Primera base de datos
- 
+
 [**¿Cómo construimos una tabla? Matrices, data.frame y tibble**]{style="color:#444442;"}
 
----
+------------------------------------------------------------------------
 
 ## Primer intento: matrices
 
@@ -1579,16 +1495,15 @@ cbind(estaturas, pesos)
 
 . . .
 
-&nbsp;
+ 
 
 [**No profundizaremos**]{.hl-red} más ya que nuestro objetivo es tener variables de misma longitud pero [**tipos diferentes**]{.hl-yellow} (pero que sepas que existen).
 
----
- 
+------------------------------------------------------------------------
+
 ## Segundo intento: data.frame
 
 Las matrices tienen el mismo problema que los vectores: si juntamos datos de distinto tipo, se [**perturba la integridad del dato**]{.hl-red} ya que los convierte
-
 
 ```{r}
 #| code-line-numbers: "4"
@@ -1598,11 +1513,11 @@ nombres <- c("javi", "laura", "lucía")
 cbind(edades, soltero, nombres)
 ```
 
-&nbsp;
+ 
 
 . . .
 
-Para poder trabajar con [**variables de distinto tipo**]{.hl-yellow} haremos uso de lo que se conoce como [**data.frame**]{.hl-yellow}:  una variables de igual longitud pero [**tipo distinto**]{.hl-purple}.
+Para poder trabajar con [**variables de distinto tipo**]{.hl-yellow} haremos uso de lo que se conoce como [**data.frame**]{.hl-yellow}: una variables de igual longitud pero [**tipo distinto**]{.hl-purple}.
 
 ```{r}
 #| code-line-numbers: "1"
@@ -1610,7 +1525,7 @@ tabla <- data.frame(edades, soltero, nombres)
 tabla
 ```
 
----
+------------------------------------------------------------------------
 
 ## Segundo intento: data.frame
 
@@ -1619,9 +1534,9 @@ tabla
 class(tabla)
 ```
 
-&nbsp;
+ 
 
-. . . 
+. . .
 
 Dado que un `data.frame` es ya una «base de datos» las variables no son meros vectores matemáticos: [**tienen un significado**]{.hl-yellow} y podemos (debemos) [**ponerles nombres**]{.hl-purple}
 
@@ -1632,17 +1547,15 @@ tabla <- data.frame("edad" = edades, "estado" = soltero, "nombre" = nombres,
 tabla
 ```
 
----
-
+------------------------------------------------------------------------
 
 ## Segundo intento: data.frame
-
 
 [**¡TENEMOS NUESTRO PRIMER CONJUNTO DE DATOS!**]{.hl-yellow} Puedes visualizarlo escribiendo su nombre en consola o con `View(tabla)`
 
 ![](img/view_tabla.jpg)
 
----
+------------------------------------------------------------------------
 
 ## Segundo intento: data.frame
 
@@ -1656,50 +1569,47 @@ tabla[2, 1]  # primera característica de la segunda persona
 
 . . .
 
-:::: columns
+::: columns
 ::: {.column width="35%"}
 ![](img/menu_data_frame.jpg)
 :::
 
 ::: {.column width="65%"}
-
 También tiene ventajas de una [**«base» de datos**]{.hl-yellow} : podemos [**aceder a las variables por su nombre**]{.hl-purple} (recomendable ya que las variables pueden cambiar de posición), poniendo el nombre de la tabla seguido del símbolo `$` (con el **tabulador**, nos aparecerá un menú de columnas a elegir)
 :::
+:::
 
-::::
-
----
+------------------------------------------------------------------------
 
 ## Segundo intento: data.frame
 
-* `names()`: nos muestra los nombres de las variables
+-   `names()`: nos muestra los nombres de las variables
 
 ```{r}
 names(tabla)
 ```
 
-&nbsp;
+ 
 
 . . .
 
-* `dim()`: nos muestra las dimensiones (también `nrow()` y `ncol()`)
+-   `dim()`: nos muestra las dimensiones (también `nrow()` y `ncol()`)
 
 ```{r}
 dim(tabla)
 ```
 
-&nbsp; 
+ 
 
 . . .
 
-* Podemos acceder a las variables por su nombre
+-   Podemos acceder a las variables por su nombre
 
 ```{r}
 tabla[c(1, 3), "nombre"]
 ```
 
-
----
+------------------------------------------------------------------------
 
 ## Intento final: tibble
 
@@ -1715,7 +1625,7 @@ data.frame("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70),
 
 . . .
 
-&nbsp;
+ 
 
 De ahora en adelante usaremos el formato `tibble` (un [**data.frame mejorado**]{.hl-yellow})
 
@@ -1725,7 +1635,7 @@ tibble("estatura" = c(1.7, 1.8, 1.6), "peso" = c(80, 75, 70),
        "IMC" = peso / (estatura^2))
 ```
 
----
+------------------------------------------------------------------------
 
 ## Intento final: tibble
 
@@ -1739,28 +1649,26 @@ Las tablas en formato `tibble` nos permitirá una [**gestión más ágil, eficie
 
 . . .
 
-* [**Metainformación**]{.hl-yellow}: si te fijas en la cabecera, nos dice ya automáticamente el número de filas y columnas, y el tipo de cada variable
+-   [**Metainformación**]{.hl-yellow}: si te fijas en la cabecera, nos dice ya automáticamente el número de filas y columnas, y el tipo de cada variable
 
-. . . 
+. . .
 
+-   [**Recursividad**]{.hl-yellow}: permite definir las variables secuencialmente (como hemos visto)
 
-* [**Recursividad**]{.hl-yellow}: permite definir las variables secuencialmente (como hemos visto)
-
----
+------------------------------------------------------------------------
 
 ## Intento final: tibble
 
-
-* [**Consistencia**]{.hl-yellow}: si accedes a una columna que no existe avisa con un warning
+-   [**Consistencia**]{.hl-yellow}: si accedes a una columna que no existe avisa con un warning
 
 ```{r}
 #| warning: true
 tabla$invent
 ```
 
-. . . 
+. . .
 
-* [**Por filas**]{.hl-yellow}: crear por filas (copiar y pegar de una tabla) con `tribble()`
+-   [**Por filas**]{.hl-yellow}: crear por filas (copiar y pegar de una tabla) con `tribble()`
 
 ```{r}
 tribble(~colA, ~colB,
@@ -1770,20 +1678,17 @@ tribble(~colA, ~colB,
 
 . . .
 
-::: {.callout-tip}
-
+::: callout-tip
 El paquete `{datapasta}` nos permite [**copiar y pegar**]{.hl-green} tablas de páginas web y documentos sencillos
-
 :::
 
----
+------------------------------------------------------------------------
 
 ## 💻 Tu turno
- 
+
 [**Intenta realizar los siguientes ejercicios sin mirar las soluciones**]{style="color:#444442;"}
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### [**Ejercicio 1**]{.hl-yellow}
 
 📝 Carga del paquete `{datasets}` el conjunto de datos `airquality` (contiene variables de la calidad del aire de la ciudad de Nueva York desde mayo hasta septiembre de 1973). ¿Es el conjunto de datos airquality de tipo tibble? En caso negativo, conviértelo a tibble (busca en la documentación del paquete en <https://tibble.tidyverse.org/index.html>).
@@ -1818,7 +1723,6 @@ nrow(airquality_tb)
 airquality_tb[Month == 8, ]
 ```
 
-
 ### [**Ejercicio 4**]{.hl-yellow}
 
 📝 Selecciona aquellos datos que no sean ni de julio ni de agosto.
@@ -1839,7 +1743,6 @@ airquality_tb[Month %in% c(7, 8), ]
 airquality_tb[, c("Ozone", "Temp")]
 ```
 
-
 ### [**Ejercicio 6**]{.hl-yellow}
 
 📝 Selecciona los datos de temperatura y viento de agosto. Traduce a castellano el nombre de las columnas del conjunto filtrado.
@@ -1850,81 +1753,69 @@ airquality_tb[, c("Ozone", "Temp")]
 airquality_tb[Month == 8, c("Temp", "Wind")]
 names(airquality_tb) <- c("ozono", "rad_solar", "viento", "temp", "mes", "dia") 
 ```
-
 :::
 
-# R base vs Tidyverse 
- 
+# R base vs Tidyverse
+
 [**Spoiler: un multiverso de datos limpios**]{style="color:#444442;"}
 
-
----
+------------------------------------------------------------------------
 
 ## R base vs Tidyverse
 
 Si conoces algún otro lenguaje de programación (o tienes gente cercana que programa) te extrañará que aún no hayamos hablado de conceptos habituales como
 
-* [**Bucles for**]{.hl-yellow}: repetir un código un número fijo de iteraciones.
+-   [**Bucles for**]{.hl-yellow}: repetir un código un número fijo de iteraciones.
 
-* [**Bucles while**]{.hl-yellow}: repetir un código hasta que se cumpla una condición
+-   [**Bucles while**]{.hl-yellow}: repetir un código hasta que se cumpla una condición
 
-* [**Estructuras if-else**]{.hl-yellow}: estructuras de control para decidir por donde camina el código en función del valor de las variables.
+-   [**Estructuras if-else**]{.hl-yellow}: estructuras de control para decidir por donde camina el código en función del valor de las variables.
 
-&nbsp;
+ 
 
 . . .
 
-Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles) [→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a [**Tidyverse**]{.hl-yellow}]{.fragment .fade-in}
+Y aunque conocer dichas estructuras puede sernos en algún momento interesante, en la [**mayoría de ocasiones vamos a poder evitarlas**]{.hl-red} (en especial los bucles) [→ en lugar de trabajar con lo que se conoce como R Base vamos a vertebrar el curso en torno a ]{.fragment .fade-in}[**Tidyverse**]{.hl-yellow}
 
----
+------------------------------------------------------------------------
 
 ## ¿Qué es tidyverse?
 
-:::: columns
+::: columns
 ::: {.column width="50%"}
 ![](img/tidyverrse_universe.jpg)
-
 :::
-
 
 ::: {.column width="50%"}
-
 ![](img/flow_tidyverse.jpg)
-
 :::
-
-::::
+:::
 
 `{tidyverse}` es un [**«universo» de paquetes**]{.hl-yellow} para garanatizar un flujo de trabajo (de inicio a fin) eficiente, coherente y lexicográficamente sencillo de entender, basado en la idea de que [**nuestros datos están limpios y ordenados (tidy)**]{.hl-purple}
 
----
+------------------------------------------------------------------------
 
 ## ¿Qué es tidyverse?
 
-
-:::: columns
+::: columns
 ::: {.column width="45%"}
 ![](img/tidyverrse_universe.jpg)
 :::
 
 ::: {.column width="55%"}
-
-* `{tibble}`: optimizando data.frame
-* `{tidyr}`: limpieza de datos
-* `{readr}`: carga datos rectangulares (.csv)
-* `{dplyr}`: gramática para depurar
-* `{stringr}`: manejo de textos
-* `{ggplot2}`: visualización de datos
-* `{tidymodels}`: modelización/predicción
-
+-   `{tibble}`: optimizando data.frame
+-   `{tidyr}`: limpieza de datos
+-   `{readr}`: carga datos rectangulares (.csv)
+-   `{dplyr}`: gramática para depurar
+-   `{stringr}`: manejo de textos
+-   `{ggplot2}`: visualización de datos
+-   `{tidymodels}`: modelización/predicción
 :::
-::::
-
+:::
 
 También tenemos los paquetes `{purrr}` para el manejo de listas, `{forcast}` para cualitativas, `{lubridate}` para fechas, `{readxl}` para importar archivos .xls y .xlsx, `{rvest}` para web scraping y `{rmarkdown}` para comunicar resultados.
 
----
-
+------------------------------------------------------------------------
 
 ## Recursos y bibiliografía
 
