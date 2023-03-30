@@ -1207,7 +1207,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-03-27"</code></pre>
+<pre><code>[1] "2023-03-30"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1217,7 +1217,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-03-27 22:07:09 CEST"</code></pre>
+<pre><code>[1] "2023-03-30 13:32:28 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -2261,10 +2261,2495 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 </div>
 </div>
 <p>También tenemos los paquetes <code>{purrr}</code> para el manejo de listas, <code>{forcast}</code> para cualitativas, <code>{lubridate}</code> para fechas, <code>{readxl}</code> para importar archivos .xls y .xlsx, <code>{rvest}</code> para web scraping y <code>{rmarkdown}</code> para comunicar resultados.</p>
+</section>
+<section id="filosofía-base-tidy-data" class="slide level2">
+<h2>Filosofía base: tidy data</h2>
+<blockquote>
+<p>Tidy datasets are all alike, but every messy dataset is messy in its own way (Hadley Wickham, Chief Scientist en RStudio)</p>
+</blockquote>
+<div style="font-size:120px; text-align: center; color:#F8DF58;">
+<b>TIDY</b><span style="color:#CAB0EE;"><b>VERSE</b></span>
+</div>
+<p>El <span class="hl-purple"><strong>universo</strong></span> de paquetes <code>{tidyverse}</code> se basa en la idea introducido por <strong>Hadley Wickham</strong> (el Dios al que rezo) de <span class="hl-yellow"><strong>estandarizar</strong></span> el formato los datos para</p>
+<div>
+<ul>
+<li class="fragment"><span class="hl-green"><strong>sistematizar</strong></span> la depuración</li>
+<li class="fragment">hacer más <span class="hl-green"><strong>sencillo</strong></span> su manipulación.</li>
+<li class="fragment">código <span class="hl-green"><strong>legible</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="reglas-del-tidy-data" class="slide level2">
+<h2>Reglas del tidy data</h2>
+<p>Lo primero por tanto será entender qué son los <span class="hl-yellow"><strong>conjuntos tidydata</strong></span> ya que todo <code>{tidyverse}</code> se basa en que los datos están estandarizados.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<ol type="1">
+<li>Cada <span class="hl-yellow"><strong>variable</strong></span> en una <span class="hl-purple"><strong>única columna</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="2" type="1">
+<li>Cada <span class="hl-yellow"><strong>individuo</strong></span> en una <span class="hl-purple"><strong>fila diferente</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="3" type="1">
+<li>Cada <span class="hl-yellow"><strong>celda</strong></span> con un <span class="hl-purple"><strong>único valor</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="4" type="1">
+<li>Cada <span class="hl-yellow"><strong>dataset</strong></span> en un <span class="hl-purple"><strong>tibble</strong></span></li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<ol start="5" type="1">
+<li>Si queremos cruzar <span class="hl-yellow"><strong>múltiples tablas</strong></span> debemos tener una <span class="hl-purple"><strong>columna común</strong></span></li>
+</ol>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/tidy_def.jpg" style="width:160.0%"></p>
+</div>
+</div>
+</section>
+<section id="tubería-pipe" class="slide level2">
+<h2>Tubería (pipe)</h2>
+<p>En <code>{tidyverse}</code> será clave el <span class="hl-yellow"><strong>operador pipe (tubería)</strong></span> definido como <code>|&gt;</code> (<span class="hl-purple"><strong>ctrl+shift+M</strong></span>): será una <span class="hl-yellow"><strong>tubería que recorre los datos</strong></span> y los transforma.</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>En R base, si queremos aplicar tres funciones <code>first()</code>, <code>second()</code> y <code>third()</code> en orden, sería</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1"></a><span class="fu">third</span>(<span class="fu">second</span>(<span class="fu">first</span>(datos)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>En <code>{tidyverse}</code> podremos <span class="hl-yellow"><strong>leer de izquierda a derecha</strong></span> y separar los datos de las acciones</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">first</span>() <span class="sc">|&gt;</span> <span class="fu">second</span>() <span class="sc">|&gt;</span> <span class="fu">third</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+</div>
+<div class="fragment">
+<div class="callout callout-caution callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Apunte importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Desde la versión 4.1.0 de <code>R</code> disponemos de <code>|&gt;</code>, un pipe <strong>nativo</strong> disponible <span class="hl-purple"><strong>fuera de tidyverse</strong></span>, sustituyendo al <span class="hl-red"><strong>antiguo pipe</strong></span> <code>%&gt;%</code> que dependía del paquete <code>{magrittr}</code> (bastante problemático).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tubería-pipe-1" class="slide level2">
+<h2>Tubería (pipe)</h2>
+<p>La principal ventaja es que el <span class="hl-yellow"><strong>código sea muy legible (casi literal)</strong></span> pudiendo hacer grandes operaciones con los datos con apenas código.</p>
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb214"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb214-1"><a href="#cb214-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb214-2"><a href="#cb214-2"></a>  <span class="fu">limpio</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-3"><a href="#cb214-3"></a>  <span class="fu">filtro</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-4"><a href="#cb214-4"></a>  <span class="fu">selecciono</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-5"><a href="#cb214-5"></a>  <span class="fu">ordeno</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-6"><a href="#cb214-6"></a>  <span class="fu">modifico</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-7"><a href="#cb214-7"></a>  <span class="fu">renombro</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-8"><a href="#cb214-8"></a>  <span class="fu">agrupo</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-9"><a href="#cb214-9"></a>  <span class="fu">cuento</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-10"><a href="#cb214-10"></a>  <span class="fu">resumo</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb214-11"><a href="#cb214-11"></a>  <span class="fu">pinto</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<center>
+<img src="img/logo_pipe.png" width="360px">
+</center>
+</div>
+</div>
+</section>
+<section id="datos-sucios-messy-data" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>¿Pero qué aspecto tienen los <span class="hl-yellow"><strong>datos no tidy</strong></span>? Vamos a cargar la tabla <code>table4a</code> del paquete <code>{tidyr}</code> (ya lo tenemos cargado del entorno tidyverse).</p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb215-2"><a href="#cb215-2"></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="pivotar-pivot_longer" class="slide level2">
+<h2>Pivotar: pivot_longer()</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1"></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p>❎ Cada <span class="hl-red"><strong>fila representa dos observaciones</strong></span> (1999 y 2000) → las columnas <code>1999</code> y <code>2000</code> en realidad deberían ser en sí <span class="hl-yellow"><strong>valores de una variable</strong></span> y no nombres de columnas.</p>
+</div>
+</div>
+<div class="fragment">
+<p>Incluiremos una <span class="hl-yellow"><strong>nueva columna</strong></span> que nos guarde el año y otra que guarde el valor de la variable de interés en cada uno de esos años. Y lo haremos con la función <code>pivot_longer()</code>: <span class="hl-yellow"><strong>pivotaremos la tabla</strong></span> a formato long:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1"></a>table4a <span class="sc">|&gt;</span> </span>
+<span id="cb219-2"><a href="#cb219-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"1999"</span>, <span class="st">"2000"</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="pivotar-pivot_longer-1" class="slide level2">
+<h2>Pivotar: pivot_longer()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1"></a>table4a <span class="sc">|&gt;</span> </span>
+<span id="cb221-2"><a href="#cb221-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"1999"</span>, <span class="st">"2000"</span>),</span>
+<span id="cb221-3"><a href="#cb221-3"></a>               <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb221-4"><a href="#cb221-4"></a>               <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/table4a.jpg"></p>
+</div>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li><code>cols</code>: <span class="hl-yellow"><strong>nombre de las variables a pivotar</strong></span></li>
+<li><code>names_to</code>: nombre de la nueva variable a la quemandamos la <span class="hl-yellow"><strong>cabecera</strong></span> de la tabla (los nombres).</li>
+<li><code>values_to</code>: nombre de la nueva variable a la que vamos a mandar los <span class="hl-yellow"><strong>datos</strong></span>.</li>
+</ul>
+</section>
+<section id="datos-sucios-messy-data-1" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>Veamos otro ejemplo con la tabla <code>table2</code></p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href="#cb223-1"></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="pivotar-pivot_wider" class="slide level2">
+<h2>Pivotar: pivot_wider()</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p>❎ Cada <span class="hl-red"><strong>observación está dividido en dos filas</strong></span> → los <span class="hl-yellow"><strong>registros con el mismo año deberían ser el mismo</strong></span></p>
+</div>
+</div>
+<div class="fragment">
+<p>Lo que haremos será lo opuesto: con <code>pivot_wider()</code> <span class="hl-yellow"><strong>ensancharemos la tabla</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1"></a>table2 <span class="sc">|&gt;</span>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="datos-sucios-messy-data-2" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>Veamos otro ejemplo con la tabla <code>table3</code></p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb228-1"><a href="#cb228-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="separar-separate" class="slide level2">
+<h2>Separar: separate()</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1"></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p>❎ Cada <span class="hl-red"><strong>celda contiene varios valores</strong></span></p>
+</div>
+</div>
+<div class="fragment">
+<p>Lo que haremos será hacer uso de la función <code>separate()</code> para mandar <span class="hl-yellow"><strong>separar cada valor</strong></span> a una columna diferente.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb232-1"><a href="#cb232-1"></a>table3 <span class="sc">|&gt;</span> <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year cases  pop       
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+1 Afghanistan  1999 745    19987071  
+2 Afghanistan  2000 2666   20595360  
+3 Brazil       1999 37737  172006362 
+4 Brazil       2000 80488  174504898 
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="separar-separate-1" class="slide level2">
+<h2>Separar: separate()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb234-1"><a href="#cb234-1"></a>table3 <span class="sc">|&gt;</span> <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year cases  pop       
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+1 Afghanistan  1999 745    19987071  
+2 Afghanistan  2000 2666   20595360  
+3 Brazil       1999 37737  172006362 
+4 Brazil       2000 80488  174504898 
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+<p>Fíjate que los datos, aunque los ha separado, <span class="hl-red"><strong>los ha mantenido como texto</strong></span> cuando en realidad deberían ser variables numéricas. Para ello podemos añadir el argumento opcional <code>convert = TRUE</code></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb236"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb236-1"><a href="#cb236-1"></a>table3 <span class="sc">|&gt;</span> <span class="fu">separate</span>(rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>), <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases        pop
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="datos-sucios-messy-data-3" class="slide level2">
+<h2>Datos SUCIOS: messy data</h2>
+<p>Veamos el último ejemplo con la tabla <code>table5</code></p>
+<p>&nbsp;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb238"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb238-1"><a href="#cb238-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><span class="hl-red"><strong>¿Qué puede estar fallando?</strong></span></p>
+</section>
+<section id="unir-unite" class="slide level2">
+<h2>Unir unite()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb240"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb240-1"><a href="#cb240-1"></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>❎ Tenemos <span class="hl-red"><strong>mismos valores divididos en dos columnas</strong></span></p>
+</div>
+</div>
+<div class="fragment">
+<p>Usaremos <code>unite()</code> para <span class="hl-yellow"><strong>unir los valores</strong></span> de siglo y año en una misma columna</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb242"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb242-1"><a href="#cb242-1"></a>table5 <span class="sc">|&gt;</span> <span class="fu">unite</span>(<span class="at">col =</span> year_completo, century, year, <span class="at">sep =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year_completo rate             
+  &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;            
+1 Afghanistan 1999          745/19987071     
+2 Afghanistan 2000          2666/20595360    
+3 Brazil      1999          37737/172006362  
+4 Brazil      2000          80488/174504898  
+5 China       1999          212258/1272915272
+6 China       2000          213766/1280428583</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-4" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-5-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-5-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<p>📝 Echa un vistazo a la tabla <code>table4b</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb244"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1"></a>table4b <span class="sc">|&gt;</span></span>
+<span id="cb244-2"><a href="#cb244-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">"1999"</span><span class="sc">:</span><span class="st">"2000"</span>, <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb244-3"><a href="#cb244-3"></a>               <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-5-2">
+<p>📝 Echa un vistazo a la tabla <code>relig_income</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1"></a>relig_income <span class="sc">|&gt;</span></span>
+<span id="cb245-2"><a href="#cb245-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">"&lt;$10k"</span><span class="sc">:</span><span class="st">"Don't know/refused"</span>,</span>
+<span id="cb245-3"><a href="#cb245-3"></a>               <span class="at">names_to =</span> <span class="st">"income"</span>,</span>
+<span id="cb245-4"><a href="#cb245-4"></a>               <span class="at">values_to =</span> <span class="st">"people"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-5-3">
+<p>📝 Echa un vistazo a la tabla <code>billboard</code> del paquete <code>{tidyr}</code>. ¿Es tidydata? En caso negativo, ¿qué falla? ¿Cómo convertirla a tidy data en caso de que no lo sea ya?</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb246"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb246-1"><a href="#cb246-1"></a>billboard <span class="sc">|&gt;</span></span>
+<span id="cb246-2"><a href="#cb246-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">"wk1"</span><span class="sc">:</span><span class="st">"wk76"</span>,</span>
+<span id="cb246-3"><a href="#cb246-3"></a>               <span class="at">names_to =</span> <span class="st">"week"</span>,</span>
+<span id="cb246-4"><a href="#cb246-4"></a>               <span class="at">names_prefix =</span> <span class="st">"wk"</span>,</span>
+<span id="cb246-5"><a href="#cb246-5"></a>               <span class="at">values_to =</span> <span class="st">"position"</span>,</span>
+<span id="cb246-6"><a href="#cb246-6"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="introducción-a-tidyverse" class="title-slide slide level1 center">
+<h1>Introducción a Tidyverse</h1>
+<p><span style="color:#444442;"><strong>Con los datos limpicos, vamos a trabajarlos</strong></span></p>
+</section>
+<section id="preprocesamiento-dplyr" class="slide level2">
+<h2>Preprocesamiento: dplyr</h2>
+<p>Dentro de <code>{tidyverse}</code> usaremos el paquete <code>{dplyr}</code> para el <span class="hl-yellow"><strong>preprocesamiento y depuración</strong></span> de datos de datos.</p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><img data-src="img/dplyr.png"></p>
+</div><div class="column" style="width:35%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb247-2"><a href="#cb247-2"></a>  <span class="fu">limpio</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-3"><a href="#cb247-3"></a>  <span class="fu">filtro</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-4"><a href="#cb247-4"></a>  <span class="fu">selecciono</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-5"><a href="#cb247-5"></a>  <span class="fu">ordeno</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-6"><a href="#cb247-6"></a>  <span class="fu">modifico</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-7"><a href="#cb247-7"></a>  <span class="fu">renombro</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-8"><a href="#cb247-8"></a>  <span class="fu">agrupo</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-9"><a href="#cb247-9"></a>  <span class="fu">cuento</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-10"><a href="#cb247-10"></a>  <span class="fu">resumo</span>(...) <span class="sc">|&gt;</span></span>
+<span id="cb247-11"><a href="#cb247-11"></a>  <span class="fu">pinto</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtrar-filas-filter" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb248-1"><a href="#cb248-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb248-2"><a href="#cb248-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb249"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb249-2"><a href="#cb249-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Una de las operaciones más comunes es <span class="hl-yellow"><strong>filtrar registros</strong></span> en base a alguna condición lógica: con <code>filter()</code> se seleccionarán solo individuos que cumplan ciertas condiciones.</p>
+<div>
+<ul>
+<li class="fragment"><code>==</code>, <code>!=</code>: <span class="hl-purple"><strong>igual</strong></span> o <span class="hl-purple"><strong>distinto</strong></span> que</li>
+<li class="fragment"><code>&gt;</code>, <code>&lt;</code>: <span class="hl-purple"><strong>mayor</strong></span> o <span class="hl-purple"><strong>menor</strong></span> que</li>
+<li class="fragment"><code>&gt;=</code>, <code>&lt;=</code>: <span class="hl-purple"><strong>mayor o igual</strong></span> o <span class="hl-purple"><strong>menor o igual</strong></span> que</li>
+<li class="fragment"><code>%in%</code>: valores <span class="hl-purple"><strong>pertenencen</strong></span> a un listado de opciones</li>
+<li class="fragment"><code>between(variable, val1, val2)</code>: si los valores (normalmente continuos) <span class="hl-purple"><strong>caen dentro de un rango</strong></span> de valores</li>
+</ul>
+</div>
+</section>
+<section id="filtrar-filas-filter-1" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb250"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb250-1"><a href="#cb250-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb250-2"><a href="#cb250-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb251"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb251-1"><a href="#cb251-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb251-2"><a href="#cb251-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo harías… <span class="hl-yellow"><strong>filtrar</strong></span> los personajes de <span class="hl-purple"><strong>ojos marrones</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb252"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(eye_color <span class="sc">==</span> <span class="st">"brown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21 × 14
+   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1 Leia Organa    150  49   brown   light   brown      19   fema… femin… Aldera…
+ 2 Biggs Dark…    183  84   black   light   brown      24   male  mascu… Tatooi…
+ 3 Han Solo       180  80   brown   fair    brown      29   male  mascu… Corell…
+ 4 Yoda            66  17   white   green   brown     896   male  mascu… &lt;NA&gt;   
+ 5 Boba Fett      183  78.2 black   fair    brown      31.5 male  mascu… Kamino 
+ 6 Lando Calr…    177  79   black   dark    brown      31   male  mascu… Socorro
+ 7 Arvel Cryn…     NA  NA   brown   fair    brown      NA   male  mascu… &lt;NA&gt;   
+ 8 Wicket Sys…     88  20   brown   brown   brown       8   male  mascu… Endor  
+ 9 Quarsh Pan…    183  NA   black   dark    brown      62   &lt;NA&gt;  &lt;NA&gt;   Naboo  
+10 Shmi Skywa…    163  NA   black   fair    brown      72   fema… femin… Tatooi…
+# … with 11 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
+#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="filtrar-filas-filter-2" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb254"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb254-2"><a href="#cb254-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb255"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb255-1"><a href="#cb255-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb255-2"><a href="#cb255-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo harías… <span class="hl-yellow"><strong>filtrar</strong></span> los personajes que <span class="hl-purple"><strong>no tienen ojos marrones</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb256"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb256-1"><a href="#cb256-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(eye_color <span class="sc">!=</span> <span class="st">"brown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 66 × 14
+   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+ 2 C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
+ 3 R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
+ 4 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
+ 5 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
+ 6 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
+ 7 R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu… Tatooi…
+ 8 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
+ 9 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
+10 Wilhuff Ta…    180    NA auburn… fair    blue       64   male  mascu… Eriadu 
+# … with 56 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
+#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="filtrar-filas-filter-3" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb258"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb258-1"><a href="#cb258-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb258-2"><a href="#cb258-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb259"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb259-1"><a href="#cb259-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb259-2"><a href="#cb259-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo harías… <span class="hl-yellow"><strong>filtrar</strong></span> los personajes que <span class="hl-purple"><strong>tengan los ojos marrones o azules</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb260"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb260-1"><a href="#cb260-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"brown"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 14
+   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+ 2 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
+ 3 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
+ 4 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
+ 5 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
+ 6 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
+ 7 Wilhuff Ta…    180    NA auburn… fair    blue       64   male  mascu… Eriadu 
+ 8 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
+ 9 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
+10 Jek Tono P…    180   110 brown   fair    blue       NA   male  mascu… Bestin…
+# … with 30 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
+#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="filtrar-filas-filter-4" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb262"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb262-1"><a href="#cb262-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb262-2"><a href="#cb262-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb263"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb263-1"><a href="#cb263-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb263-2"><a href="#cb263-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo harías… <span class="hl-yellow"><strong>filtrar</strong></span> los personajes que <span class="hl-purple"><strong>midan entre 120 y 160 cm</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb264"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb264-1"><a href="#cb264-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">between</span>(height, <span class="dv">120</span>, <span class="dv">160</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  name        height  mass hair_c…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Leia Organa    150    49 brown    light   brown        19 fema… femin… Aldera…
+2 Mon Mothma     150    NA auburn   fair    blue         48 fema… femin… Chandr…
+3 Nien Nunb      160    68 none     grey    black        NA male  mascu… Sullust
+4 Watto          137    NA black    blue, … yellow       NA male  mascu… Toydar…
+5 Gasgano        122    NA none     white,… black        NA male  mascu… Troiken
+6 Cordé          157    NA brown    light   brown        NA fema… femin… Naboo  
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Recuerda que dentro de <code>filter()</code> debe ir siempre algo que devuelva un <span class="hl-green"><strong>vector de valores lógicos</strong></span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtrar-filas-filter-5" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb266"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb266-1"><a href="#cb266-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb266-2"><a href="#cb266-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb267"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb267-1"><a href="#cb267-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb267-2"><a href="#cb267-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo harías… <span class="hl-yellow"><strong>filtrar</strong></span> los personajes que <span class="hl-purple"><strong>tengan ojos y no sean humanos</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb268"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb268-1"><a href="#cb268-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb268-2"><a href="#cb268-2"></a>  <span class="fu">filter</span>(eye_color <span class="sc">==</span> <span class="st">"brown"</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">"Human"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 14
+  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Yoda             66    17 white   green   brown       896 male  mascu… &lt;NA&gt;   
+2 Wicket Syst…     88    20 brown   brown   brown         8 male  mascu… Endor  
+3 Eeth Koth       171    NA black   brown   brown        NA male  mascu… Iridon…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="filtrar-filas-filter-6" class="slide level2">
+<h2>Filtrar filas: filter()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb270"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb270-1"><a href="#cb270-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb270-2"><a href="#cb270-2"></a>  <span class="fu">filtro</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb271"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb271-1"><a href="#cb271-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb271-2"><a href="#cb271-2"></a>  <span class="fu">filter</span>(condicion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo harías… <span class="hl-yellow"><strong>filtrar</strong></span> los personajes que <span class="hl-purple"><strong>tengan ojos y no sean humanos, o que tengan más de 60 años</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb272"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb272-1"><a href="#cb272-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb272-2"><a href="#cb272-2"></a>  <span class="fu">filter</span>((eye_color <span class="sc">==</span> <span class="st">"brown"</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">"Human"</span>) <span class="sc">|</span> birth_year <span class="sc">&gt;</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 14
+   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1 C-3PO          167    75 &lt;NA&gt;    gold    yellow      112 none  mascu… Tatooi…
+ 2 Wilhuff Ta…    180    NA auburn… fair    blue         64 male  mascu… Eriadu 
+ 3 Chewbacca      228   112 brown   unknown blue        200 male  mascu… Kashyy…
+ 4 Jabba Desi…    175  1358 &lt;NA&gt;    green-… orange      600 herm… mascu… Nal Hu…
+ 5 Yoda            66    17 white   green   brown       896 male  mascu… &lt;NA&gt;   
+ 6 Palpatine      170    75 grey    pale    yellow       82 male  mascu… Naboo  
+ 7 Wicket Sys…     88    20 brown   brown   brown         8 male  mascu… Endor  
+ 8 Qui-Gon Ji…    193    89 brown   fair    blue         92 male  mascu… &lt;NA&gt;   
+ 9 Finis Valo…    170    NA blond   fair    blue         91 male  mascu… Corusc…
+10 Quarsh Pan…    183    NA black   dark    brown        62 &lt;NA&gt;  &lt;NA&gt;   Naboo  
+11 Shmi Skywa…    163    NA black   fair    brown        72 fema… femin… Tatooi…
+12 Mace Windu     188    84 none    dark    brown        72 male  mascu… Haruun…
+13 Ki-Adi-Mun…    198    82 white   pale    yellow       92 male  mascu… Cerea  
+14 Eeth Koth      171    NA black   brown   brown        NA male  mascu… Iridon…
+15 Cliegg Lars    183    NA brown   fair    blue         82 male  mascu… Tatooi…
+16 Dooku          193    80 white   fair    brown       102 male  mascu… Serenno
+17 Bail Prest…    191    NA black   tan     brown        67 male  mascu… Aldera…
+18 Jango Fett     183    79 black   tan     brown        66 male  mascu… Concor…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="eliminar-ausentes-drop_na" class="slide level2">
+<h2>Eliminar ausentes: drop_na()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb274"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb274-1"><a href="#cb274-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb274-2"><a href="#cb274-2"></a>  <span class="fu">retirar_ausentes</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb275"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb275-1"><a href="#cb275-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb275-2"><a href="#cb275-2"></a>  <span class="fu">drop_na</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Hay un filtro especial que es el de <span class="hl-yellow"><strong>retirar los ausentes</strong></span>, para lo cual podemos usar <code>filter(is.na(variable))</code> o directamente <code>drop_na()</code>: si no indicamos variable, elimina registros con ausente en cualquiera de las variables.</p>
+<div class="fragment">
+<p>&nbsp;</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb276"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb276-1"><a href="#cb276-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(mass, height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 4
+  name                mass height hair_color 
+  &lt;chr&gt;              &lt;dbl&gt;  &lt;int&gt; &lt;chr&gt;      
+1 Luke Skywalker        77    172 blond      
+2 C-3PO                 75    167 &lt;NA&gt;       
+3 R2-D2                 32     96 &lt;NA&gt;       
+4 Darth Vader          136    202 none       
+5 Leia Organa           49    150 brown      
+6 Owen Lars            120    178 brown, grey
+7 Beru Whitesun lars    75    165 brown      </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb278"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb278-1"><a href="#cb278-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 4
+  name                mass height hair_color   
+  &lt;chr&gt;              &lt;dbl&gt;  &lt;int&gt; &lt;chr&gt;        
+1 Luke Skywalker        77    172 blond        
+2 Darth Vader          136    202 none         
+3 Leia Organa           49    150 brown        
+4 Owen Lars            120    178 brown, grey  
+5 Beru Whitesun lars    75    165 brown        
+6 Biggs Darklighter     84    183 black        
+7 Obi-Wan Kenobi        77    182 auburn, white</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-5" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-6-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-6-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-6-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-6-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p>📝 Selecciona del conjunto de starwars solo los personajes que sean androides o cuyo valor en <code>species</code> sea desconocido</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb280"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb280-1"><a href="#cb280-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb280-2"><a href="#cb280-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Droid"</span> <span class="sc">|</span> <span class="fu">is.na</span>(species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-2">
+<p>📝 Selecciona del conjunto de starwars solo los personajes cuyo peso esté entre 65 y 90 kg.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb281"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb281-1"><a href="#cb281-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">between</span>(mass, <span class="dv">65</span>, <span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-3">
+<p>📝 Tras limpiar de ausentes en todas las variables, selecciona del conjunto de starwars solo los personajes que sean humanos y que vengan de Tatooine</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb282"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb282-1"><a href="#cb282-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb282-2"><a href="#cb282-2"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb282-3"><a href="#cb282-3"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span> <span class="sc">&amp;</span> homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-4">
+<p>📝 Selecciona del conjunto original de starwars los personajes no humanos, <code>male</code> en el sexo y que midan entre 120 y 170 cm, o los personajes con ojos marrones o rojos.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb283"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb283-1"><a href="#cb283-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb283-2"><a href="#cb283-2"></a>  <span class="fu">filter</span>((species <span class="sc">!=</span> <span class="st">"Human"</span> <span class="sc">&amp;</span> sex <span class="sc">==</span> <span class="st">"male"</span> <span class="sc">&amp;</span></span>
+<span id="cb283-3"><a href="#cb283-3"></a>            <span class="fu">between</span>(height, <span class="dv">120</span>, <span class="dv">170</span>)) <span class="sc">|</span></span>
+<span id="cb283-4"><a href="#cb283-4"></a>           eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"brown"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-6-5">
+<p>📝 Busca información en la ayuda de la función <code>str_detect()</code> del paquete <code>{stringr}</code> (cargado en <code>{tidyverse}</code>). Consejo: prueba antes las funciones que vayas a usar con algún vector de prueba para poder comprobar su funcionamiento. Tras saber lo que hace, filtra solo aquellos personajes con apellido <code>Skywalker</code></p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb284"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb284-1"><a href="#cb284-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(name, <span class="st">"Skywalker"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rebanadas-de-datos-slice" class="slide level2">
+<h2>Rebanadas de datos: slice()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb285"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb285-1"><a href="#cb285-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">rebanadas</span>(posiciones)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb286"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb286-1"><a href="#cb286-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice</span>(posiciones)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Normalmente filtraremos condición pero a veces nos puede interesar <span class="hl-yellow"><strong>filtrar por posición</strong></span>: con <code>slice(posiciones)</code> podremos seleccionar filas concreetas pasando como argumento un <span class="hl-yellow"><strong>vector de índices</strong></span></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb287"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb287-1"><a href="#cb287-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  name           height  mass hair_color
+  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Luke Skywalker    172    77 blond     </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb289"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb289-1"><a href="#cb289-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  name               height  mass hair_color
+  &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Beru Whitesun lars    165    75 brown     
+2 R5-D4                  97    32 &lt;NA&gt;      
+3 Biggs Darklighter     183    84 black     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb291"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb291-1"><a href="#cb291-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">31</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 8
+  name               height  mass hair_color    skin_color eye_c…¹ birth…² sex  
+  &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
+1 C-3PO                 167    75 &lt;NA&gt;          gold       yellow      112 none 
+2 Beru Whitesun lars    165    75 brown         light      blue         47 fema…
+3 Obi-Wan Kenobi        182    77 auburn, white fair       blue-g…      57 male 
+4 Qui-Gon Jinn          193    89 brown         fair       blue         92 male 
+# … with abbreviated variable names ¹​eye_color, ²​birth_year</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="rebanadas-de-datos-slice-1" class="slide level2">
+<h2>Rebanadas de datos: slice()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb293-1"><a href="#cb293-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">rebanadas</span>(posiciones)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb294"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb294-1"><a href="#cb294-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice</span>(posiciones)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Disponemos de opciones por defecto: con <code>slice_head(n = ...)</code> y <code>slice_tail(n = ...)</code> podemos obtener la <span class="hl-yellow"><strong>cabecera y cola</strong></span> de la tabla</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb295"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb295-1"><a href="#cb295-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  name           height  mass hair_color
+  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Luke Skywalker    172    77 blond     
+2 C-3PO             167    75 &lt;NA&gt;      </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:&quot;50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb297"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb297-1"><a href="#cb297-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_tail</span>(<span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  name           height  mass hair_color
+  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Captain Phasma     NA    NA unknown   
+2 Padmé Amidala     165    45 brown     </code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Con <code>slice_max()</code> y <code>slice_min()</code> obtenemos la <span class="hl-yellow"><strong>filas con menor/mayor valor de una variable</strong></span> (si empate, todas salvo que <code>with_ties = FALSE</code>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb299"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb299-1"><a href="#cb299-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_min</span>(mass, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  name          height  mass hair_color
+  &lt;chr&gt;          &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Ratts Tyerell     79    15 none      
+2 Yoda              66    17 white     </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb301"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb301-1"><a href="#cb301-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(height, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  name        height  mass hair_color
+  &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     
+1 Yarael Poof    264    NA none      
+2 Tarfful        234   136 brown     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reordenar-filas-arrange" class="slide level2">
+<h2>Reordenar filas: arrange()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb303"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb303-1"><a href="#cb303-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">ordenar</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb304"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb304-1"><a href="#cb304-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">arrange</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>También podemos <span class="hl-yellow"><strong>ordenar filas</strong></span> en función de alguna variable con <code>arrange()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb305"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb305-1"><a href="#cb305-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">arrange</span>(mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 6
+  name                  height  mass hair_color skin_color  eye_color
+  &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;    
+1 Ratts Tyerell             79    15 none       grey, blue  unknown  
+2 Yoda                      66    17 white      green       brown    
+3 Wicket Systri Warrick     88    20 brown      brown       brown    
+4 R2-D2                     96    32 &lt;NA&gt;       white, blue red      
+5 R5-D4                     97    32 &lt;NA&gt;       white, red  red      </code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Por <span class="hl-yellow"><strong>defecto de menor a mayor</strong></span> pero podemos <span class="hl-purple"><strong>invertir el orden</strong></span> con <code>desc()</code></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb307"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb307-1"><a href="#cb307-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  name         height  mass
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt;
+1 Yarael Poof     264    NA
+2 Tarfful         234   136
+3 Lama Su         229    88
+4 Chewbacca       228   112
+5 Roos Tarpals    224    82</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb309"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb309-1"><a href="#cb309-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">arrange</span>(mass, <span class="fu">desc</span>(height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  name                  height  mass
+  &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt;
+1 Ratts Tyerell             79    15
+2 Yoda                      66    17
+3 Wicket Systri Warrick     88    20
+4 R5-D4                     97    32
+5 R2-D2                     96    32</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="eliminar-duplicados-distinct" class="slide level2">
+<h2>Eliminar duplicados: distinct()</h2>
+<p>Muchas veces necesitaremos asegurarnos que no hay duplicados en alguna variable (DNI) y podemos <span class="hl-yellow"><strong>eliminar filas duplicadas</strong></span> con <code>distinct()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb311"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb311-1"><a href="#cb311-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">distinct</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  sex           
+  &lt;chr&gt;         
+1 male          
+2 none          
+3 female        
+4 hermaphroditic
+5 &lt;NA&gt;          </code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Para mantener todas las columnas de la tabla usaremos <code>.keep_all = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb313"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb313-1"><a href="#cb313-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">distinct</span>(sex, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 14
+  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Luke Skywal…    172    77 blond   fair    blue         19 male  mascu… Tatooi…
+2 C-3PO           167    75 &lt;NA&gt;    gold    yellow      112 none  mascu… Tatooi…
+3 Leia Organa     150    49 brown   light   brown        19 fema… femin… Aldera…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="añadir-filas-bind_rows" class="slide level2">
+<h2>Añadir filas: bind_rows()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb315"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb315-1"><a href="#cb315-1"></a>tibble1 <span class="sc">|&gt;</span> <span class="fu">encuadernar_filas</span>(tibble2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb316"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb316-1"><a href="#cb316-1"></a>tibble1 <span class="sc">|&gt;</span> <span class="fu">bind_rows</span>(tibble2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Por último, podemos <span class="hl-yellow"><strong>concatenar nuevas filas</strong></span> con <code>bind_rows()</code> con <span class="hl-red"><strong>las nuevas observaciones en tabla</strong></span> (si no cuadran columnas rellena con ausentes)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb317"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb317-1"><a href="#cb317-1"></a>datos <span class="ot">&lt;-</span></span>
+<span id="cb317-2"><a href="#cb317-2"></a>  <span class="fu">tibble</span>(<span class="st">"nombre"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"javi"</span>, <span class="st">"laura"</span>), <span class="st">"edad"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">33</span>, <span class="dv">50</span>))</span>
+<span id="cb317-3"><a href="#cb317-3"></a>datos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  nombre  edad
+  &lt;chr&gt;  &lt;dbl&gt;
+1 javi      33
+2 laura     50</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb319"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb319-1"><a href="#cb319-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="st">"nombre"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"carlos"</span>, <span class="cn">NA</span>), <span class="st">"cp"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">28045</span>, <span class="dv">28019</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  nombre  edad    cp
+  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 javi      33    NA
+2 laura     50    NA
+3 carlos    NA 28045
+4 &lt;NA&gt;      NA 28019</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-6" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-7-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-7-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-7-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-7-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-7-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li><li><a href="#tabset-7-7"><span class="hl-yellow"><strong>Ejercicio 7</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<p>📝 Selecciona solo los personajes que sean humanos y de ojos marrones, para después ordernarlos en altura descendente y peso ascendente.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb321"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb321-1"><a href="#cb321-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb321-2"><a href="#cb321-2"></a>  <span class="fu">filter</span>(eye_color <span class="sc">==</span> <span class="st">"brown"</span> <span class="sc">&amp;</span> species <span class="sc">==</span> <span class="st">"Human"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb321-3"><a href="#cb321-3"></a>  <span class="fu">arrange</span>(height, <span class="fu">desc</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-2">
+<p>📝 Extrae 3 registros aleatoriamente.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb322"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb322-1"><a href="#cb322-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-3">
+<p>📝 Extrae el 10% de los registros aleatoriamente.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb323"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb323-1"><a href="#cb323-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-4">
+<p>📝 Extrae aleatoriamente 10 personajes pero de forma que la probabilidad de que salga cada uno sea proporcional a su peso (más pesados, más probable)</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb324"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb324-1"><a href="#cb324-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb324-2"><a href="#cb324-2"></a>  <span class="fu">drop_na</span>(mass) <span class="sc">|&gt;</span> </span>
+<span id="cb324-3"><a href="#cb324-3"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">weight_by =</span> mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-5">
+<p>📝 Selecciona los 3 personajes más mayores.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb325"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb325-1"><a href="#cb325-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(birth_year, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-6">
+<p>📝 Para saber que valores únicos hay en el color de pelo, elimina duplicados de la variable <code>hair_color</code>, eliminando antes los ausentes de dicha variable.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb326"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb326-1"><a href="#cb326-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb326-2"><a href="#cb326-2"></a>  <span class="fu">drop_na</span>(hair_color) <span class="sc">|&gt;</span> </span>
+<span id="cb326-3"><a href="#cb326-3"></a>  <span class="fu">distinct</span>(hair_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-7-7">
+<p>📝 De los personajes que son humanos y miden más de 160 cm, elimina duplicados en color de ojos, elimina ausentes en peso, selecciona los 3 más altos, y orden de mayor a menor peso. Devuelve la tabla.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb327"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb327-1"><a href="#cb327-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb327-2"><a href="#cb327-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span> <span class="sc">&amp;</span> height <span class="sc">&gt;</span> <span class="dv">160</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb327-3"><a href="#cb327-3"></a>  <span class="fu">distinct</span>(eye_color, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb327-4"><a href="#cb327-4"></a>  <span class="fu">drop_na</span>(mass) <span class="sc">|&gt;</span> </span>
+<span id="cb327-5"><a href="#cb327-5"></a>  <span class="fu">slice_max</span>(height, <span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb327-6"><a href="#cb327-6"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="selección-columnas-select" class="slide level2">
+<h2>Selección columnas: select()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb328"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb328-1"><a href="#cb328-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">selecciono</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb329"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb329-1"><a href="#cb329-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>La opción más sencilla para <span class="hl-yellow"><strong>seleccionar variables por nombre</strong></span> es <code>select()</code>, dando como argumentos los nombres de columnas sin comillas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb330"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb330-1"><a href="#cb330-1"></a>starwars <span class="sc">%&gt;%</span> <span class="fu">select</span>(name, hair_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 2
+   name               hair_color   
+   &lt;chr&gt;              &lt;chr&gt;        
+ 1 Luke Skywalker     blond        
+ 2 C-3PO              &lt;NA&gt;         
+ 3 R2-D2              &lt;NA&gt;         
+ 4 Darth Vader        none         
+ 5 Leia Organa        brown        
+ 6 Owen Lars          brown, grey  
+ 7 Beru Whitesun lars brown        
+ 8 R5-D4              &lt;NA&gt;         
+ 9 Biggs Darklighter  black        
+10 Obi-Wan Kenobi     auburn, white
+# … with 77 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="selección-columnas-select-1" class="slide level2">
+<h2>Selección columnas: select()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb332"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb332-1"><a href="#cb332-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">selecciono</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb333"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb333-1"><a href="#cb333-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>La función <code>select()</code> nos permite seleccionar varias variables a la vez <span class="hl-yellow"><strong>concatenando sus nombres como si fuesen índices</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb334"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb334-1"><a href="#cb334-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(name<span class="sc">:</span>eye_color) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  name           height  mass hair_color skin_color  eye_color
+  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;    
+1 Luke Skywalker    172    77 blond      fair        blue     
+2 C-3PO             167    75 &lt;NA&gt;       gold        yellow   
+3 R2-D2              96    32 &lt;NA&gt;       white, blue red      
+4 Darth Vader       202   136 none       white       yellow   </code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Y podemos <span class="hl-yellow"><strong>deseleccionar columnas</strong></span> con <code>-</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb336"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb336-1"><a href="#cb336-1"></a>starwars <span class="sc">|&gt;</span>  <span class="fu">select</span>(<span class="sc">-</span>mass, <span class="sc">-</span>(eye_color<span class="sc">:</span>starships))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  name           height hair_color skin_color 
+  &lt;chr&gt;           &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      
+1 Luke Skywalker    172 blond      fair       
+2 C-3PO             167 &lt;NA&gt;       gold       
+3 R2-D2              96 &lt;NA&gt;       white, blue
+4 Darth Vader       202 none       white      </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="selección-columnas-select-2" class="slide level2">
+<h2>Selección columnas: select()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb338"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb338-1"><a href="#cb338-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">selecciono</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb339"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Tenemos además <span class="hl-yellow"><strong>palabras reservadas</strong></span>: <code>everything()</code> <span class="hl-purple"><strong>todas las variables</strong></span>…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb340"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb340-1"><a href="#cb340-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(mass, homeworld, <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 14
+   mass homeworld name       height hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1    77 Tatooine  Luke Skyw…    172 blond   fair    blue       19   male  mascu…
+2    75 Tatooine  C-3PO         167 &lt;NA&gt;    gold    yellow    112   none  mascu…
+3    32 Naboo     R2-D2          96 &lt;NA&gt;    white,… red        33   none  mascu…
+4   136 Tatooine  Darth Vad…    202 none    white   yellow     41.9 male  mascu…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>…y <code>last_col()</code> para referirnos a <span class="hl-purple"><strong>la última columna</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb342"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb342-1"><a href="#cb342-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(name<span class="sc">:</span>mass, homeworld, <span class="fu">last_col</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+  name           height  mass homeworld starships
+  &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;list&gt;   
+1 Luke Skywalker    172    77 Tatooine  &lt;chr [2]&gt;
+2 C-3PO             167    75 Tatooine  &lt;chr [0]&gt;
+3 R2-D2              96    32 Naboo     &lt;chr [0]&gt;
+4 Darth Vader       202   136 Tatooine  &lt;chr [1]&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="selección-columnas-select-3" class="slide level2">
+<h2>Selección columnas: select()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb344"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb344-1"><a href="#cb344-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">selecciono</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb345"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Podemos jugar con <span class="hl-yellow"><strong>patrones</strong></span> en el nombre, aquellas que <span class="hl-purple"><strong>comiencen por un prefijo</strong></span> (<code>starts_with()</code>), <span class="hl-purple"><strong>terminen con un sufijo</strong></span> (<code>ends_with()</code>), <span class="hl-purple"><strong>contengan un texto</strong></span> (<code>contains()</code>) o cumplan una <span class="hl-purple"><strong>expresión regular</strong></span> (<code>matches()</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb346"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb346-1"><a href="#cb346-1"></a><span class="co"># variables cuyo nombre acaba en "color" y contengan sexo o género</span></span>
+<span id="cb346-2"><a href="#cb346-2"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"color"</span>), <span class="fu">matches</span>(<span class="st">"sex|gender"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 5
+   hair_color    skin_color  eye_color sex    gender   
+   &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    
+ 1 blond         fair        blue      male   masculine
+ 2 &lt;NA&gt;          gold        yellow    none   masculine
+ 3 &lt;NA&gt;          white, blue red       none   masculine
+ 4 none          white       yellow    male   masculine
+ 5 brown         light       brown     female feminine 
+ 6 brown, grey   light       blue      male   masculine
+ 7 brown         light       blue      female feminine 
+ 8 &lt;NA&gt;          white, red  red       none   masculine
+ 9 black         light       brown     male   masculine
+10 auburn, white fair        blue-gray male   masculine
+# … with 77 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="selección-columnas-select-4" class="slide level2">
+<h2>Selección columnas: select()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb348"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb348-1"><a href="#cb348-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">selecciono</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb349"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Incluso podemos <span class="hl-yellow"><strong>seleccionar por rango numérico</strong></span> si tenemos variables con un prefijo y números.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb350"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb350-1"><a href="#cb350-1"></a>datos <span class="ot">&lt;-</span></span>
+<span id="cb350-2"><a href="#cb350-2"></a>  <span class="fu">tibble</span>(<span class="st">"semana1"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">115</span>, <span class="dv">141</span>, <span class="dv">232</span>), <span class="st">"semana2"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">17</span>),</span>
+<span id="cb350-3"><a href="#cb350-3"></a>         <span class="st">"semana3"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">162</span>, <span class="cn">NA</span>), <span class="st">"semana4"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">19</span>, <span class="dv">15</span>),</span>
+<span id="cb350-4"><a href="#cb350-4"></a>         <span class="st">"semana5"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">262</span>, <span class="dv">190</span>), <span class="st">"semana6"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">15</span>, <span class="dv">23</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Con <code>num_range()</code> podemos seleccionar con un prefijo y una secuencia numérica.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb351"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb351-1"><a href="#cb351-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">num_range</span>(<span class="st">"semana"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  semana1 semana2 semana3 semana4
+    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1     115       7      95      11
+2     141      NA     162      19
+3     232      17      NA      15</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="selección-columnas-select-5" class="slide level2">
+<h2>Selección columnas: select()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb353"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb353-1"><a href="#cb353-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">selecciono</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb354"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb354-1"><a href="#cb354-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(var1, var2, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Por último, podemos seleccionar columnas por <span class="hl-yellow"><strong>tipo de dato</strong></span> haciendo uso de <code>where()</code> y dentro una función que devuelva un valor lógico de tipo de dato.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb355"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb355-1"><a href="#cb355-1"></a><span class="co"># Solo columnas numéricas o de texto</span></span>
+<span id="cb355-2"><a href="#cb355-2"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric) <span class="sc">|</span> <span class="fu">where</span>(is.character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 11
+   height  mass birth_year name     hair_…¹ skin_…² eye_c…³ sex   gender homew…⁴
+    &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1    172    77       19   Luke Sk… blond   fair    blue    male  mascu… Tatooi…
+ 2    167    75      112   C-3PO    &lt;NA&gt;    gold    yellow  none  mascu… Tatooi…
+ 3     96    32       33   R2-D2    &lt;NA&gt;    white,… red     none  mascu… Naboo  
+ 4    202   136       41.9 Darth V… none    white   yellow  male  mascu… Tatooi…
+ 5    150    49       19   Leia Or… brown   light   brown   fema… femin… Aldera…
+ 6    178   120       52   Owen La… brown,… light   blue    male  mascu… Tatooi…
+ 7    165    75       47   Beru Wh… brown   light   blue    fema… femin… Tatooi…
+ 8     97    32       NA   R5-D4    &lt;NA&gt;    white,… red     none  mascu… Tatooi…
+ 9    183    84       24   Biggs D… black   light   brown   male  mascu… Tatooi…
+10    182    77       57   Obi-Wan… auburn… fair    blue-g… male  mascu… Stewjon
+# … with 77 more rows, 1 more variable: species &lt;chr&gt;, and abbreviated variable
+#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​homeworld</code></pre>
+</div>
+</div>
+</section>
+<section id="mover-columnas-relocate" class="slide level2">
+<h2>Mover columnas: relocate()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb357"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb357-1"><a href="#cb357-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb357-2"><a href="#cb357-2"></a>  <span class="fu">recolocar</span>(var1, <span class="at">despues_de =</span> var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb358"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb358-1"><a href="#cb358-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb358-2"><a href="#cb358-2"></a>  <span class="fu">relocate</span>(var1, <span class="at">.after =</span> var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Para facilitar la <span class="hl-yellow"><strong>recolocación de variables</strong></span> tenemos una función para ello, <code>relocate()</code>, indicándole en <code>.after</code> o <code>.before</code> <span class="hl-purple"><strong>detrás</strong></span> o <span class="hl-purple"><strong>delante</strong></span> de qué columnas queremos moverlas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb359"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb359-1"><a href="#cb359-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">relocate</span>(species, <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 14
+   species name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
+   &lt;chr&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Human   Luke Skywa…    172    77 blond   fair    blue       19   male  mascu…
+ 2 Droid   C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
+ 3 Droid   R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu…
+ 4 Human   Darth Vader    202   136 none    white   yellow     41.9 male  mascu…
+ 5 Human   Leia Organa    150    49 brown   light   brown      19   fema… femin…
+ 6 Human   Owen Lars      178   120 brown,… light   blue       52   male  mascu…
+ 7 Human   Beru White…    165    75 brown   light   blue       47   fema… femin…
+ 8 Droid   R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
+ 9 Human   Biggs Dark…    183    84 black   light   brown      24   male  mascu…
+10 Human   Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu…
+# … with 77 more rows, 4 more variables: homeworld &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
+#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
+</div>
+</div>
+</section>
+<section id="renombrar-rename" class="slide level2">
+<h2>Renombrar: rename()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb361"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb361-1"><a href="#cb361-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">renombrar</span>(<span class="at">nuevo =</span> antiguo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb362"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb362-1"><a href="#cb362-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">nuevo =</span> antiguo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>A veces también podemos querer <span class="hl-yellow"><strong>modificar la «metainformación»</strong></span> de los datos, <span class="hl-yellow"><strong>renombrando columnas</strong></span>. Para ello usaremos de <code>rename()</code> poniendo <span class="hl-purple"><strong>primero el nombre nuevo</strong></span> y luego el <span class="hl-purple"><strong>antiguo</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb363"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb363-1"><a href="#cb363-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">nombre =</span> name, <span class="at">altura =</span> height, <span class="at">peso =</span> mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 14
+   nombre      altura  peso hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+ 2 C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
+ 3 R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
+ 4 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
+ 5 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
+ 6 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
+ 7 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
+ 8 R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu… Tatooi…
+ 9 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
+10 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
+# … with 77 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
+#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</section>
+<section id="modificar-columnas-mutate" class="slide level2">
+<h2>Modificar columnas: mutate()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb365"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb365-1"><a href="#cb365-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">modificar</span>(<span class="at">nueva =</span> <span class="fu">funcion</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb366"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb366-1"><a href="#cb366-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">nueva =</span> <span class="fu">funcion</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>En muchas ocasiones querremos <span class="hl-yellow"><strong>modificar o crear variables</strong></span> con <code>mutate()</code>. Vamos a crear por ejemplo una nueva variable <code>height_m</code> con la altura en metros.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb367"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb367-1"><a href="#cb367-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">height_m =</span> height <span class="sc">/</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 15
+   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+ 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+ 2 C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
+ 3 R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
+ 4 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
+ 5 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
+ 6 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
+ 7 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
+ 8 R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu… Tatooi…
+ 9 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
+10 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
+# … with 77 more rows, 5 more variables: species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, height_m &lt;dbl&gt;, and abbreviated variable
+#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</section>
+<section id="modificar-columnas-mutate-1" class="slide level2">
+<h2>Modificar columnas: mutate()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb369"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb369-1"><a href="#cb369-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">modificar</span>(<span class="at">nueva =</span> <span class="fu">funcion</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb370"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb370-1"><a href="#cb370-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">nueva =</span> <span class="fu">funcion</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Además con los argumentos opcionales podemos <span class="hl-yellow"><strong>recolocar la columna modificada</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb371"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb371-1"><a href="#cb371-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb371-2"><a href="#cb371-2"></a>  <span class="fu">mutate</span>(<span class="at">height_m =</span> height <span class="sc">/</span> <span class="dv">100</span>,</span>
+<span id="cb371-3"><a href="#cb371-3"></a>         <span class="at">IMC =</span> mass <span class="sc">/</span> (height_m<span class="sc">^</span><span class="dv">2</span>), <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 16
+   heigh…¹   IMC name  height  mass hair_…² skin_…³ eye_c…⁴ birth…⁵ sex   gender
+     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1    1.72  26.0 Luke…    172    77 blond   fair    blue       19   male  mascu…
+ 2    1.67  26.9 C-3PO    167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
+ 3    0.96  34.7 R2-D2     96    32 &lt;NA&gt;    white,… red        33   none  mascu…
+ 4    2.02  33.3 Dart…    202   136 none    white   yellow     41.9 male  mascu…
+ 5    1.5   21.8 Leia…    150    49 brown   light   brown      19   fema… femin…
+ 6    1.78  37.9 Owen…    178   120 brown,… light   blue       52   male  mascu…
+ 7    1.65  27.5 Beru…    165    75 brown   light   blue       47   fema… femin…
+ 8    0.97  34.0 R5-D4     97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
+ 9    1.83  25.1 Bigg…    183    84 black   light   brown      24   male  mascu…
+10    1.82  23.2 Obi-…    182    77 auburn… fair    blue-g…    57   male  mascu…
+# … with 77 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
+#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
+#   names ¹​height_m, ²​hair_color, ³​skin_color, ⁴​eye_color, ⁵​birth_year</code></pre>
+</div>
+</div>
+</section>
+<section id="modificar-columnas-mutate-2" class="slide level2">
+<h2>Modificar columnas: mutate()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb373"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb373-1"><a href="#cb373-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">modificar</span>(<span class="at">nueva =</span> <span class="fu">funcion</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb374"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb374-1"><a href="#cb374-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">nueva =</span> <span class="fu">funcion</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante…</strong></p>
+</div>
+<div class="callout-content">
+<p>Cuando aplicamos <code>mutate()</code>, debemos de acordarnos que las <span class="hl-yellow"><strong>operaciones se realizan de manera vectorial</strong></span>, elemento a elemento, por lo que la función que usemos dentro debe devolver un vector de igual longitud. En caso contrario, <span class="hl-red"><strong>devolverá una constante</strong></span></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb375"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb375-1"><a href="#cb375-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb375-2"><a href="#cb375-2"></a>  <span class="fu">mutate</span>(<span class="at">constante =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 15
+   constante name      height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
+       &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1      97.3 Luke Sky…    172    77 blond   fair    blue       19   male  mascu…
+ 2      97.3 C-3PO        167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
+ 3      97.3 R2-D2         96    32 &lt;NA&gt;    white,… red        33   none  mascu…
+ 4      97.3 Darth Va…    202   136 none    white   yellow     41.9 male  mascu…
+ 5      97.3 Leia Org…    150    49 brown   light   brown      19   fema… femin…
+ 6      97.3 Owen Lars    178   120 brown,… light   blue       52   male  mascu…
+ 7      97.3 Beru Whi…    165    75 brown   light   blue       47   fema… femin…
+ 8      97.3 R5-D4         97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
+ 9      97.3 Biggs Da…    183    84 black   light   brown      24   male  mascu…
+10      97.3 Obi-Wan …    182    77 auburn… fair    blue-g…    57   male  mascu…
+# … with 77 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
+#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
+#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="recategorizar-if_else" class="slide level2">
+<h2>Recategorizar: if_else()</h2>
+<p>También podemos combinar <code>mutate()</code> con la expresión de control <code>if_else()</code> para <span class="hl-yellow"><strong>recategorizar la variable</strong></span>: si <span class="hl-purple"><strong>se cumple una condición</strong></span>, hace una cosa, en caso contrario otra.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb377"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb377-1"><a href="#cb377-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb377-2"><a href="#cb377-2"></a>  <span class="fu">mutate</span>(<span class="at">human =</span> <span class="fu">if_else</span>(species <span class="sc">==</span> <span class="st">"Human"</span>, <span class="st">"Human"</span>, <span class="st">"Not Human"</span>),</span>
+<span id="cb377-3"><a href="#cb377-3"></a>         <span class="at">.after =</span> name) <span class="sc">|&gt;</span> </span>
+<span id="cb377-4"><a href="#cb377-4"></a>  <span class="fu">select</span>(name<span class="sc">:</span>mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 87 × 4
+   name               human     height  mass
+   &lt;chr&gt;              &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;
+ 1 Luke Skywalker     Human        172    77
+ 2 C-3PO              Not Human    167    75
+ 3 R2-D2              Not Human     96    32
+ 4 Darth Vader        Human        202   136
+ 5 Leia Organa        Human        150    49
+ 6 Owen Lars          Human        178   120
+ 7 Beru Whitesun lars Human        165    75
+ 8 R5-D4              Not Human     97    32
+ 9 Biggs Darklighter  Human        183    84
+10 Obi-Wan Kenobi     Human        182    77
+# … with 77 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="recategorizar-case_when" class="slide level2">
+<h2>Recategorizar: case_when()</h2>
+<p>Para <span class="hl-yellow"><strong>recategorizaciones más complejas</strong></span> tenemos <code>case_when()</code>, por ejemplo, para crear una categoría de los personajes en función de su altura.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb379"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb379-1"><a href="#cb379-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb379-2"><a href="#cb379-2"></a>  <span class="fu">drop_na</span>(height) <span class="sc">|&gt;</span> </span>
+<span id="cb379-3"><a href="#cb379-3"></a>  <span class="fu">mutate</span>(<span class="at">altura =</span> <span class="fu">case_when</span>(height <span class="sc">&lt;</span> <span class="dv">120</span> <span class="sc">~</span> <span class="st">"enanos"</span>,</span>
+<span id="cb379-4"><a href="#cb379-4"></a>                            height <span class="sc">&lt;</span> <span class="dv">160</span> <span class="sc">~</span> <span class="st">"bajito"</span>,</span>
+<span id="cb379-5"><a href="#cb379-5"></a>                            height <span class="sc">&lt;</span> <span class="dv">180</span> <span class="sc">~</span> <span class="st">"normal"</span>,</span>
+<span id="cb379-6"><a href="#cb379-6"></a>                            height <span class="sc">&lt;</span> <span class="dv">200</span> <span class="sc">~</span> <span class="st">"alto"</span>,</span>
+<span id="cb379-7"><a href="#cb379-7"></a>                            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"gigante"</span>), <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 81 × 15
+   altura  name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
+   &lt;chr&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 normal  Luke Skywa…    172    77 blond   fair    blue       19   male  mascu…
+ 2 normal  C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
+ 3 enanos  R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu…
+ 4 gigante Darth Vader    202   136 none    white   yellow     41.9 male  mascu…
+ 5 bajito  Leia Organa    150    49 brown   light   brown      19   fema… femin…
+ 6 normal  Owen Lars      178   120 brown,… light   blue       52   male  mascu…
+ 7 normal  Beru White…    165    75 brown   light   blue       47   fema… femin…
+ 8 enanos  R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
+ 9 alto    Biggs Dark…    183    84 black   light   brown      24   male  mascu…
+10 alto    Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu…
+# … with 71 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
+#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
+#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
+</div>
+</div>
+</section>
+<section id="tu-turno-7" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-8-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-8-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-8-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-8-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li><li><a href="#tabset-8-6"><span class="hl-yellow"><strong>Ejercicio 6</strong></span></a></li><li><a href="#tabset-8-7"><span class="hl-yellow"><strong>Ejercicio 7</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p>📝 Selecciona solo las variables nombre, altura y así como todas aquellas variables relacionadas con el color, a la vez que te quedas solo con aquellos que no tengan ausente en la altura.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb381"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb381-1"><a href="#cb381-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb381-2"><a href="#cb381-2"></a>  <span class="fu">select</span>(name, height, <span class="fu">contains</span>(<span class="st">"color"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb381-3"><a href="#cb381-3"></a>  <span class="fu">drop_na</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-2">
+<p>📝 Con los datos obtenidos del ejercicio anterior, traduce el nombre de las columnas a castellano.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb382"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb382-1"><a href="#cb382-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb382-2"><a href="#cb382-2"></a>  <span class="fu">select</span>(name, height, <span class="fu">contains</span>(<span class="st">"color"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb382-3"><a href="#cb382-3"></a>  <span class="fu">drop_na</span>(height) <span class="sc">|&gt;</span> </span>
+<span id="cb382-4"><a href="#cb382-4"></a>  <span class="fu">rename</span>(<span class="at">nombre =</span> name, <span class="at">altura =</span> height,</span>
+<span id="cb382-5"><a href="#cb382-5"></a>         <span class="at">color_pelo =</span> eye_color, <span class="at">color_piel =</span> skin_color,</span>
+<span id="cb382-6"><a href="#cb382-6"></a>         <span class="at">color_pelo =</span> hair_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-3">
+<p>📝 Con los datos obtenidos del ejercicio anterior, coloca la variable de color de pelo justo detrás de la variable de nombres.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb383"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb383-1"><a href="#cb383-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb383-2"><a href="#cb383-2"></a>  <span class="fu">select</span>(name, height, <span class="fu">contains</span>(<span class="st">"color"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb383-3"><a href="#cb383-3"></a>  <span class="fu">drop_na</span>(height) <span class="sc">|&gt;</span> </span>
+<span id="cb383-4"><a href="#cb383-4"></a>  <span class="fu">rename</span>(<span class="at">nombre =</span> name, <span class="at">altura =</span> height,</span>
+<span id="cb383-5"><a href="#cb383-5"></a>         <span class="at">color_pelo =</span> eye_color, <span class="at">color_piel =</span> skin_color,</span>
+<span id="cb383-6"><a href="#cb383-6"></a>         <span class="at">color_pelo =</span> hair_color) <span class="sc">|&gt;</span> </span>
+<span id="cb383-7"><a href="#cb383-7"></a>  <span class="fu">relocate</span>(color_pelo, <span class="at">.after =</span> nombre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-4">
+<p>📝 Con los datos originales, comprueba cuántas modalidades únicas hay en la variable de color de pelo.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb384"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb384-1"><a href="#cb384-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb384-2"><a href="#cb384-2"></a>  <span class="fu">distinct</span>(hair_color) <span class="sc">|&gt;</span> </span>
+<span id="cb384-3"><a href="#cb384-3"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-5">
+<p>📝 Del dataset original, selecciona solo las variables numéricas y de tipo texto. Tras ello define una nueva variable llamada <code>under_18</code> que nos recategorice la variable de edad: <code>TRUE</code> si es menor de edad y <code>FALSE</code> en caso contrario</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb385"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb385-1"><a href="#cb385-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb385-2"><a href="#cb385-2"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric) <span class="sc">|</span> <span class="fu">where</span>(is.character)) <span class="sc">|&gt;</span> </span>
+<span id="cb385-3"><a href="#cb385-3"></a>  <span class="fu">mutate</span>(<span class="at">under_18 =</span> birth_year <span class="sc">&lt;</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-6">
+<p>📝 Del dataset original, crea una nueva columna llamada <code>auburn</code> (cobrizo/caoba) que nos diga TRUE si el color de pelo contiene dicha palabra y FALSE en caso contrario (reminder <code>str_detect()</code>).</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb386"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb386-1"><a href="#cb386-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb386-2"><a href="#cb386-2"></a>  <span class="fu">mutate</span>(<span class="at">auburn =</span> <span class="fu">str_detect</span>(hair_color, <span class="st">"auburn"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-8-7">
+<p>📝 Del dataset original, incluye una columna que calcule el IMC. Tras ello, crea una nueva variable que valga <code>NA</code> si no es humano, <code>delgadez</code> por debajo de 18, <code>normal</code> entre 18 y 30, <code>sobrepeso</code> por encima de 30.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb387"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb387-1"><a href="#cb387-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb387-2"><a href="#cb387-2"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> mass <span class="sc">/</span> ((height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb387-3"><a href="#cb387-3"></a>         <span class="at">IMC_recat =</span> <span class="fu">case_when</span>(species <span class="sc">!=</span> <span class="st">"Human"</span> <span class="sc">~</span> <span class="cn">NA</span>,</span>
+<span id="cb387-4"><a href="#cb387-4"></a>                               IMC <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">"delgadez"</span>,</span>
+<span id="cb387-5"><a href="#cb387-5"></a>                               IMC <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"normal"</span>,</span>
+<span id="cb387-6"><a href="#cb387-6"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"sobrepeso"</span>),</span>
+<span id="cb387-7"><a href="#cb387-7"></a>         <span class="at">.after =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contar-count" class="slide level2">
+<h2>Contar: count()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb388"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb388-1"><a href="#cb388-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">contar</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb389"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb389-1"><a href="#cb389-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">count</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Hasta ahora solo hemos transformado o consultado los datos pero no hemos generado estadísticas. Empecemos por lo sencillo: <span class="hl-yellow"><strong>¿cómo contar (frecuencias)?</strong></span></p>
+<div class="fragment">
+<p>Cuando lo usamos en solitario <code>count()</code> nos devolverá simplemente el número de registros , pero cuando lo usamos con variables <code>count()</code> calcula lo que se conoce como <span class="hl-yellow"><strong>frecuencias</strong></span>: <span class="hl-purple"><strong>número de elementos de cada modalidad</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb390"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb390-1"><a href="#cb390-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">count</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  sex                n
+  &lt;chr&gt;          &lt;int&gt;
+1 female            16
+2 hermaphroditic     1
+3 male              60
+4 none               6
+5 &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="contar-count-1" class="slide level2">
+<h2>Contar: count()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb392"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb392-1"><a href="#cb392-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">contar</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb393"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb393-1"><a href="#cb393-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">count</span>(var1, var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Además si pasamos varias variables nos calcula lo que se conoce como una <span class="hl-yellow"><strong>tabla de contigencia</strong></span>. Con <code>sort = TRUE</code> nos devolverá el <span class="hl-purple"><strong>conteo ordenado</strong></span> (más frecuentes primero).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb394"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb394-1"><a href="#cb394-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">count</span>(sex, gender, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  sex            gender        n
+  &lt;chr&gt;          &lt;chr&gt;     &lt;int&gt;
+1 male           masculine    60
+2 female         feminine     16
+3 none           masculine     5
+4 &lt;NA&gt;           &lt;NA&gt;          4
+5 hermaphroditic masculine     1
+6 none           feminine      1</code></pre>
+</div>
+</div>
+</section>
+<section id="agrupar-group_by" class="slide level2">
+<h2>Agrupar: group_by()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb396"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb396-1"><a href="#cb396-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb396-2"><a href="#cb396-2"></a>  <span class="fu">agrupar</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb396-3"><a href="#cb396-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb396-4"><a href="#cb396-4"></a>  <span class="fu">desagrupar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb397"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb397-1"><a href="#cb397-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb397-2"><a href="#cb397-2"></a>  <span class="fu">group_by</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb397-3"><a href="#cb397-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb397-4"><a href="#cb397-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Una de las <span class="hl-yellow"><strong>funciones más potentes</strong></span> a combinar con las acciones vistas es <code>group_by()</code>, que nos permitirá <span class="hl-yellow"><strong>agrupar nuestros registros</strong></span> previamente</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb398"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb398-1"><a href="#cb398-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb398-2"><a href="#cb398-2"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
+<span id="cb398-3"><a href="#cb398-3"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span></span>
+<span id="cb398-4"><a href="#cb398-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  sex                n
+  &lt;chr&gt;          &lt;int&gt;
+1 female            16
+2 hermaphroditic     1
+3 male              60
+4 none               6
+5 &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</section>
+<section id="agrupar-group_by-1" class="slide level2">
+<h2>Agrupar: group_by()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb400"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb400-1"><a href="#cb400-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb400-2"><a href="#cb400-2"></a>  <span class="fu">agrupar</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb400-3"><a href="#cb400-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb400-4"><a href="#cb400-4"></a>  <span class="fu">desagrupar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb401"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb401-1"><a href="#cb401-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb401-2"><a href="#cb401-2"></a>  <span class="fu">group_by</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb401-3"><a href="#cb401-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb401-4"><a href="#cb401-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Cuando apliquemos <code>group_by()</code> es importante entender que <span class="hl-yellow"><strong>NO MODIFICA los datos</strong></span>, sino que nos crea una <span class="hl-yellow"><strong>variable de grupo</strong></span> (subtablas por cada grupo) que modificará las acciones futuras: las <span class="hl-purple"><strong>operaciones se aplicarán a cada subtabla por separado</strong></span></p>
+<div class="fragment">
+<p>Por ejemplo, imaginemos que queremos extraer el personaje más alto con <code>slice_max()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb402"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb402-1"><a href="#cb402-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 14
+  name        height  mass hair_c…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Yarael Poof    264    NA none     white   yellow       NA male  mascu… Quermia
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="agrupar-group_by-2" class="slide level2">
+<h2>Agrupar: group_by()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb404"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb404-1"><a href="#cb404-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb404-2"><a href="#cb404-2"></a>  <span class="fu">agrupar</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb404-3"><a href="#cb404-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb404-4"><a href="#cb404-4"></a>  <span class="fu">desagrupar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb405"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb405-1"><a href="#cb405-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb405-2"><a href="#cb405-2"></a>  <span class="fu">group_by</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb405-3"><a href="#cb405-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb405-4"><a href="#cb405-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>¿Y si queremos <span class="hl-yellow"><strong>extraer el personaje más alto pero…de cada uno de los sexos</strong></span>?</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb406"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb406-1"><a href="#cb406-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb406-2"><a href="#cb406-2"></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb406-3"><a href="#cb406-3"></a>  <span class="fu">slice_max</span>(height) <span class="sc">|&gt;</span> </span>
+<span id="cb406-4"><a href="#cb406-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Taun We         213    NA none    grey    black        NA fema… femin… Kamino 
+2 Jabba Desil…    175  1358 &lt;NA&gt;    green-… orange      600 herm… mascu… Nal Hu…
+3 Yarael Poof     264    NA none    white   yellow       NA male  mascu… Quermia
+4 IG-88           200   140 none    metal   red          15 none  mascu… &lt;NA&gt;   
+5 Ric Olié        183    NA brown   fair    blue         NA &lt;NA&gt;  &lt;NA&gt;   Naboo  
+6 Quarsh Pana…    183    NA black   dark    brown        62 &lt;NA&gt;  &lt;NA&gt;   Naboo  
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="agrupar-group_by-3" class="slide level2">
+<h2>Agrupar: group_by()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb408"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb408-1"><a href="#cb408-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb408-2"><a href="#cb408-2"></a>  <span class="fu">agrupar</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb408-3"><a href="#cb408-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb408-4"><a href="#cb408-4"></a>  <span class="fu">desagrupar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb409"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb409-1"><a href="#cb409-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb409-2"><a href="#cb409-2"></a>  <span class="fu">group_by</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb409-3"><a href="#cb409-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb409-4"><a href="#cb409-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/tidydatatutor_1.jpg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/tidydatatutor_2.jpg"></p>
+</div>
+</div>
+<p>La web <a href="https://tidydatatutor.com/" class="uri">https://tidydatatutor.com/</a> permite visualizar las operaciones de <code>{tidyverse}</code> (con el pipe antiguo)</p>
+</section>
+<section id="agrupar-group_by-4" class="slide level2">
+<h2>Agrupar: group_by()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb410"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb410-1"><a href="#cb410-1"></a>datos <span class="sc">|&gt;</span></span>
+<span id="cb410-2"><a href="#cb410-2"></a>  <span class="fu">agrupar</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb410-3"><a href="#cb410-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span></span>
+<span id="cb410-4"><a href="#cb410-4"></a>  <span class="fu">desagrupar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb411"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb411-1"><a href="#cb411-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb411-2"><a href="#cb411-2"></a>  <span class="fu">group_by</span>(var1, var2) <span class="sc">|&gt;</span> </span>
+<span id="cb411-3"><a href="#cb411-3"></a>  <span class="fu">accion</span>() <span class="sc">|&gt;</span></span>
+<span id="cb411-4"><a href="#cb411-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Recuerda siempre <span class="hl-red"><strong>hacer ungroup</strong></span> para eliminar la variable de grupo creada</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>En la nueva versión de <code>{dplyr}</code> ahora se <span class="hl-yellow"><strong>permite incluir la variable de grupo</strong></span> en la llamada a muchas funciones con el argumento <code>by = ...</code> o <code>.by = ...</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb412"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb412-1"><a href="#cb412-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(height, <span class="at">by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  name                  height  mass hair_color skin_color       eye_color
+  &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;    
+1 Yarael Poof              264    NA none       white            yellow   
+2 IG-88                    200   140 none       metal            red      
+3 Taun We                  213    NA none       grey             black    
+4 Jabba Desilijic Tiure    175  1358 &lt;NA&gt;       green-tan, brown orange   
+5 Ric Olié                 183    NA brown      fair             blue     
+6 Quarsh Panaka            183    NA black      dark             brown    </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="fila-a-fila-rowwise" class="slide level2">
+<h2>Fila-a-fila: rowwise()</h2>
+<p>Una opción muy útil usada antes de una operación también es <code>rowwise()</code>: toda <span class="hl-yellow"><strong>operación que venga después se aplicará en cada fila por separado</strong></span>. Por ejemplo, vamos a definir un conjunto dummy de notas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb414"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb414-1"><a href="#cb414-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"mates"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">7.5</span>, <span class="dv">8</span>, <span class="fl">9.1</span>, <span class="dv">3</span>),</span>
+<span id="cb414-2"><a href="#cb414-2"></a>                <span class="st">"lengua"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">6</span>, <span class="fl">6.5</span>, <span class="fl">9.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Si aplicamos la media directamente el valor será idéntico ya que nos ha hecho la media global, pero nos gustaría sacar una <span class="hl-yellow"><strong>media por registro</strong></span>. Para eso usaremos <code>rowwise()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb415"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb415-1"><a href="#cb415-1"></a>notas <span class="sc">|&gt;</span> </span>
+<span id="cb415-2"><a href="#cb415-2"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb415-3"><a href="#cb415-3"></a>  <span class="fu">mutate</span>(<span class="at">media_curso =</span> <span class="fu">mean</span>(<span class="fu">c</span>(mates, lengua)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+# Rowwise: 
+  mates lengua media_curso
+  &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;
+1   7.5    8          7.75
+2   8      6          7   
+3   9.1    6.5        7.8 
+4   3      9.2        6.1 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="resumir-summarise" class="slide level2">
+<h2>Resumir: summarise()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb417"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb417-1"><a href="#cb417-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">resumir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb418"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb418-1"><a href="#cb418-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">summarise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Por último tenemos <code>summarise()</code>, que nos permitirá sacar resúmenes estadísticos. Por ejemplo, vamos a <span class="hl-yellow"><strong>calcular la media de las alturas</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb419"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb419-1"><a href="#cb419-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb419-2"><a href="#cb419-2"></a>  <span class="fu">drop_na</span>(height) <span class="sc">|&gt;</span> </span>
+<span id="cb419-3"><a href="#cb419-3"></a>  <span class="fu">summarise</span>(<span class="at">media_altura =</span> <span class="fu">mean</span>(height))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  media_altura
+         &lt;dbl&gt;
+1         174.</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Cuidado</strong></p>
+</div>
+<div class="callout-content">
+<p>Fíjate que <code>mutate()</code> devuelve <span class="hl-yellow"><strong>tantas filas como registros originales</strong></span>, mientras que con <code>summarise()</code> calcula un <span class="hl-purple"><strong>nuevo dataset de resumen</strong></span>, solo incluyendo aquello que esté indicado.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="resumir-summarise-1" class="slide level2">
+<h2>Resumir: summarise()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb421"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb421-1"><a href="#cb421-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">resumir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">summarise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Si además esto lo <span class="hl-yellow"><strong>combinamos con la agrupación</strong></span> de <code>group_by()</code> o <code>.by = ...</code>, en pocas líneas de código puedes obtener <span class="hl-purple"><strong>estadísticas desagreagadas</strong></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb423"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb423-1"><a href="#cb423-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb423-2"><a href="#cb423-2"></a>  <span class="fu">drop_na</span>(sex, height, mass) <span class="sc">|&gt;</span> </span>
+<span id="cb423-3"><a href="#cb423-3"></a>  <span class="fu">summarise</span>(<span class="at">media_altura =</span> <span class="fu">mean</span>(height),</span>
+<span id="cb423-4"><a href="#cb423-4"></a>            <span class="at">media_peso =</span> <span class="fu">mean</span>(mass),</span>
+<span id="cb423-5"><a href="#cb423-5"></a>            <span class="at">.by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  sex            media_altura media_peso
+  &lt;chr&gt;                 &lt;dbl&gt;      &lt;dbl&gt;
+1 male                   178.       81.0
+2 none                   140        69.8
+3 female                 169.       54.7
+4 hermaphroditic         175      1358  </code></pre>
+</div>
+</div>
+</section>
+<section id="resumir-reframe" class="slide level2">
+<h2>Resumir: reframe()</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb425"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb425-1"><a href="#cb425-1"></a>datos <span class="sc">|&gt;</span> <span class="fu">resumir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb426"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb426-1"><a href="#cb426-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">reframe</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>En el nuevo <code>{dplyr}</code> han incluido <code>reframe()</code> para evitar problemas de <code>summarise()</code> cuando <span class="hl-yellow"><strong>devolvemos más de un valor por variable</strong></span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb427"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb427-1"><a href="#cb427-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb427-2"><a href="#cb427-2"></a>  <span class="fu">drop_na</span>(mass) <span class="sc">|&gt;</span></span>
+<span id="cb427-3"><a href="#cb427-3"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  `quantile(mass)`
+             &lt;dbl&gt;
+1             15  
+2             55.6
+3             79  
+4             84.5
+5           1358  </code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb430"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb430-1"><a href="#cb430-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb430-2"><a href="#cb430-2"></a>  <span class="fu">drop_na</span>(mass) <span class="sc">|&gt;</span></span>
+<span id="cb430-3"><a href="#cb430-3"></a>  <span class="fu">reframe</span>(<span class="fu">quantile</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  `quantile(mass)`
+             &lt;dbl&gt;
+1             15  
+2             55.6
+3             79  
+4             84.5
+5           1358  </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="selectores-across" class="slide level2">
+<h2>Selectores: across()</h2>
+<p>Un truco es <span class="hl-yellow"><strong>hacer uso de selectores</strong></span> <code>across()</code> y <code>where()</code>. El primero nos permite <span class="hl-purple"><strong>actuar sobre varias columnas por nombre</strong></span> (con <code>mutate()</code> o <code>summarise()</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb432"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb432-1"><a href="#cb432-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">medias =</span> <span class="fu">across</span>(height<span class="sc">:</span>mass, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  sex            medias$height  $mass
+  &lt;chr&gt;                  &lt;dbl&gt;  &lt;dbl&gt;
+1 male                    179.   81.0
+2 none                    131.   69.8
+3 female                  169.   54.7
+4 hermaphroditic          175  1358  
+5 &lt;NA&gt;                    181.   48  </code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>El segundo, <code>where()</code>, nos permite hacer lo mismo pero <span class="hl-yellow"><strong>seleccionando por tipo</strong></span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb434"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb434-1"><a href="#cb434-1"></a>starwars <span class="sc">|&gt;</span> </span>
+<span id="cb434-2"><a href="#cb434-2"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> <span class="fu">c</span>(sex, gender))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  sex            gender    height   mass birth_year
+  &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 male           masculine   179.   81.0       85.5
+2 none           masculine   140    69.8       53.3
+3 female         feminine    169.   54.7       47.2
+4 hermaphroditic masculine   175  1358        600  
+5 &lt;NA&gt;           &lt;NA&gt;        181.   48         62  
+6 none           feminine     96   NaN        NaN  </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tu-turno-8" class="slide level2">
+<h2>💻 Tu turno</h2>
+<p><span style="color:#444442;"><strong>Intenta realizar los siguientes ejercicios sin mirar las soluciones</strong></span></p>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1"><span class="hl-yellow"><strong>Ejercicio 1</strong></span></a></li><li><a href="#tabset-9-2"><span class="hl-yellow"><strong>Ejercicio 2</strong></span></a></li><li><a href="#tabset-9-3"><span class="hl-yellow"><strong>Ejercicio 3</strong></span></a></li><li><a href="#tabset-9-4"><span class="hl-yellow"><strong>Ejercicio 4</strong></span></a></li><li><a href="#tabset-9-5"><span class="hl-yellow"><strong>Ejercicio 5</strong></span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<p>📝 Calcula cuántos personajes hay de cada especie, ordenados de más a menor frecuencia.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb436"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb436-1"><a href="#cb436-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">count</span>(species, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-9-2">
+<p>📝 Tras eliminar ausentes en las variables de peso y estatura, añade una nueva variable que nos calcule el IMC de cada personaje, y determina el IMC medio de nuestros personajes desagregada por sexo</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb437"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb437-1"><a href="#cb437-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb437-2"><a href="#cb437-2"></a>  <span class="fu">drop_na</span>(mass, height) <span class="sc">|&gt;</span> </span>
+<span id="cb437-3"><a href="#cb437-3"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> mass <span class="sc">/</span> ((height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb437-4"><a href="#cb437-4"></a>  <span class="fu">summarise</span>(<span class="at">IMC_medio =</span> <span class="fu">mean</span>(IMC), <span class="at">.by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-9-3">
+<p>📝 Obtén el personaje más joven por cada sexo.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb438"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb438-1"><a href="#cb438-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb438-2"><a href="#cb438-2"></a>  <span class="fu">slice_min</span>(birth_year, <span class="at">by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-9-4">
+<p>📝 Obtén la edad del personaje más joven y más viejo de cada sexo.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb439"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb439-1"><a href="#cb439-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb439-2"><a href="#cb439-2"></a>  <span class="fu">drop_na</span>(birth_year) <span class="sc">|&gt;</span></span>
+<span id="cb439-3"><a href="#cb439-3"></a>  <span class="fu">summarise</span>(<span class="fu">min</span>(birth_year), <span class="fu">max</span>(birth_year), <span class="at">.by =</span> sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-9-5">
+<p>📝 Determina la cantidad de personajes en cada década (echa un vistazo a <code>round()</code>, primero sin desagregar y luego desagregado por sexo.</p>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb440"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb440-1"><a href="#cb440-1"></a>starwars <span class="sc">|&gt;</span></span>
+<span id="cb440-2"><a href="#cb440-2"></a>  <span class="fu">count</span>(<span class="at">birth_decade =</span> <span class="fu">round</span>(birth_year, <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="caso-real-datos-de-encuestas" class="title-slide slide level1 center">
+<h1>Caso real: datos de encuestas</h1>
+<p><span style="color:#444442;"><strong>Pongamos en práctica lo aprendido…</strong></span></p>
+</section>
+<section id="caso-real-datos-de-encuestas-1" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<p>El paquete <code>{readr}</code> (ya en <code>{tidyverse}</code>) nos permite realizar una carga más ágil y más inteligente que el <code>read.csv()</code> de base (lo importa a un <code>tibble</code> e interpreta bien el tipo de cada variable, incluso fechas)</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb441"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb441-1"><a href="#cb441-1"></a>encuestas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"./datos/historical_surveys.csv"</span>)</span>
+<span id="cb441-2"><a href="#cb441-2"></a>encuestas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,753 × 59
+   type_s…¹ date_elec  id_po…² polls…³ media field_da…⁴ field_da…⁵ exit_…⁶  size
+   &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;date&gt;     &lt;date&gt;     &lt;lgl&gt;   &lt;dbl&gt;
+ 1 national 1982-10-28 pollst… PSOE    &lt;NA&gt;  1982-10-28 1982-10-28 TRUE    85300
+ 2 national 1982-10-28 pollst… IDEAL   &lt;NA&gt;  1982-10-28 1982-10-28 TRUE       NA
+ 3 national 1982-10-28 pollst… SOFEMA… EL P… 1982-10-16 1982-10-19 FALSE   18255
+ 4 national 1982-10-28 pollst… GRUPO … GRUP… 1982-10-09 1982-10-14 FALSE    7000
+ 5 national 1982-10-28 pollst… SOFEMA… EL P… 1982-10-01 1982-10-07 FALSE    1163
+ 6 national 1982-10-28 pollst… GRUPO … GRUP… 1982-09-25 1982-09-30 FALSE    3008
+ 7 national 1982-10-28 pollst… SOFEMA… EL P… 1982-09-24 1982-09-30 FALSE    2460
+ 8 national 1982-10-28 pollst… AP      &lt;NA&gt;  1982-09-27 1982-09-27 FALSE    6000
+ 9 national 1982-10-28 pollst… GALLUP  &lt;NA&gt;  1982-09-06 1982-09-26 FALSE      NA
+10 national 1982-10-28 pollst… GRUPO … GRUP… 1982-09-05 1982-09-19 FALSE    3000
+# … with 3,743 more rows, 50 more variables: turnout &lt;dbl&gt;, UCD &lt;dbl&gt;,
+#   PSOE &lt;dbl&gt;, PCE &lt;dbl&gt;, AP &lt;dbl&gt;, CIU &lt;dbl&gt;, PA &lt;dbl&gt;, `EAJ-PNV` &lt;dbl&gt;,
+#   HB &lt;dbl&gt;, ERC &lt;dbl&gt;, EE &lt;dbl&gt;, CDS &lt;dbl&gt;, FN &lt;dbl&gt;, PAD &lt;dbl&gt;, PRD &lt;dbl&gt;,
+#   MUC &lt;dbl&gt;, IU &lt;dbl&gt;, CG &lt;dbl&gt;, PAR &lt;dbl&gt;, AIC &lt;dbl&gt;, UV &lt;dbl&gt;, EA &lt;dbl&gt;,
+#   PP &lt;dbl&gt;, LV &lt;dbl&gt;, ARM &lt;dbl&gt;, PDP &lt;dbl&gt;, CC &lt;dbl&gt;, PAP &lt;dbl&gt;, BNG &lt;dbl&gt;,
+#   ICV &lt;dbl&gt;, EH &lt;dbl&gt;, UPYD &lt;dbl&gt;, AMAIUR &lt;dbl&gt;, CS &lt;dbl&gt;, `DIL-CDC` &lt;dbl&gt;,
+#   `EH-BILDU` &lt;dbl&gt;, UP &lt;dbl&gt;, PACMA &lt;dbl&gt;, PODEMOS &lt;dbl&gt;, COMPROMIS &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-2" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<p>Lo <span class="hl-yellow"><strong>primero que debes hacer</strong></span> es visualizar con <code>View()</code> la tabla para entenderla</p>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Primera tarea</strong></span>: crea una variable llamada <code>id_survey</code> que nos permita identificar a cada encuesta. ¿Qué podríamos concatenar?</li>
+</ul>
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Segunda tarea</strong></span>: usando la variable <code>id_survey</code> creada elimina duplicados.</li>
+</ul>
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Tercera tarea</strong></span>: tenemos una variable <code>media</code> que representa el medio en el que se publicó o encargo la encuesta. Elimina dicha variable, así como el tipo de encuesta y el id de la encuestadora</li>
+</ul>
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Cuarta tarea</strong></span>: quédate solo con las encuestas cuyo tamaño muestral conozcamos y que no sean encuestas a pie de urna. Elimina esta última variable.</li>
+</ul>
+<div class="cell">
+
+</div>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-3" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
+<li><span class="hl-purple"><strong>Quinta tarea</strong></span>: convierte el dataset en tidydata. ¿Qué falla? ¿Cómo arreglarlo? Reminder: no quremos ausentes.</li>
+</ul>
+<div class="cell">
+
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Sexta tarea</strong></span>: calcula el número de días que la encuesta ha hecho trabajo de campo, y coloca dicha columna tras el nombre de la encuestadora. Tras ello elimina aquellas encuestas que tengan 0 días de trabajo de campo.</li>
+</ul>
+<div class="cell">
+
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Séptima tarea</strong></span>: calcula el número de días que faltan hasta las elecciones desde que la encuesta cerro el trabajo de campo y coloca dicha variable tras <code>n_dias_campo</code>. Tras ello elimina las fechas de inicio y fin de trabajo de campo de la manera más eficiente posible</li>
+</ul>
+<div class="cell">
+
+</div>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-4" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
+<li><span class="hl-purple"><strong>Octava tarea</strong></span>: elimina encuestas que se hayan cerrado dentro de la ventana temporal en la que está prohibido la publicación de encuestas (no se deberían usar para predecir ya que «no se conocen»)</li>
+</ul>
+<div class="cell">
+
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Novena tarea</strong></span>: obtén, por cada elección, la media de las encuestas de cada partido</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Décima tarea</strong></span>: realiza lo mismo que la tarea anterior pero solo para las encuestas de los 60 días previos a las elecciones. Ordena la salida de reciente a antiguo</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="hl-purple"><strong>Undécima tarea</strong></span>: del dataset generado en el anterior ejercicio, obtén el primer y el segundo con mayor estimación de voto (en promedio)</li>
+</ul>
+</div>
 </section></section>
 <section id="gracias" class="title-slide slide level1 center">
 <h1>¡GRACIAS!</h1>
-<p><span style="color:#444442;"><strong>El jueves más y mejor :)</strong></span></p>
+<p><span style="color:#444442;"><strong>Mi mail javalv09@ucm.es, Twitter <a href="https://twitter.com/DadosdeLaplace"><span class="citation" data-cites="dadosdelaplace">@dadosdelaplace</span></a> e Instagram <a href="https://www.instagram.com/javieralvarezliebana/"><span class="citation" data-cites="javieralvarezliebana">@javieralvarezliebana</span></a> para lo que queráis (dudas, cervezas, …)</strong></span></p>
 <div class="footer footer-default">
 <p><a href="..."><strong>Javier Álvarez Liébana</strong></a> • Curso de R impartido en RTVE • 28 y 30 de marzo de 2023</p>
 </div>
