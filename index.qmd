@@ -4307,10 +4307,6 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 * [**Tutorial de tablas**]{.hl-purple}: de Benjamin Nowak <https://bjnnowak.netlify.app/2021/10/04/r-beautiful-tables-with-gt-and-gtextras/>
 
 
-
----
-
-
 # ¡GRACIAS!
 
 [**Mi mail javalv09@ucm.es, Twitter [@dadosdelaplace](https://twitter.com/DadosdeLaplace) e Instagram [@javieralvarezliebana](https://www.instagram.com/javieralvarezliebana/) para lo que queráis (dudas, cervezas, ...)**]{style="color:#444442;"}
