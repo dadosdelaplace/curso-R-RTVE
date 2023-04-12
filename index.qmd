@@ -4221,7 +4221,6 @@ encuestas |>
 Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-yellow} con <https://plotly-r.com/saving.html> y generar el [**código del iframe responsive**]{.hl-yellow} con <https://bhaskarvk.github.io/widgetframe/articles/Using_widgetframe.html>
 
 
-* [**{ggiraph}**]{.hl-purple}: gráficas interactivas al [**estilo D3**]{.hl-yellow}. <https://davidgohel.github.io/ggiraph/>
 
 ---
 
@@ -4229,11 +4228,24 @@ Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-ye
 
 ### Dataviz
 
+* [**{ggiraph}**]{.hl-purple}: gráficas interactivas al [**estilo D3**]{.hl-yellow}. <https://davidgohel.github.io/ggiraph/>
+
+* [**Aprender a usar {ggiraph}**]{.hl-purple}: para gráficas interactivas al [**estilo D3**]{.hl-yellow} <https://albert-rapp.de/posts/ggplot2-tips/17_ggiraph/17_ggiraph.html> 
+
+* [**Gráficas interactivas**]{.hl-purple}: <https://www.tanyashapiro.com/interactive-visuals>
+
 * [**{geomtextpath}**]{.hl-purple}: paquete para [**curvar el texto**]{.hl-yellow} ajustándose a una gráfica. De Allan Cameron y Teun van den Brand. <https://allancameron.github.io/geomtextpath/>
 
 * [**{ggstream}**]{.hl-purple}: visualización de [**datos en flujo**]{.hl-yellow}. De Z. Gu. <https://github.com/davidsjoberg/ggstream>
 
 * [**{ggpattern}**]{.hl-purple}: rellenos con [**patrones geométricos**]{.hl-yellow} en ggplot2. De coolbutuseless y Trevor L. Davis. <https://github.com/coolbutuseless/ggpattern>
+
+---
+
+
+## Cosicas curiosas
+
+### Mapas
 
 * [**{mapSpain}**]{.hl-purple}: visualización de [**datos en mapas de España**]{.hl-yellow} en R. De Diego Hernangómez <https://dieghernan.github.io/rpubs/mapSpain_RMadrid/#1>
 
