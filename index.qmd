@@ -3998,6 +3998,8 @@ Lo [**primero que debes hacer**]{.hl-yellow} es visualizar con `View()` la tabla
 #| code-fold: true
 encuestas <-
   encuestas |> 
+  # Creamos un id con type_survey-date_elec-id_pollster
+  # con .before la ponemos delante de everything(), de todo (1ª col)
   mutate(id_survey = glue("{type_survey}-{date_elec}-{id_pollster}"),
          .before = everything())
 ```
@@ -4012,7 +4014,9 @@ encuestas <-
 ```{r}
 #| code-fold: true
 encuestas <-
-  encuestas |> 
+  encuestas |>
+  # Eliminamos duplicados por id_survey, pero mantenemos todas las
+  # columnas con .keep_all = TRUE
   distinct(id_survey, .keep_all = TRUE)
 ```
 
@@ -4027,6 +4031,8 @@ encuestas <-
 #| code-fold: true
 encuestas <-
   encuestas |> 
+  # Eliminamos las columnas pedidas con un -
+  # las concateno para usar solo un - para todas
   select(-c(type_survey, id_pollster, media))
 ```
 
@@ -4041,8 +4047,11 @@ encuestas <-
 #| code-fold: true
 encuestas <-
   encuestas |> 
+  # eliminar ausentes
   drop_na(size) |> 
+  # Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)
   filter(!exit_poll) |> 
+  # Quitamos la variable pie de urna
   select(-exit_poll)
 ```
 
@@ -4058,6 +4067,7 @@ encuestas <-
 #| code-fold: true
 encuestas <-
   encuestas |> 
+  # Convertimos a tidydata
   pivot_longer(cols = -(id_survey:turnout),
                names_to = "partido",
                values_to = "est_voto",
@@ -4075,8 +4085,11 @@ encuestas <-
 #| code-fold: true
 encuestas <-
   encuestas |> 
+  # Calculamos los días de campo como la diferencia de fechas 
+  # con as.numeric() convertimos la dif. de fechas a un número
   mutate(n_dias_campo = as.numeric(field_date_to - field_date_from),
          .after = pollster) |> 
+  # Solo aquellas cuyo trabajo de campo haya durado 1 día o más
   filter(n_dias_campo > 0)
 ```
 
@@ -4091,8 +4104,11 @@ encuestas <-
 #| code-fold: true
 encuestas <-
   encuestas |> 
+  # Calculamos los días que faltan a las elecciones
+  # con as.numeric() convertimos la dif. de fechas a un número
   mutate(n_dias_elec = as.numeric(date_elec - field_date_to),
          .after = n_dias_campo) |> 
+  # Eliminamos ya las fechas de campo que no necesitamos
   select(-contains("field"))
 ```
 
@@ -4106,7 +4122,8 @@ encuestas <-
 ```{r}
 #| code-fold: true
 encuestas <-
-  encuestas |> 
+  encuestas |>
+  # Solo con encuestas antes del baneo electoral
   filter(n_dias_elec > 15)
 ```
 
@@ -4119,7 +4136,8 @@ encuestas <-
 
 ```{r}
 #| code-fold: true
-encuestas |> 
+encuestas |>
+  # Resumen: media de voto por fecha y partido
   summarise(media_voto = mean(est_voto),
             .by = c("date_elec", "partido"))
 ```
@@ -4133,10 +4151,13 @@ encuestas |>
 
 ```{r}
 #| code-fold: true
-encuestas |> 
-  filter(n_dias_elec <= 60) |> 
+encuestas |>
+  # Filtramos ventana de 60 días
+  filter(n_dias_elec <= 60) |>
+  # Media de est_voto por fecha y partido
   summarise(media_voto = mean(est_voto),
-            .by = c("date_elec", "partido")) |> 
+            .by = c("date_elec", "partido")) |>
+  # Ordenar de mayor a menor
   arrange(desc(date_elec))
 ```
 
@@ -4150,11 +4171,15 @@ encuestas |>
 ```{r}
 #| code-fold: true
 encuestas |> 
+  # Filtramos ventana de 60 días
   filter(n_dias_elec <= 60) |> 
+  # Media de est_voto por fecha y partido
   summarise(media_voto = mean(est_voto),
-            .by = c("date_elec", "partido")) |> 
-  arrange(desc(date_elec)) |> 
-  slice_max(media_voto, n = 2, by = c("date_elec"))
+            .by = c("date_elec", "partido")) |>
+  # Ordenar de mayor a menor por fecha
+  arrange(desc(date_elec)) |>
+  # extraemos los dos con más est de voto (por cada fecha)
+  slice_max(media_voto, n = 2, by = date_elec)
 ```
 
 

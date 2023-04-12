@@ -1217,7 +1217,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-04-12 12:27:24 CEST"</code></pre>
+<pre><code>[1] "2023-04-12 13:13:51 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -4666,8 +4666,10 @@ dplyr 1.1.0.
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb443"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb443-1"><a href="#cb443-1"></a>encuestas <span class="ot">&lt;-</span></span>
 <span id="cb443-2"><a href="#cb443-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb443-3"><a href="#cb443-3"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
-<span id="cb443-4"><a href="#cb443-4"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb443-3"><a href="#cb443-3"></a>  <span class="co"># Creamos un id con type_survey-date_elec-id_pollster</span></span>
+<span id="cb443-4"><a href="#cb443-4"></a>  <span class="co"># con .before la ponemos delante de everything(), de todo (1ª col)</span></span>
+<span id="cb443-5"><a href="#cb443-5"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
+<span id="cb443-6"><a href="#cb443-6"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -4681,8 +4683,10 @@ dplyr 1.1.0.
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb444"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb444-1"><a href="#cb444-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb444-2"><a href="#cb444-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb444-3"><a href="#cb444-3"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb444-2"><a href="#cb444-2"></a>  encuestas <span class="sc">|&gt;</span></span>
+<span id="cb444-3"><a href="#cb444-3"></a>  <span class="co"># Eliminamos duplicados por id_survey, pero mantenemos todas las</span></span>
+<span id="cb444-4"><a href="#cb444-4"></a>  <span class="co"># columnas con .keep_all = TRUE</span></span>
+<span id="cb444-5"><a href="#cb444-5"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4696,7 +4700,9 @@ dplyr 1.1.0.
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb445"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb445-1"><a href="#cb445-1"></a>encuestas <span class="ot">&lt;-</span></span>
 <span id="cb445-2"><a href="#cb445-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb445-3"><a href="#cb445-3"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb445-3"><a href="#cb445-3"></a>  <span class="co"># Eliminamos las columnas pedidas con un -</span></span>
+<span id="cb445-4"><a href="#cb445-4"></a>  <span class="co"># las concateno para usar solo un - para todas</span></span>
+<span id="cb445-5"><a href="#cb445-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4710,9 +4716,12 @@ dplyr 1.1.0.
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb446"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb446-1"><a href="#cb446-1"></a>encuestas <span class="ot">&lt;-</span></span>
 <span id="cb446-2"><a href="#cb446-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb446-3"><a href="#cb446-3"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
-<span id="cb446-4"><a href="#cb446-4"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
-<span id="cb446-5"><a href="#cb446-5"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb446-3"><a href="#cb446-3"></a>  <span class="co"># eliminar ausentes</span></span>
+<span id="cb446-4"><a href="#cb446-4"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
+<span id="cb446-5"><a href="#cb446-5"></a>  <span class="co"># Filtramos encuestas (registros) a pie de urna (aquellas que exit_poll == FALSE)</span></span>
+<span id="cb446-6"><a href="#cb446-6"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
+<span id="cb446-7"><a href="#cb446-7"></a>  <span class="co"># Quitamos la variable pie de urna</span></span>
+<span id="cb446-8"><a href="#cb446-8"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4726,10 +4735,11 @@ dplyr 1.1.0.
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb447"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb447-1"><a href="#cb447-1"></a>encuestas <span class="ot">&lt;-</span></span>
 <span id="cb447-2"><a href="#cb447-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb447-3"><a href="#cb447-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
-<span id="cb447-4"><a href="#cb447-4"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
-<span id="cb447-5"><a href="#cb447-5"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
-<span id="cb447-6"><a href="#cb447-6"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb447-3"><a href="#cb447-3"></a>  <span class="co"># Convertimos a tidydata</span></span>
+<span id="cb447-4"><a href="#cb447-4"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
+<span id="cb447-5"><a href="#cb447-5"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
+<span id="cb447-6"><a href="#cb447-6"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
+<span id="cb447-7"><a href="#cb447-7"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4743,9 +4753,12 @@ dplyr 1.1.0.
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb448"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb448-1"><a href="#cb448-1"></a>encuestas <span class="ot">&lt;-</span></span>
 <span id="cb448-2"><a href="#cb448-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb448-3"><a href="#cb448-3"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
-<span id="cb448-4"><a href="#cb448-4"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
-<span id="cb448-5"><a href="#cb448-5"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb448-3"><a href="#cb448-3"></a>  <span class="co"># Calculamos los días de campo como la diferencia de fechas </span></span>
+<span id="cb448-4"><a href="#cb448-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
+<span id="cb448-5"><a href="#cb448-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
+<span id="cb448-6"><a href="#cb448-6"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
+<span id="cb448-7"><a href="#cb448-7"></a>  <span class="co"># Solo aquellas cuyo trabajo de campo haya durado 1 día o más</span></span>
+<span id="cb448-8"><a href="#cb448-8"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4759,9 +4772,12 @@ dplyr 1.1.0.
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb449"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb449-1"><a href="#cb449-1"></a>encuestas <span class="ot">&lt;-</span></span>
 <span id="cb449-2"><a href="#cb449-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb449-3"><a href="#cb449-3"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
-<span id="cb449-4"><a href="#cb449-4"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
-<span id="cb449-5"><a href="#cb449-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb449-3"><a href="#cb449-3"></a>  <span class="co"># Calculamos los días que faltan a las elecciones</span></span>
+<span id="cb449-4"><a href="#cb449-4"></a>  <span class="co"># con as.numeric() convertimos la dif. de fechas a un número</span></span>
+<span id="cb449-5"><a href="#cb449-5"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
+<span id="cb449-6"><a href="#cb449-6"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
+<span id="cb449-7"><a href="#cb449-7"></a>  <span class="co"># Eliminamos ya las fechas de campo que no necesitamos</span></span>
+<span id="cb449-8"><a href="#cb449-8"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4774,8 +4790,9 @@ dplyr 1.1.0.
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb450"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb450-1"><a href="#cb450-1"></a>encuestas <span class="ot">&lt;-</span></span>
-<span id="cb450-2"><a href="#cb450-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb450-3"><a href="#cb450-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb450-2"><a href="#cb450-2"></a>  encuestas <span class="sc">|&gt;</span></span>
+<span id="cb450-3"><a href="#cb450-3"></a>  <span class="co"># Solo con encuestas antes del baneo electoral</span></span>
+<span id="cb450-4"><a href="#cb450-4"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -4787,9 +4804,10 @@ dplyr 1.1.0.
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb451"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb451-1"><a href="#cb451-1"></a>encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb451-2"><a href="#cb451-2"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb451-3"><a href="#cb451-3"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb451"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb451-1"><a href="#cb451-1"></a>encuestas <span class="sc">|&gt;</span></span>
+<span id="cb451-2"><a href="#cb451-2"></a>  <span class="co"># Resumen: media de voto por fecha y partido</span></span>
+<span id="cb451-3"><a href="#cb451-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb451-4"><a href="#cb451-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 137 × 3
@@ -4817,11 +4835,14 @@ dplyr 1.1.0.
 <div class="cell">
 <details>
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb453"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb453-1"><a href="#cb453-1"></a>encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb453-2"><a href="#cb453-2"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb453-3"><a href="#cb453-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb453-4"><a href="#cb453-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb453-5"><a href="#cb453-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb453"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb453-1"><a href="#cb453-1"></a>encuestas <span class="sc">|&gt;</span></span>
+<span id="cb453-2"><a href="#cb453-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
+<span id="cb453-3"><a href="#cb453-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span></span>
+<span id="cb453-4"><a href="#cb453-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
+<span id="cb453-5"><a href="#cb453-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb453-6"><a href="#cb453-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb453-7"><a href="#cb453-7"></a>  <span class="co"># Ordenar de mayor a menor</span></span>
+<span id="cb453-8"><a href="#cb453-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 122 × 3
@@ -4850,11 +4871,15 @@ dplyr 1.1.0.
 <details>
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb455"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb455-1"><a href="#cb455-1"></a>encuestas <span class="sc">|&gt;</span> </span>
-<span id="cb455-2"><a href="#cb455-2"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb455-3"><a href="#cb455-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
-<span id="cb455-4"><a href="#cb455-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb455-5"><a href="#cb455-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span> </span>
-<span id="cb455-6"><a href="#cb455-6"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb455-2"><a href="#cb455-2"></a>  <span class="co"># Filtramos ventana de 60 días</span></span>
+<span id="cb455-3"><a href="#cb455-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb455-4"><a href="#cb455-4"></a>  <span class="co"># Media de est_voto por fecha y partido</span></span>
+<span id="cb455-5"><a href="#cb455-5"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb455-6"><a href="#cb455-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb455-7"><a href="#cb455-7"></a>  <span class="co"># Ordenar de mayor a menor por fecha</span></span>
+<span id="cb455-8"><a href="#cb455-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span></span>
+<span id="cb455-9"><a href="#cb455-9"></a>  <span class="co"># extraemos los dos con más est de voto (por cada fecha)</span></span>
+<span id="cb455-10"><a href="#cb455-10"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> date_elec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 3
