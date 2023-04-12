@@ -4182,6 +4182,122 @@ encuestas |>
   slice_max(media_voto, n = 2, by = date_elec)
 ```
 
+# FRIKADAS
+
+[**Algunos paquetes o recursos curiosos**]{style="color:#444442;"}
+
+
+---
+
+## Cosicas curiosas
+
+### Paletas de colores
+
+* [**{ggthemes}**]{.hl-purple}: [**temas y paletas extras**]{.hl-yellow} para ggplot (por ejemplo para **daltónicos**) <https://jrnold.github.io/ggthemes/> y <https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/>
+
+* [**{peRReo}**]{.hl-purple}: paletas inspiradas en [**portadas de música urbana y latina**]{.hl-yellow} <https://github.com/jbgb13/peRReo>
+
+* [**Paletas inspiradas en el Metropolitan Museum**]{.hl-purple}: de Blake Robert Mills <https://github.com/BlakeRMills/MetBrewer/tree/main>
+
+* [**Paletas inspiradas Taylor Swift**]{.hl-purple}:  <https://github.com/asteves/tayloRswift>
+
+* [**Paletas inspiradas en Harry Potter**]{.hl-purple}: de Alejandro Jiménez <https://github.com/aljrico/harrypotter>
+
+* [**{colorblindcheck}**]{.hl-purple}: detectar paletas de colores aptas [**daltónicos/as**]{.hl-yellow}. De Jakub Nowosad <https://github.com/Nowosad/colorblindcheck>
+
+---
+
+## Cosicas curiosas
+
+### Dataviz
+
+* [**R Graph Gallery**]{.hl-purple}: colección de dataviz en R <https://www.r-graph-gallery.com/>
+
+* [**{patchwork}**]{.hl-purple}: agregar y [**componer gráficas**]{.hl-yellow}. De Thomas Lin Pedersen. <https://patchwork.data-imaginist.com>
+
+* [**ggplotly**]{.hl-purple}: función de `{plotly}`, para convertir ggplot a plotly ([**interactiva**]{.hl-yellow}) <https://www.rdocumentation.org/packages/plotly/versions/4.10.0/topics/ggplotly>.
+
+
+Tras convertirlo a plotly se puede [**guardar automáticamente en html**]{.hl-yellow} con <https://plotly-r.com/saving.html> y generar el [**código del iframe responsive**]{.hl-yellow} con <https://bhaskarvk.github.io/widgetframe/articles/Using_widgetframe.html>
+
+
+* [**{ggiraph}**]{.hl-purple}: gráficas interactivas al [**estilo D3**]{.hl-yellow}. <https://davidgohel.github.io/ggiraph/>
+
+---
+
+## Cosicas curiosas
+
+### Dataviz
+
+* [**{geomtextpath}**]{.hl-purple}: paquete para [**curvar el texto**]{.hl-yellow} ajustándose a una gráfica. De Allan Cameron y Teun van den Brand. <https://allancameron.github.io/geomtextpath/>
+
+* [**{ggstream}**]{.hl-purple}: visualización de [**datos en flujo**]{.hl-yellow}. De Z. Gu. <https://github.com/davidsjoberg/ggstream>
+
+* [**{ggpattern}**]{.hl-purple}: rellenos con [**patrones geométricos**]{.hl-yellow} en ggplot2. De coolbutuseless y Trevor L. Davis. <https://github.com/coolbutuseless/ggpattern>
+
+* [**{mapSpain}**]{.hl-purple}: visualización de [**datos en mapas de España**]{.hl-yellow} en R. De Diego Hernangómez <https://dieghernan.github.io/rpubs/mapSpain_RMadrid/#1>
+
+* [**{rasterpic}**]{.hl-purple}: visualización de [**mapas con imágenes rasterizados de fondo**]{.hl-yellow}. De Diego Hernangómez. <https://dieghernan.github.io/rasterpic/>
+
+
+---
+
+## Cosicas curiosas
+
+### Text mining
+
+* [**Manual de text mining**]{.hl-purple}: de Julia Silge y David Robinson. Recurso: <https://tidytextmining.com>
+
+* [**Descarga de textos libres**]{.hl-purple}: de David Robinson. Recurso: <https://github.com/ropensci/gutenbergr>
+
+* [**Análisis de sentimientos de tweets**]{.hl-purple}: de Harshvardhan. Recurso: <https://www.harsh17.in/twitter-sentiments/>
+
+### Grafos y redes
+
+* [**{tidygraph}**]{.hl-purple}: paquete al estilo `{tidyverse}` para [**visualizar y manipular grafos**]{.hl-yellow} <https://tidygraph.data-imaginist.com/index.html>
+
+
+---
+
+## Cosicas curiosas
+
+### Datos curiosos
+
+* [**{fitbitr}**]{.hl-purple}: API para acceder a [**datos de pulseras fitbit**]{.hl-yellow}. De Matt Kaye <https://mrkaye97.github.io/fitbitr/index.html>
+
+* [**{rtweet}**]{.hl-purple}: API para acceder (al menos antes) a [**Twitter**]{.hl-yellow}. De Michael W. Kearney <https://docs.ropensci.org/rtweet/>
+
+* [**{owiDR}**]{.hl-purple}: API para acceder a datos de [**Our World in Data**]{.hl-yellow} <https://github.com/piersyork/owidR>
+
+* [**{wordle}**]{.hl-purple}: API para acceder a [**datos de WORDLE**]{.hl-yellow}. De coolbutuseless <https://coolbutuseless.github.io/2022/01/04/wordle-v0.1.5-a-package-for-playing-and-helping-solve-wordle-puzzles/>
+
+* [**Canciones de Taylor Swift**]{.hl-purple}: de W. Jake Thompson <https://taylor.wjakethompson.com/>
+
+* [**{chessR}**]{.hl-purple}: API para acceder a datos de [**partidas de ajedrez**]{.hl-yellow}. De Jason Zivkovic <https://github.com/JaseZiv/chessR>
+
+
+---
+
+## Cosicas curiosas
+
+### Informes, libros, diapositivas y webs
+
+* [**Manual de Quarto**]{.hl-purple}: el nuevo rmarkdown, más completo y sencillo para elaborar manuales, diapositivas, informes e incluso webs <https://quarto.org/docs/guide/>
+
+* [**Shiny**]{.hl-purple}: webs interactivas con R <https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/>
+
+### Tablas
+
+* [**{gt}**]{.hl-purple}: tablas en R. De RStudio <https://gt.rstudio.com/>
+
+* [**{gtExtras}**]{.hl-purple}: visualización de datos en tablas. De Thomas Mock. <https://jthomasmock.github.io/gtExtras/index.html>
+
+* [**Tutorial de tablas**]{.hl-purple}: de Benjamin Nowak <https://bjnnowak.netlify.app/2021/10/04/r-beautiful-tables-with-gt-and-gtextras/>
+
+
+
+---
+
 
 # ¡GRACIAS!
 
