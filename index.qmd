@@ -3995,44 +3995,50 @@ Lo [**primero que debes hacer**]{.hl-yellow} es visualizar con `View()` la tabla
 * [**Primera tarea**]{.hl-purple}: crea una variable llamada `id_survey` que nos permita identificar a cada encuesta. ¿Qué podríamos concatenar?
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   mutate(id_survey = glue("{type_survey}-{date_elec}-{id_pollster}"),
          .before = everything())
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
 
 * [**Segunda tarea**]{.hl-purple}: usando la variable `id_survey` creada elimina duplicados.
 
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   distinct(id_survey, .keep_all = TRUE)
 ```
 
-. . .
+---
 
+## Caso real: datos de encuestas
 
 * [**Tercera tarea**]{.hl-purple}: tenemos una variable `media` que representa el medio en el que se publicó o encargo la encuesta. Elimina dicha variable, así como el tipo de encuesta y el id de la encuestadora
 
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   select(-c(type_survey, id_pollster, media))
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
+
 
 * [**Cuarta tarea**]{.hl-purple}: quédate solo con las encuestas cuyo tamaño muestral conozcamos y que no sean encuestas a pie de urna. Elimina esta última variable.
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   drop_na(size) |> 
@@ -4049,7 +4055,7 @@ encuestas <-
 * [**Quinta tarea**]{.hl-purple}: convierte el dataset en tidydata. ¿Qué falla? ¿Cómo arreglarlo? Reminder: no quremos ausentes.
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   pivot_longer(cols = -(id_survey:turnout),
@@ -4058,12 +4064,15 @@ encuestas <-
                values_drop_na = TRUE)
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
+
 
 * [**Sexta tarea**]{.hl-purple}: calcula el número de días que la encuesta ha hecho trabajo de campo, y coloca dicha columna tras el nombre de la encuestadora. Tras ello elimina aquellas encuestas que tengan 0 días de trabajo de campo.
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   mutate(n_dias_campo = as.numeric(field_date_to - field_date_from),
@@ -4071,12 +4080,15 @@ encuestas <-
   filter(n_dias_campo > 0)
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
+
 
 * [**Séptima tarea**]{.hl-purple}: calcula el número de días que faltan hasta las elecciones desde que la encuesta cerro el trabajo de campo y coloca dicha variable tras `n_dias_campo`. Tras ello elimina las fechas de inicio y fin de trabajo de campo de la manera más eficiente posible
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   mutate(n_dias_elec = as.numeric(date_elec - field_date_to),
@@ -4092,31 +4104,35 @@ encuestas <-
 * [**Octava tarea**]{.hl-purple}: elimina encuestas que se hayan cerrado dentro de la ventana temporal en la que está prohibido la publicación de encuestas (no se deberían usar para predecir ya que «no se conocen»)
 
 ```{r}
-#| echo: false
+#| code-fold: true
 encuestas <-
   encuestas |> 
   filter(n_dias_elec > 15)
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
+
 
 * [**Novena tarea**]{.hl-purple}: obtén, por cada elección, la media de las encuestas de cada partido
 
 ```{r}
-#| echo: false
-#| include: false
+#| code-fold: true
 encuestas |> 
   summarise(media_voto = mean(est_voto),
             .by = c("date_elec", "partido"))
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
+
 
 * [**Décima tarea**]{.hl-purple}: realiza lo mismo que la tarea anterior pero solo para las encuestas de los 60 días previos a las elecciones. Ordena la salida de reciente a antiguo
 
 ```{r}
-#| echo: false
-#| include: false
+#| code-fold: true
 encuestas |> 
   filter(n_dias_elec <= 60) |> 
   summarise(media_voto = mean(est_voto),
@@ -4124,13 +4140,15 @@ encuestas |>
   arrange(desc(date_elec))
 ```
 
-. . .
+---
+
+## Caso real: datos de encuestas
+
 
 * [**Undécima tarea**]{.hl-purple}: del dataset generado en el anterior ejercicio, obtén el primer y el segundo con mayor estimación de voto (en promedio)
 
 ```{r}
-#| echo: false
-#| include: false
+#| code-fold: true
 encuestas |> 
   filter(n_dias_elec <= 60) |> 
   summarise(media_voto = mean(est_voto),
@@ -4138,6 +4156,7 @@ encuestas |>
   arrange(desc(date_elec)) |> 
   slice_max(media_voto, n = 2, by = c("date_elec"))
 ```
+
 
 # ¡GRACIAS!
 

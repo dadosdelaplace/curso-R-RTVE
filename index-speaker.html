@@ -7,7 +7,7 @@
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta name="generator" content="quarto-1.2.335">
 
   <meta name="author" content="Curso impartido en RTVE • 28 y 30 de marzo de 2023">
   <title>MANEJO DE DATOS EN R</title>
@@ -1207,7 +1207,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-03-30"</code></pre>
+<pre><code>[1] "2023-04-12"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1217,7 +1217,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-03-30 13:32:28 CEST"</code></pre>
+<pre><code>[1] "2023-04-12 12:27:24 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -1233,7 +1233,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 </div>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">month</span>(fecha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 4</code></pre>
 </div>
 </div>
 </div>
@@ -2813,21 +2813,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb252"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(eye_color <span class="sc">==</span> <span class="st">"brown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21 × 14
-   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1 Leia Organa    150  49   brown   light   brown      19   fema… femin… Aldera…
- 2 Biggs Dark…    183  84   black   light   brown      24   male  mascu… Tatooi…
- 3 Han Solo       180  80   brown   fair    brown      29   male  mascu… Corell…
- 4 Yoda            66  17   white   green   brown     896   male  mascu… &lt;NA&gt;   
- 5 Boba Fett      183  78.2 black   fair    brown      31.5 male  mascu… Kamino 
- 6 Lando Calr…    177  79   black   dark    brown      31   male  mascu… Socorro
- 7 Arvel Cryn…     NA  NA   brown   fair    brown      NA   male  mascu… &lt;NA&gt;   
- 8 Wicket Sys…     88  20   brown   brown   brown       8   male  mascu… Endor  
- 9 Quarsh Pan…    183  NA   black   dark    brown      62   &lt;NA&gt;  &lt;NA&gt;   Naboo  
-10 Shmi Skywa…    163  NA   black   fair    brown      72   fema… femin… Tatooi…
-# … with 11 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Leia Or…    150  49   brown      light      brown           19   fema… femin…
+ 2 Biggs D…    183  84   black      light      brown           24   male  mascu…
+ 3 Han Solo    180  80   brown      fair       brown           29   male  mascu…
+ 4 Yoda         66  17   white      green      brown          896   male  mascu…
+ 5 Boba Fe…    183  78.2 black      fair       brown           31.5 male  mascu…
+ 6 Lando C…    177  79   black      dark       brown           31   male  mascu…
+ 7 Arvel C…     NA  NA   brown      fair       brown           NA   male  mascu…
+ 8 Wicket …     88  20   brown      brown      brown            8   male  mascu…
+ 9 Quarsh …    183  NA   black      dark       brown           62   &lt;NA&gt;  &lt;NA&gt;  
+10 Shmi Sk…    163  NA   black      fair       brown           72   fema… femin…
+# ℹ 11 more rows
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2853,21 +2853,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb256"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb256-1"><a href="#cb256-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(eye_color <span class="sc">!=</span> <span class="st">"brown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 66 × 14
-   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
- 2 C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
- 3 R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
- 4 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
- 5 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
- 6 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
- 7 R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu… Tatooi…
- 8 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
- 9 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
-10 Wilhuff Ta…    180    NA auburn… fair    blue       64   male  mascu… Eriadu 
-# … with 56 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+ 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+ 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+ 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+ 5 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+ 6 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+ 7 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+ 8 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+ 9 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+10 Wilhuff…    180    NA auburn, g… fair       blue            64   male  mascu…
+# ℹ 56 more rows
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2893,21 +2893,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb260"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb260-1"><a href="#cb260-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(eye_color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"brown"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 40 × 14
-   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
- 2 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
- 3 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
- 4 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
- 5 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
- 6 Anakin Sky…    188    84 blond   fair    blue       41.9 male  mascu… Tatooi…
- 7 Wilhuff Ta…    180    NA auburn… fair    blue       64   male  mascu… Eriadu 
- 8 Chewbacca      228   112 brown   unknown blue      200   male  mascu… Kashyy…
- 9 Han Solo       180    80 brown   fair    brown      29   male  mascu… Corell…
-10 Jek Tono P…    180   110 brown   fair    blue       NA   male  mascu… Bestin…
-# … with 30 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+ 2 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+ 3 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+ 4 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+ 5 Biggs D…    183    84 black      light      brown           24   male  mascu…
+ 6 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+ 7 Wilhuff…    180    NA auburn, g… fair       blue            64   male  mascu…
+ 8 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+ 9 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+10 Jek Ton…    180   110 brown      fair       blue            NA   male  mascu…
+# ℹ 30 more rows
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -2933,17 +2933,16 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb264"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb264-1"><a href="#cb264-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">between</span>(height, <span class="dv">120</span>, <span class="dv">160</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 14
-  name        height  mass hair_c…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Leia Organa    150    49 brown    light   brown        19 fema… femin… Aldera…
-2 Mon Mothma     150    NA auburn   fair    blue         48 fema… femin… Chandr…
-3 Nien Nunb      160    68 none     grey    black        NA male  mascu… Sullust
-4 Watto          137    NA black    blue, … yellow       NA male  mascu… Toydar…
-5 Gasgano        122    NA none     white,… black        NA male  mascu… Troiken
-6 Cordé          157    NA brown    light   brown        NA fema… femin… Naboo  
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Leia Org…    150    49 brown      light      brown             19 fema… femin…
+2 Mon Moth…    150    NA auburn     fair       blue              48 fema… femin…
+3 Nien Nunb    160    68 none       grey       black             NA male  mascu…
+4 Watto        137    NA black      blue, grey yellow            NA male  mascu…
+5 Gasgano      122    NA none       white, bl… black             NA male  mascu…
+6 Cordé        157    NA brown      light      brown             NA fema… femin…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 <div class="callout callout-tip callout-captioned callout-style-default">
@@ -2983,14 +2982,13 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb268-2"><a href="#cb268-2"></a>  <span class="fu">filter</span>(eye_color <span class="sc">==</span> <span class="st">"brown"</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">"Human"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 14
-  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Yoda             66    17 white   green   brown       896 male  mascu… &lt;NA&gt;   
-2 Wicket Syst…     88    20 brown   brown   brown         8 male  mascu… Endor  
-3 Eeth Koth       171    NA black   brown   brown        NA male  mascu… Iridon…
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Yoda          66    17 white      green      brown            896 male  mascu…
+2 Wicket S…     88    20 brown      brown      brown              8 male  mascu…
+3 Eeth Koth    171    NA black      brown      brown             NA male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -3017,29 +3015,28 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb272-2"><a href="#cb272-2"></a>  <span class="fu">filter</span>((eye_color <span class="sc">==</span> <span class="st">"brown"</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">"Human"</span>) <span class="sc">|</span> birth_year <span class="sc">&gt;</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 18 × 14
-   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1 C-3PO          167    75 &lt;NA&gt;    gold    yellow      112 none  mascu… Tatooi…
- 2 Wilhuff Ta…    180    NA auburn… fair    blue         64 male  mascu… Eriadu 
- 3 Chewbacca      228   112 brown   unknown blue        200 male  mascu… Kashyy…
- 4 Jabba Desi…    175  1358 &lt;NA&gt;    green-… orange      600 herm… mascu… Nal Hu…
- 5 Yoda            66    17 white   green   brown       896 male  mascu… &lt;NA&gt;   
- 6 Palpatine      170    75 grey    pale    yellow       82 male  mascu… Naboo  
- 7 Wicket Sys…     88    20 brown   brown   brown         8 male  mascu… Endor  
- 8 Qui-Gon Ji…    193    89 brown   fair    blue         92 male  mascu… &lt;NA&gt;   
- 9 Finis Valo…    170    NA blond   fair    blue         91 male  mascu… Corusc…
-10 Quarsh Pan…    183    NA black   dark    brown        62 &lt;NA&gt;  &lt;NA&gt;   Naboo  
-11 Shmi Skywa…    163    NA black   fair    brown        72 fema… femin… Tatooi…
-12 Mace Windu     188    84 none    dark    brown        72 male  mascu… Haruun…
-13 Ki-Adi-Mun…    198    82 white   pale    yellow       92 male  mascu… Cerea  
-14 Eeth Koth      171    NA black   brown   brown        NA male  mascu… Iridon…
-15 Cliegg Lars    183    NA brown   fair    blue         82 male  mascu… Tatooi…
-16 Dooku          193    80 white   fair    brown       102 male  mascu… Serenno
-17 Bail Prest…    191    NA black   tan     brown        67 male  mascu… Aldera…
-18 Jango Fett     183    79 black   tan     brown        66 male  mascu… Concor…
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 C-3PO       167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+ 2 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
+ 3 Chewbac…    228   112 brown      unknown    blue             200 male  mascu…
+ 4 Jabba D…    175  1358 &lt;NA&gt;       green-tan… orange           600 herm… mascu…
+ 5 Yoda         66    17 white      green      brown            896 male  mascu…
+ 6 Palpati…    170    75 grey       pale       yellow            82 male  mascu…
+ 7 Wicket …     88    20 brown      brown      brown              8 male  mascu…
+ 8 Qui-Gon…    193    89 brown      fair       blue              92 male  mascu…
+ 9 Finis V…    170    NA blond      fair       blue              91 male  mascu…
+10 Quarsh …    183    NA black      dark       brown             62 &lt;NA&gt;  &lt;NA&gt;  
+11 Shmi Sk…    163    NA black      fair       brown             72 fema… femin…
+12 Mace Wi…    188    84 none       dark       brown             72 male  mascu…
+13 Ki-Adi-…    198    82 white      pale       yellow            92 male  mascu…
+14 Eeth Ko…    171    NA black      brown      brown             NA male  mascu…
+15 Cliegg …    183    NA brown      fair       blue              82 male  mascu…
+16 Dooku       193    80 white      fair       brown            102 male  mascu…
+17 Bail Pr…    191    NA black      tan        brown             67 male  mascu…
+18 Jango F…    183    79 black      tan        brown             66 male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -3215,13 +3212,12 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 8
-  name               height  mass hair_color    skin_color eye_c…¹ birth…² sex  
-  &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
-1 C-3PO                 167    75 &lt;NA&gt;          gold       yellow      112 none 
-2 Beru Whitesun lars    165    75 brown         light      blue         47 fema…
-3 Obi-Wan Kenobi        182    77 auburn, white fair       blue-g…      57 male 
-4 Qui-Gon Jinn          193    89 brown         fair       blue         92 male 
-# … with abbreviated variable names ¹​eye_color, ²​birth_year</code></pre>
+  name             height  mass hair_color skin_color eye_color birth_year sex  
+  &lt;chr&gt;             &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+1 C-3PO               167    75 &lt;NA&gt;       gold       yellow           112 none 
+2 Beru Whitesun l…    165    75 brown      light      blue              47 fema…
+3 Obi-Wan Kenobi      182    77 auburn, w… fair       blue-gray         57 male 
+4 Qui-Gon Jinn        193    89 brown      fair       blue              92 male </code></pre>
 </div>
 </div>
 </div>
@@ -3394,14 +3390,13 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 14
-  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Luke Skywal…    172    77 blond   fair    blue         19 male  mascu… Tatooi…
-2 C-3PO           167    75 &lt;NA&gt;    gold    yellow      112 none  mascu… Tatooi…
-3 Leia Organa     150    49 brown   light   brown        19 fema… femin… Aldera…
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Luke Sky…    172    77 blond      fair       blue              19 male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+3 Leia Org…    150    49 brown      light      brown             19 fema… femin…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -3560,7 +3555,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
  8 R5-D4              &lt;NA&gt;         
  9 Biggs Darklighter  black        
 10 Obi-Wan Kenobi     auburn, white
-# … with 77 more rows</code></pre>
+# ℹ 77 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -3630,15 +3625,14 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 14
-   mass homeworld name       height hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
-  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1    77 Tatooine  Luke Skyw…    172 blond   fair    blue       19   male  mascu…
-2    75 Tatooine  C-3PO         167 &lt;NA&gt;    gold    yellow    112   none  mascu…
-3    32 Naboo     R2-D2          96 &lt;NA&gt;    white,… red        33   none  mascu…
-4   136 Tatooine  Darth Vad…    202 none    white   yellow     41.9 male  mascu…
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year</code></pre>
+   mass homeworld name   height hair_color skin_color eye_color birth_year sex  
+  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+1    77 Tatooine  Luke …    172 blond      fair       blue            19   male 
+2    75 Tatooine  C-3PO     167 &lt;NA&gt;       gold       yellow         112   none 
+3    32 Naboo     R2-D2      96 &lt;NA&gt;       white, bl… red             33   none 
+4   136 Tatooine  Darth…    202 none       white      yellow          41.9 male 
+# ℹ 5 more variables: gender &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -3690,7 +3684,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
  8 &lt;NA&gt;          white, red  red       none   masculine
  9 black         light       brown     male   masculine
 10 auburn, white fair        blue-gray male   masculine
-# … with 77 more rows</code></pre>
+# ℹ 77 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -3748,20 +3742,20 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb355-2"><a href="#cb355-2"></a>starwars <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric) <span class="sc">|</span> <span class="fu">where</span>(is.character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 11
-   height  mass birth_year name     hair_…¹ skin_…² eye_c…³ sex   gender homew…⁴
-    &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1    172    77       19   Luke Sk… blond   fair    blue    male  mascu… Tatooi…
- 2    167    75      112   C-3PO    &lt;NA&gt;    gold    yellow  none  mascu… Tatooi…
- 3     96    32       33   R2-D2    &lt;NA&gt;    white,… red     none  mascu… Naboo  
- 4    202   136       41.9 Darth V… none    white   yellow  male  mascu… Tatooi…
- 5    150    49       19   Leia Or… brown   light   brown   fema… femin… Aldera…
- 6    178   120       52   Owen La… brown,… light   blue    male  mascu… Tatooi…
- 7    165    75       47   Beru Wh… brown   light   blue    fema… femin… Tatooi…
- 8     97    32       NA   R5-D4    &lt;NA&gt;    white,… red     none  mascu… Tatooi…
- 9    183    84       24   Biggs D… black   light   brown   male  mascu… Tatooi…
-10    182    77       57   Obi-Wan… auburn… fair    blue-g… male  mascu… Stewjon
-# … with 77 more rows, 1 more variable: species &lt;chr&gt;, and abbreviated variable
-#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​homeworld</code></pre>
+   height  mass birth_year name     hair_color skin_color eye_color sex   gender
+    &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; 
+ 1    172    77       19   Luke Sk… blond      fair       blue      male  mascu…
+ 2    167    75      112   C-3PO    &lt;NA&gt;       gold       yellow    none  mascu…
+ 3     96    32       33   R2-D2    &lt;NA&gt;       white, bl… red       none  mascu…
+ 4    202   136       41.9 Darth V… none       white      yellow    male  mascu…
+ 5    150    49       19   Leia Or… brown      light      brown     fema… femin…
+ 6    178   120       52   Owen La… brown, gr… light      blue      male  mascu…
+ 7    165    75       47   Beru Wh… brown      light      blue      fema… femin…
+ 8     97    32       NA   R5-D4    &lt;NA&gt;       white, red red       none  mascu…
+ 9    183    84       24   Biggs D… black      light      brown     male  mascu…
+10    182    77       57   Obi-Wan… auburn, w… fair       blue-gray male  mascu…
+# ℹ 77 more rows
+# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -3785,21 +3779,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb359"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb359-1"><a href="#cb359-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">relocate</span>(species, <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 14
-   species name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
-   &lt;chr&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Human   Luke Skywa…    172    77 blond   fair    blue       19   male  mascu…
- 2 Droid   C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
- 3 Droid   R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu…
- 4 Human   Darth Vader    202   136 none    white   yellow     41.9 male  mascu…
- 5 Human   Leia Organa    150    49 brown   light   brown      19   fema… femin…
- 6 Human   Owen Lars      178   120 brown,… light   blue       52   male  mascu…
- 7 Human   Beru White…    165    75 brown   light   blue       47   fema… femin…
- 8 Droid   R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
- 9 Human   Biggs Dark…    183    84 black   light   brown      24   male  mascu…
-10 Human   Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu…
-# … with 77 more rows, 4 more variables: homeworld &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
+   species name    height  mass hair_color skin_color eye_color birth_year sex  
+   &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+ 1 Human   Luke S…    172    77 blond      fair       blue            19   male 
+ 2 Droid   C-3PO      167    75 &lt;NA&gt;       gold       yellow         112   none 
+ 3 Droid   R2-D2       96    32 &lt;NA&gt;       white, bl… red             33   none 
+ 4 Human   Darth …    202   136 none       white      yellow          41.9 male 
+ 5 Human   Leia O…    150    49 brown      light      brown           19   fema…
+ 6 Human   Owen L…    178   120 brown, gr… light      blue            52   male 
+ 7 Human   Beru W…    165    75 brown      light      blue            47   fema…
+ 8 Droid   R5-D4       97    32 &lt;NA&gt;       white, red red             NA   none 
+ 9 Human   Biggs …    183    84 black      light      brown           24   male 
+10 Human   Obi-Wa…    182    77 auburn, w… fair       blue-gray       57   male 
+# ℹ 77 more rows
+# ℹ 5 more variables: gender &lt;chr&gt;, homeworld &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -3821,21 +3815,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb363"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb363-1"><a href="#cb363-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">nombre =</span> name, <span class="at">altura =</span> height, <span class="at">peso =</span> mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 14
-   nombre      altura  peso hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
- 2 C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
- 3 R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
- 4 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
- 5 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
- 6 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
- 7 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
- 8 R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu… Tatooi…
- 9 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-10 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-# … with 77 more rows, 4 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable names
-#   ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+   nombre   altura  peso hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+ 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+ 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+ 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+ 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+ 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+ 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+ 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+ 9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+# ℹ 77 more rows
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -3857,21 +3851,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb367"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb367-1"><a href="#cb367-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">height_m =</span> height <span class="sc">/</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 15
-   name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
- 1 Luke Skywa…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
- 2 C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
- 3 R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
- 4 Darth Vader    202   136 none    white   yellow     41.9 male  mascu… Tatooi…
- 5 Leia Organa    150    49 brown   light   brown      19   fema… femin… Aldera…
- 6 Owen Lars      178   120 brown,… light   blue       52   male  mascu… Tatooi…
- 7 Beru White…    165    75 brown   light   blue       47   fema… femin… Tatooi…
- 8 R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu… Tatooi…
- 9 Biggs Dark…    183    84 black   light   brown      24   male  mascu… Tatooi…
-10 Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu… Stewjon
-# … with 77 more rows, 5 more variables: species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;, height_m &lt;dbl&gt;, and abbreviated variable
-#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+ 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+ 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+ 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+ 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+ 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+ 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+ 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+ 9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+# ℹ 77 more rows
+# ℹ 6 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;, height_m &lt;dbl&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -3895,21 +3889,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb371-3"><a href="#cb371-3"></a>         <span class="at">IMC =</span> mass <span class="sc">/</span> (height_m<span class="sc">^</span><span class="dv">2</span>), <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 16
-   heigh…¹   IMC name  height  mass hair_…² skin_…³ eye_c…⁴ birth…⁵ sex   gender
-     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1    1.72  26.0 Luke…    172    77 blond   fair    blue       19   male  mascu…
- 2    1.67  26.9 C-3PO    167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
- 3    0.96  34.7 R2-D2     96    32 &lt;NA&gt;    white,… red        33   none  mascu…
- 4    2.02  33.3 Dart…    202   136 none    white   yellow     41.9 male  mascu…
- 5    1.5   21.8 Leia…    150    49 brown   light   brown      19   fema… femin…
- 6    1.78  37.9 Owen…    178   120 brown,… light   blue       52   male  mascu…
- 7    1.65  27.5 Beru…    165    75 brown   light   blue       47   fema… femin…
- 8    0.97  34.0 R5-D4     97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
- 9    1.83  25.1 Bigg…    183    84 black   light   brown      24   male  mascu…
-10    1.82  23.2 Obi-…    182    77 auburn… fair    blue-g…    57   male  mascu…
-# … with 77 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
-#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
-#   names ¹​height_m, ²​hair_color, ³​skin_color, ⁴​eye_color, ⁵​birth_year</code></pre>
+   height_m   IMC name   height  mass hair_color skin_color eye_color birth_year
+      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;
+ 1     1.72  26.0 Luke …    172    77 blond      fair       blue            19  
+ 2     1.67  26.9 C-3PO     167    75 &lt;NA&gt;       gold       yellow         112  
+ 3     0.96  34.7 R2-D2      96    32 &lt;NA&gt;       white, bl… red             33  
+ 4     2.02  33.3 Darth…    202   136 none       white      yellow          41.9
+ 5     1.5   21.8 Leia …    150    49 brown      light      brown           19  
+ 6     1.78  37.9 Owen …    178   120 brown, gr… light      blue            52  
+ 7     1.65  27.5 Beru …    165    75 brown      light      blue            47  
+ 8     0.97  34.0 R5-D4      97    32 &lt;NA&gt;       white, red red             NA  
+ 9     1.83  25.1 Biggs…    183    84 black      light      brown           24  
+10     1.82  23.2 Obi-W…    182    77 auburn, w… fair       blue-gray       57  
+# ℹ 77 more rows
+# ℹ 7 more variables: sex &lt;chr&gt;, gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
+#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -3945,21 +3939,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb375-2"><a href="#cb375-2"></a>  <span class="fu">mutate</span>(<span class="at">constante =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 15
-   constante name      height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
-       &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1      97.3 Luke Sky…    172    77 blond   fair    blue       19   male  mascu…
- 2      97.3 C-3PO        167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
- 3      97.3 R2-D2         96    32 &lt;NA&gt;    white,… red        33   none  mascu…
- 4      97.3 Darth Va…    202   136 none    white   yellow     41.9 male  mascu…
- 5      97.3 Leia Org…    150    49 brown   light   brown      19   fema… femin…
- 6      97.3 Owen Lars    178   120 brown,… light   blue       52   male  mascu…
- 7      97.3 Beru Whi…    165    75 brown   light   blue       47   fema… femin…
- 8      97.3 R5-D4         97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
- 9      97.3 Biggs Da…    183    84 black   light   brown      24   male  mascu…
-10      97.3 Obi-Wan …    182    77 auburn… fair    blue-g…    57   male  mascu…
-# … with 77 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
-#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
-#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
+   constante name  height  mass hair_color skin_color eye_color birth_year sex  
+       &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+ 1      97.3 Luke…    172    77 blond      fair       blue            19   male 
+ 2      97.3 C-3PO    167    75 &lt;NA&gt;       gold       yellow         112   none 
+ 3      97.3 R2-D2     96    32 &lt;NA&gt;       white, bl… red             33   none 
+ 4      97.3 Dart…    202   136 none       white      yellow          41.9 male 
+ 5      97.3 Leia…    150    49 brown      light      brown           19   fema…
+ 6      97.3 Owen…    178   120 brown, gr… light      blue            52   male 
+ 7      97.3 Beru…    165    75 brown      light      blue            47   fema…
+ 8      97.3 R5-D4     97    32 &lt;NA&gt;       white, red red             NA   none 
+ 9      97.3 Bigg…    183    84 black      light      brown           24   male 
+10      97.3 Obi-…    182    77 auburn, w… fair       blue-gray       57   male 
+# ℹ 77 more rows
+# ℹ 6 more variables: gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
+#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -3986,7 +3980,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
  8 R5-D4              Not Human     97    32
  9 Biggs Darklighter  Human        183    84
 10 Obi-Wan Kenobi     Human        182    77
-# … with 77 more rows</code></pre>
+# ℹ 77 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -4003,21 +3997,21 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb379-7"><a href="#cb379-7"></a>                            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"gigante"</span>), <span class="at">.before =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 81 × 15
-   altura  name        height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender
-   &lt;chr&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 normal  Luke Skywa…    172    77 blond   fair    blue       19   male  mascu…
- 2 normal  C-3PO          167    75 &lt;NA&gt;    gold    yellow    112   none  mascu…
- 3 enanos  R2-D2           96    32 &lt;NA&gt;    white,… red        33   none  mascu…
- 4 gigante Darth Vader    202   136 none    white   yellow     41.9 male  mascu…
- 5 bajito  Leia Organa    150    49 brown   light   brown      19   fema… femin…
- 6 normal  Owen Lars      178   120 brown,… light   blue       52   male  mascu…
- 7 normal  Beru White…    165    75 brown   light   blue       47   fema… femin…
- 8 enanos  R5-D4           97    32 &lt;NA&gt;    white,… red        NA   none  mascu…
- 9 alto    Biggs Dark…    183    84 black   light   brown      24   male  mascu…
-10 alto    Obi-Wan Ke…    182    77 auburn… fair    blue-g…    57   male  mascu…
-# … with 71 more rows, 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
-#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;, and abbreviated variable
-#   names ¹​hair_color, ²​skin_color, ³​eye_color, ⁴​birth_year</code></pre>
+   altura  name    height  mass hair_color skin_color eye_color birth_year sex  
+   &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;
+ 1 normal  Luke S…    172    77 blond      fair       blue            19   male 
+ 2 normal  C-3PO      167    75 &lt;NA&gt;       gold       yellow         112   none 
+ 3 enanos  R2-D2       96    32 &lt;NA&gt;       white, bl… red             33   none 
+ 4 gigante Darth …    202   136 none       white      yellow          41.9 male 
+ 5 bajito  Leia O…    150    49 brown      light      brown           19   fema…
+ 6 normal  Owen L…    178   120 brown, gr… light      blue            52   male 
+ 7 normal  Beru W…    165    75 brown      light      blue            47   fema…
+ 8 enanos  R5-D4       97    32 &lt;NA&gt;       white, red red             NA   none 
+ 9 alto    Biggs …    183    84 black      light      brown           24   male 
+10 alto    Obi-Wa…    182    77 auburn, w… fair       blue-gray       57   male 
+# ℹ 71 more rows
+# ℹ 6 more variables: gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
+#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -4240,12 +4234,11 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="sourceCode cell-code" id="cb402"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb402-1"><a href="#cb402-1"></a>starwars <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 14
-  name        height  mass hair_c…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Yarael Poof    264    NA none     white   yellow       NA male  mascu… Quermia
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Yarael P…    264    NA none       white      yellow            NA male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -4278,17 +4271,16 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <span id="cb406-4"><a href="#cb406-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 14
-  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Taun We         213    NA none    grey    black        NA fema… femin… Kamino 
-2 Jabba Desil…    175  1358 &lt;NA&gt;    green-… orange      600 herm… mascu… Nal Hu…
-3 Yarael Poof     264    NA none    white   yellow       NA male  mascu… Quermia
-4 IG-88           200   140 none    metal   red          15 none  mascu… &lt;NA&gt;   
-5 Ric Olié        183    NA brown   fair    blue         NA &lt;NA&gt;  &lt;NA&gt;   Naboo  
-6 Quarsh Pana…    183    NA black   dark    brown        62 &lt;NA&gt;  &lt;NA&gt;   Naboo  
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Taun We      213    NA none       grey       black             NA fema… femin…
+2 Jabba De…    175  1358 &lt;NA&gt;       green-tan… orange           600 herm… mascu…
+3 Yarael P…    264    NA none       white      yellow            NA male  mascu…
+4 IG-88        200   140 none       metal      red               15 none  mascu…
+5 Ric Olié     183    NA brown      fair       blue              NA &lt;NA&gt;  &lt;NA&gt;  
+6 Quarsh P…    183    NA black      dark       brown             62 &lt;NA&gt;  &lt;NA&gt;  
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -4640,25 +4632,25 @@ dplyr 1.1.0.
 <span id="cb441-2"><a href="#cb441-2"></a>encuestas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,753 × 59
-   type_s…¹ date_elec  id_po…² polls…³ media field_da…⁴ field_da…⁵ exit_…⁶  size
-   &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;date&gt;     &lt;date&gt;     &lt;lgl&gt;   &lt;dbl&gt;
- 1 national 1982-10-28 pollst… PSOE    &lt;NA&gt;  1982-10-28 1982-10-28 TRUE    85300
- 2 national 1982-10-28 pollst… IDEAL   &lt;NA&gt;  1982-10-28 1982-10-28 TRUE       NA
- 3 national 1982-10-28 pollst… SOFEMA… EL P… 1982-10-16 1982-10-19 FALSE   18255
- 4 national 1982-10-28 pollst… GRUPO … GRUP… 1982-10-09 1982-10-14 FALSE    7000
- 5 national 1982-10-28 pollst… SOFEMA… EL P… 1982-10-01 1982-10-07 FALSE    1163
- 6 national 1982-10-28 pollst… GRUPO … GRUP… 1982-09-25 1982-09-30 FALSE    3008
- 7 national 1982-10-28 pollst… SOFEMA… EL P… 1982-09-24 1982-09-30 FALSE    2460
- 8 national 1982-10-28 pollst… AP      &lt;NA&gt;  1982-09-27 1982-09-27 FALSE    6000
- 9 national 1982-10-28 pollst… GALLUP  &lt;NA&gt;  1982-09-06 1982-09-26 FALSE      NA
-10 national 1982-10-28 pollst… GRUPO … GRUP… 1982-09-05 1982-09-19 FALSE    3000
-# … with 3,743 more rows, 50 more variables: turnout &lt;dbl&gt;, UCD &lt;dbl&gt;,
-#   PSOE &lt;dbl&gt;, PCE &lt;dbl&gt;, AP &lt;dbl&gt;, CIU &lt;dbl&gt;, PA &lt;dbl&gt;, `EAJ-PNV` &lt;dbl&gt;,
-#   HB &lt;dbl&gt;, ERC &lt;dbl&gt;, EE &lt;dbl&gt;, CDS &lt;dbl&gt;, FN &lt;dbl&gt;, PAD &lt;dbl&gt;, PRD &lt;dbl&gt;,
-#   MUC &lt;dbl&gt;, IU &lt;dbl&gt;, CG &lt;dbl&gt;, PAR &lt;dbl&gt;, AIC &lt;dbl&gt;, UV &lt;dbl&gt;, EA &lt;dbl&gt;,
-#   PP &lt;dbl&gt;, LV &lt;dbl&gt;, ARM &lt;dbl&gt;, PDP &lt;dbl&gt;, CC &lt;dbl&gt;, PAP &lt;dbl&gt;, BNG &lt;dbl&gt;,
-#   ICV &lt;dbl&gt;, EH &lt;dbl&gt;, UPYD &lt;dbl&gt;, AMAIUR &lt;dbl&gt;, CS &lt;dbl&gt;, `DIL-CDC` &lt;dbl&gt;,
-#   `EH-BILDU` &lt;dbl&gt;, UP &lt;dbl&gt;, PACMA &lt;dbl&gt;, PODEMOS &lt;dbl&gt;, COMPROMIS &lt;dbl&gt;, …</code></pre>
+   type_survey date_elec  id_pollster pollster media    field_date_from
+   &lt;chr&gt;       &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;    &lt;date&gt;         
+ 1 national    1982-10-28 pollster-1  PSOE     &lt;NA&gt;     1982-10-28     
+ 2 national    1982-10-28 pollster-2  IDEAL    &lt;NA&gt;     1982-10-28     
+ 3 national    1982-10-28 pollster-3  SOFEMASA EL PAÍS  1982-10-16     
+ 4 national    1982-10-28 pollster-4  GRUPO 16 GRUPO 16 1982-10-09     
+ 5 national    1982-10-28 pollster-3  SOFEMASA EL PAÍS  1982-10-01     
+ 6 national    1982-10-28 pollster-4  GRUPO 16 GRUPO 16 1982-09-25     
+ 7 national    1982-10-28 pollster-3  SOFEMASA EL PAÍS  1982-09-24     
+ 8 national    1982-10-28 pollster-5  AP       &lt;NA&gt;     1982-09-27     
+ 9 national    1982-10-28 pollster-6  GALLUP   &lt;NA&gt;     1982-09-06     
+10 national    1982-10-28 pollster-4  GRUPO 16 GRUPO 16 1982-09-05     
+# ℹ 3,743 more rows
+# ℹ 53 more variables: field_date_to &lt;date&gt;, exit_poll &lt;lgl&gt;, size &lt;dbl&gt;,
+#   turnout &lt;dbl&gt;, UCD &lt;dbl&gt;, PSOE &lt;dbl&gt;, PCE &lt;dbl&gt;, AP &lt;dbl&gt;, CIU &lt;dbl&gt;,
+#   PA &lt;dbl&gt;, `EAJ-PNV` &lt;dbl&gt;, HB &lt;dbl&gt;, ERC &lt;dbl&gt;, EE &lt;dbl&gt;, CDS &lt;dbl&gt;,
+#   FN &lt;dbl&gt;, PAD &lt;dbl&gt;, PRD &lt;dbl&gt;, MUC &lt;dbl&gt;, IU &lt;dbl&gt;, CG &lt;dbl&gt;, PAR &lt;dbl&gt;,
+#   AIC &lt;dbl&gt;, UV &lt;dbl&gt;, EA &lt;dbl&gt;, PP &lt;dbl&gt;, LV &lt;dbl&gt;, ARM &lt;dbl&gt;, PDP &lt;dbl&gt;,
+#   CC &lt;dbl&gt;, PAP &lt;dbl&gt;, BNG &lt;dbl&gt;, ICV &lt;dbl&gt;, EH &lt;dbl&gt;, UPYD &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
 </section>
@@ -4670,81 +4662,216 @@ dplyr 1.1.0.
 <li><span class="hl-purple"><strong>Primera tarea</strong></span>: crea una variable llamada <code>id_survey</code> que nos permita identificar a cada encuesta. ¿Qué podríamos concatenar?</li>
 </ul>
 <div class="cell">
-
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-purple"><strong>Segunda tarea</strong></span>: usando la variable <code>id_survey</code> creada elimina duplicados.</li>
-</ul>
-<div class="cell">
-
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-purple"><strong>Tercera tarea</strong></span>: tenemos una variable <code>media</code> que representa el medio en el que se publicó o encargo la encuesta. Elimina dicha variable, así como el tipo de encuesta y el id de la encuestadora</li>
-</ul>
-<div class="cell">
-
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-purple"><strong>Cuarta tarea</strong></span>: quédate solo con las encuestas cuyo tamaño muestral conozcamos y que no sean encuestas a pie de urna. Elimina esta última variable.</li>
-</ul>
-<div class="cell">
-
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb443"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb443-1"><a href="#cb443-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb443-2"><a href="#cb443-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb443-3"><a href="#cb443-3"></a>  <span class="fu">mutate</span>(<span class="at">id_survey =</span> <span class="fu">glue</span>(<span class="st">"{type_survey}-{date_elec}-{id_pollster}"</span>),</span>
+<span id="cb443-4"><a href="#cb443-4"></a>         <span class="at">.before =</span> <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </div>
 </section>
 <section id="caso-real-datos-de-encuestas-3" class="slide level2">
 <h2>Caso real: datos de encuestas</h2>
 <ul>
-<li><span class="hl-purple"><strong>Quinta tarea</strong></span>: convierte el dataset en tidydata. ¿Qué falla? ¿Cómo arreglarlo? Reminder: no quremos ausentes.</li>
+<li><span class="hl-purple"><strong>Segunda tarea</strong></span>: usando la variable <code>id_survey</code> creada elimina duplicados.</li>
 </ul>
 <div class="cell">
-
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-purple"><strong>Sexta tarea</strong></span>: calcula el número de días que la encuesta ha hecho trabajo de campo, y coloca dicha columna tras el nombre de la encuestadora. Tras ello elimina aquellas encuestas que tengan 0 días de trabajo de campo.</li>
-</ul>
-<div class="cell">
-
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="hl-purple"><strong>Séptima tarea</strong></span>: calcula el número de días que faltan hasta las elecciones desde que la encuesta cerro el trabajo de campo y coloca dicha variable tras <code>n_dias_campo</code>. Tras ello elimina las fechas de inicio y fin de trabajo de campo de la manera más eficiente posible</li>
-</ul>
-<div class="cell">
-
-</div>
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb444"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb444-1"><a href="#cb444-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb444-2"><a href="#cb444-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb444-3"><a href="#cb444-3"></a>  <span class="fu">distinct</span>(id_survey, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="caso-real-datos-de-encuestas-4" class="slide level2">
 <h2>Caso real: datos de encuestas</h2>
 <ul>
+<li><span class="hl-purple"><strong>Tercera tarea</strong></span>: tenemos una variable <code>media</code> que representa el medio en el que se publicó o encargo la encuesta. Elimina dicha variable, así como el tipo de encuesta y el id de la encuestadora</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb445"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb445-1"><a href="#cb445-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb445-2"><a href="#cb445-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb445-3"><a href="#cb445-3"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(type_survey, id_pollster, media))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-5" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
+<li><span class="hl-purple"><strong>Cuarta tarea</strong></span>: quédate solo con las encuestas cuyo tamaño muestral conozcamos y que no sean encuestas a pie de urna. Elimina esta última variable.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb446"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb446-1"><a href="#cb446-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb446-2"><a href="#cb446-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb446-3"><a href="#cb446-3"></a>  <span class="fu">drop_na</span>(size) <span class="sc">|&gt;</span> </span>
+<span id="cb446-4"><a href="#cb446-4"></a>  <span class="fu">filter</span>(<span class="sc">!</span>exit_poll) <span class="sc">|&gt;</span> </span>
+<span id="cb446-5"><a href="#cb446-5"></a>  <span class="fu">select</span>(<span class="sc">-</span>exit_poll)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-6" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
+<li><span class="hl-purple"><strong>Quinta tarea</strong></span>: convierte el dataset en tidydata. ¿Qué falla? ¿Cómo arreglarlo? Reminder: no quremos ausentes.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb447"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb447-1"><a href="#cb447-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb447-2"><a href="#cb447-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb447-3"><a href="#cb447-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>(id_survey<span class="sc">:</span>turnout),</span>
+<span id="cb447-4"><a href="#cb447-4"></a>               <span class="at">names_to =</span> <span class="st">"partido"</span>,</span>
+<span id="cb447-5"><a href="#cb447-5"></a>               <span class="at">values_to =</span> <span class="st">"est_voto"</span>,</span>
+<span id="cb447-6"><a href="#cb447-6"></a>               <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-7" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
+<li><span class="hl-purple"><strong>Sexta tarea</strong></span>: calcula el número de días que la encuesta ha hecho trabajo de campo, y coloca dicha columna tras el nombre de la encuestadora. Tras ello elimina aquellas encuestas que tengan 0 días de trabajo de campo.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb448"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb448-1"><a href="#cb448-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb448-2"><a href="#cb448-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb448-3"><a href="#cb448-3"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_campo =</span> <span class="fu">as.numeric</span>(field_date_to <span class="sc">-</span> field_date_from),</span>
+<span id="cb448-4"><a href="#cb448-4"></a>         <span class="at">.after =</span> pollster) <span class="sc">|&gt;</span> </span>
+<span id="cb448-5"><a href="#cb448-5"></a>  <span class="fu">filter</span>(n_dias_campo <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-8" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
+<li><span class="hl-purple"><strong>Séptima tarea</strong></span>: calcula el número de días que faltan hasta las elecciones desde que la encuesta cerro el trabajo de campo y coloca dicha variable tras <code>n_dias_campo</code>. Tras ello elimina las fechas de inicio y fin de trabajo de campo de la manera más eficiente posible</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb449"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb449-1"><a href="#cb449-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb449-2"><a href="#cb449-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb449-3"><a href="#cb449-3"></a>  <span class="fu">mutate</span>(<span class="at">n_dias_elec =</span> <span class="fu">as.numeric</span>(date_elec <span class="sc">-</span> field_date_to),</span>
+<span id="cb449-4"><a href="#cb449-4"></a>         <span class="at">.after =</span> n_dias_campo) <span class="sc">|&gt;</span> </span>
+<span id="cb449-5"><a href="#cb449-5"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">contains</span>(<span class="st">"field"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-9" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
+<ul>
 <li><span class="hl-purple"><strong>Octava tarea</strong></span>: elimina encuestas que se hayan cerrado dentro de la ventana temporal en la que está prohibido la publicación de encuestas (no se deberían usar para predecir ya que «no se conocen»)</li>
 </ul>
 <div class="cell">
-
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb450"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb450-1"><a href="#cb450-1"></a>encuestas <span class="ot">&lt;-</span></span>
+<span id="cb450-2"><a href="#cb450-2"></a>  encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb450-3"><a href="#cb450-3"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="fragment">
+</section>
+<section id="caso-real-datos-de-encuestas-10" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
 <ul>
 <li><span class="hl-purple"><strong>Novena tarea</strong></span>: obtén, por cada elección, la media de las encuestas de cada partido</li>
 </ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb451"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb451-1"><a href="#cb451-1"></a>encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb451-2"><a href="#cb451-2"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb451-3"><a href="#cb451-3"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 137 × 3
+   date_elec  partido media_voto
+   &lt;date&gt;     &lt;chr&gt;        &lt;dbl&gt;
+ 1 1986-06-22 PSOE         45.7 
+ 2 1986-06-22 AP           22.8 
+ 3 1986-06-22 CIU           3.9 
+ 4 1986-06-22 EAJ-PNV       1.82
+ 5 1986-06-22 HB            1.27
+ 6 1986-06-22 EE            0.5 
+ 7 1986-06-22 CDS           4.33
+ 8 1986-06-22 PRD           4   
+ 9 1986-06-22 MUC           2.8 
+10 1986-06-22 IU            5.5 
+# ℹ 127 more rows</code></pre>
 </div>
-<div class="fragment">
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-11" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
 <ul>
 <li><span class="hl-purple"><strong>Décima tarea</strong></span>: realiza lo mismo que la tarea anterior pero solo para las encuestas de los 60 días previos a las elecciones. Ordena la salida de reciente a antiguo</li>
 </ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb453"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb453-1"><a href="#cb453-1"></a>encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb453-2"><a href="#cb453-2"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb453-3"><a href="#cb453-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb453-4"><a href="#cb453-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb453-5"><a href="#cb453-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 122 × 3
+   date_elec  partido     media_voto
+   &lt;date&gt;     &lt;chr&gt;            &lt;dbl&gt;
+ 1 2019-11-10 PSOE              30.6
+ 2 2019-11-10 EAJ-PNV            1.5
+ 3 2019-11-10 ERC                4.4
+ 4 2019-11-10 PP                18.6
+ 5 2019-11-10 CS                10.3
+ 6 2019-11-10 EH-BILDU           1.2
+ 7 2019-11-10 UP                13.6
+ 8 2019-11-10 VOX               10.0
+ 9 2019-11-10 JXCAT-JUNTS        1.8
+10 2019-11-10 NA-SUMA            0.4
+# ℹ 112 more rows</code></pre>
 </div>
-<div class="fragment">
+</div>
+</section>
+<section id="caso-real-datos-de-encuestas-12" class="slide level2">
+<h2>Caso real: datos de encuestas</h2>
 <ul>
 <li><span class="hl-purple"><strong>Undécima tarea</strong></span>: del dataset generado en el anterior ejercicio, obtén el primer y el segundo con mayor estimación de voto (en promedio)</li>
 </ul>
+<div class="cell">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb455"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb455-1"><a href="#cb455-1"></a>encuestas <span class="sc">|&gt;</span> </span>
+<span id="cb455-2"><a href="#cb455-2"></a>  <span class="fu">filter</span>(n_dias_elec <span class="sc">&lt;=</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb455-3"><a href="#cb455-3"></a>  <span class="fu">summarise</span>(<span class="at">media_voto =</span> <span class="fu">mean</span>(est_voto),</span>
+<span id="cb455-4"><a href="#cb455-4"></a>            <span class="at">.by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>, <span class="st">"partido"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb455-5"><a href="#cb455-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(date_elec)) <span class="sc">|&gt;</span> </span>
+<span id="cb455-6"><a href="#cb455-6"></a>  <span class="fu">slice_max</span>(media_voto, <span class="at">n =</span> <span class="dv">2</span>, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"date_elec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 3
+   date_elec  partido media_voto
+   &lt;date&gt;     &lt;chr&gt;        &lt;dbl&gt;
+ 1 2019-11-10 PSOE          30.6
+ 2 2019-11-10 PP            18.6
+ 3 2019-04-28 PSOE          30.3
+ 4 2019-04-28 PP            19.3
+ 5 2016-06-26 PP            29.4
+ 6 2016-06-26 UP            25.4
+ 7 2015-12-20 PP            28.2
+ 8 2015-12-20 PSOE          20.4
+ 9 2011-11-20 PP            46.0
+10 2011-11-20 PSOE          32.4
+# ℹ 12 more rows</code></pre>
+</div>
 </div>
 </section></section>
 <section id="gracias" class="title-slide slide level1 center">
