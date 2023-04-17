@@ -4769,6 +4769,90 @@ Llama al archivo directamente `index.qmd`, súbelo a Github y con un click en Pa
 
 ## Uso de Gitkraken
 
+La forma más [**sencilla para trabajar de manera colaborativa**]{.hl-yellow} en Github, y tenerlo sincronizado con nuestro local, es hacer uso de [Gitkraken](https://www.gitkraken.com/download)
+
+
+:::: columns
+::: {.column width="50%"}
+![](img/gitkraken-repo.png)
+:::
+
+::: {.column width="50%"}
+
+Una vez dentro clickamos en el icono de la carpeta (`Repo Management`) y si ya tenemos el repositorio en Github seleccionamos `Clone`, indicando donde queremos clonar (en nuestro local) y que [**repositorio de Github queremos clonar**]{.hl-yellow}.
+
+:::
+::::
+
+---
+
+## Uso de Gitkraken
+
+
+:::: columns
+::: {.column width="50%"}
+![](img/view-change.png)
+:::
+
+
+::: {.column width="50%"}
+Una vez clonado, la idea es que cada [**cambio que hagamos en local nos aparecerá en Gitkraken**]{.hl-yellow} como `View changes`.
+
+:::
+::::
+
+---
+
+## Uso de Gitkraken
+
+Cuando tengas suficientes cambios como para [**actualizar el repositorio**]{.hl-yellow} (tampoco tiene sentido actualizar con cada edición), verás algo similar a esto con todos los [**commits realizados**]{.hl-yellow}
+
+
+
+:::: columns
+::: {.column width="50%"}
+![](img/stage-all-changes.png)
+:::
+
+
+::: {.column width="50%"}
+Podrás decidir cuáles de los [**commits locales quieres incluir en remoto**]{.hl-yellow}, bien uno a uno o en `Stage all changes` (para todos)
+
+:::
+::::
+
+
+---
+
+## Uso de Gitkraken
+
+
+Tras incluir los commits deberás incluir un [**título y descripción del commit**]{.hl-yellow}
+
+![](img/titulo-commit.png)
+
+---
+
+## Uso de Gitkraken
+
+
+Tras hacerlo verás que ahora tenemos [**dos iconos separados en una especie de árbol**]{.hl-yellow} (¿te acuerdas de la `branch` o rama?):
+
+* [**Ordenador**]{.hl-purple}: la versión del repositorio que tienes en tu [**ordenador**]{.hl-yellow}.
+
+* [**Logo**]{.hl-purple}: la versión del repositorio que tienes [**subida en remoto**]{.hl-yellow} 
+
+![](img/split-gitkraken.png)
+
+---
+
+## Uso de Gitkraken
+
+Mientras eso suceda solo tendrás sincronizado tu ordenador con Gitkraken, pero no con Github. Para ello haremos [**click en Push**]{.hl-yellow} (con `Pull` podrás forzar a tener en local lo mismo que en remoto).
+
+![](img/push-gitkraken.png)
+
+
 # FRIKADAS
 
 [**Algunos paquetes o recursos curiosos**]{style="color:#444442;"}
