@@ -1217,7 +1217,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-04-17 23:09:44 CEST"</code></pre>
+<pre><code>[1] "2023-04-17 23:27:45 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -5384,23 +5384,18 @@ dplyr 1.1.0.
 <h2>Branchs</h2>
 <p>Para <span class="hl-yellow"><strong>crear una rama</strong></span> a partir del estado actual de repositorio haremos click en <code>Branch</code> y le pondremos un nombre</p>
 
-<img data-src="img/branch-button.png" class="r-stretch"></section>
+<img data-src="img/branch-button.png" class="r-stretch"><p>Una vez creada verás <span class="hl-yellow"><strong>dos iconos</strong></span> y un <span class="hl-yellow"><strong>menú desplegable</strong></span> con las distintas ramas en las que quieres hacer el commit. Imagina que realizas un cambio pero <span class="hl-yellow"><strong>no quieres añadirlo a la rama principal</strong></span>: puedes hacer el <span class="hl-yellow"><strong>commit en tu rama propia en LOCAL</strong></span> (lo harás en la rama activa de tu menú de branchs).</p>
+</section>
 <section id="branchs-2" class="slide level2">
 <h2>Branchs</h2>
-<p>Una vez creada verás <span class="hl-yellow"><strong>dos iconos</strong></span> y un <span class="hl-yellow"><strong>menú desplegable</strong></span> con las distintas ramas en las que quieres hacer el commit.</p>
+<p>La primera vez te pedirá que escribas la <span class="hl-yellow"><strong>rama en REMOTO</strong></span> con la quieres sincronizar tu rama en local. <span class="hl-green"><strong>Consejo</strong></span>: ponle el mismo nombre en remoto que en local.</p>
 
-<img data-src="img/branch-button.png" class="r-stretch"><div class="fragment">
-<p>Imagina que realizas un cambio pero <span class="hl-yellow"><strong>no quieres añadirlo a la rama principal</strong></span>: puedes hacer el <span class="hl-yellow"><strong>commit en tu rama propia en LOCAL</strong></span> (lo harás en la rama activa de tu menú de branchs).</p>
-</div>
-</section>
-<section class="slide level2">
+<img data-src="img/name-branch.png" class="r-stretch"></section>
+<section id="branchs-3" class="slide level2">
+<h2>Branchs</h2>
+<p>Fíjate que ahora tenemos el ordenador y el logo en el mismo sitio. Esto no significa que tengas ambas ramas en tu local, solo que <span class="hl-yellow"><strong>Gitkraken tiene ambas sincronizadas</strong></span>: clickando en cualquiera de ellas, tus archivos en tu ordenador cambiarán.</p>
 
-<p>la primera vez te pedirá que escribas la <span class="hl-yellow"><strong>rama en REMOTO</strong></span> con la quieres sincronizar tu rama en local. <span class="hl-green"><strong>Consejo</strong></span>: ponle el mismo nombre en remoto que en local.</p>
-</section>
-<section class="slide level2">
-
-<p>Fíjate que ahora tenemos el ordenador y el logo en el mismo sitio. Esto no significa que tengas ambas ramas en tu local, solo que Gitkraken tiene ambas sincronizadas: clickando en cualquiera de ellas, tus archivos en tu ordenador cambiarán.</p>
-</section>
+<img data-src="img/both-branchs.png" class="r-stretch"></section>
 <section id="pull-request" class="slide level2">
 <h2>Pull request</h2>
 <p>Lo más recomendable es que <span class="hl-yellow"><strong>solo se incorpore de una rama secundaria</strong></span> a la rama principal aquello que está <span class="hl-yellow"><strong>validado por un/a coordinador/a</strong></span> del repositorio, asegurándose que todo funciona correctamente.</p>
@@ -5421,13 +5416,40 @@ dplyr 1.1.0.
 <li>La <span class="hl-yellow"><strong>rama</strong></span> a la que hacer el <code>merge</code> (normalmente la <code>main</code>)</li>
 <li>Título y resumen de los cambios</li>
 <li>Puedes incluso asignar un <span class="hl-yellow"><strong>revisor</strong></span> entre los colaboradores del repo.</li>
-<li>Puedes asignar [<strong>etiquetas</strong>]</li>
+<li>Puedes asignar <span class="hl-yellow"><strong>etiquetas</strong></span></li>
 </ul>
 </div>
 </div>
 </section>
-<section class="slide level2">
+<section id="pull-request-2" class="slide level2">
+<h2>Pull request</h2>
+<p>Mientras no se acepte aparecerá un <span class="hl-yellow"><strong>icono de rama</strong></span> y un +1 en Pull Requests</p>
+<p><img data-src="img/pending-branch.png" width="500"></p>
+<div class="fragment">
+<p>Si somos al mantenedor del repositorio, haciendo click en el menú nos saldrán las ramas que nos quieren hacer hacer <code>merge</code></p>
+<p><img data-src="img/menu-pr.png" width="500"></p>
+</div>
+</section>
+<section id="pull-request-3" class="slide level2">
+<h2>Pull request</h2>
+<p>Al hacer click se abrirá un <span class="hl-yellow"><strong>cuadro de Pull Request</strong></span> para decidir si</p>
+<ul>
+<li><span class="hl-yellow"><strong>Revisar</strong></span> los cambios</li>
+<li><span class="hl-yellow"><strong>Aprobar</strong></span> el <code>merge</code></li>
+<li><span class="hl-yellow"><strong>Añadir comentarios</strong></span> al que ha solicitado el <code>merge</code> por si queremos solicitar algún cambio <span class="hl-yellow"><strong>antes de ser aprobado</strong></span></li>
+</ul>
 
+<img data-src="img/menu-pr-2.png" class="r-stretch"></section>
+<section id="pull-request-4" class="slide level2">
+<h2>Pull request</h2>
+<p>Tras revisar todo y aprobarlo clickaremos en <code>Confirm merge</code>, y tras ello podremos decidir si esa rama que era paralela a la principal la queremos <span class="hl-yellow"><strong>eliminar</strong></span> o dejar visible a todos (consejo: dejar visible para tene <span class="hl-yellow"><strong>trazabilidad</strong></span> del proyecto)</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/merge-branch.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/delete-branch.png"></p>
+</div>
+</div>
 </section></section>
 <section>
 <section id="frikadas" class="title-slide slide level1 center">

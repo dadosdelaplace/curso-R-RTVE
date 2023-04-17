@@ -4875,28 +4875,26 @@ Para [**crear una rama**]{.hl-yellow} a partir del estado actual de repositorio 
 
 ![](img/branch-button.png)
 
+Una vez creada verás [**dos iconos**]{.hl-yellow} y un [**menú desplegable**]{.hl-yellow} con las distintas ramas en las que quieres hacer el commit. Imagina que realizas un cambio pero [**no quieres añadirlo a la rama principal**]{.hl-yellow}: puedes hacer el [**commit en tu rama propia en LOCAL**]{.hl-yellow} (lo harás en la rama activa de tu menú de branchs).
+
+
+
+
 ---
 
 ## Branchs
 
-Una vez creada verás [**dos iconos**]{.hl-yellow} y un [**menú desplegable**]{.hl-yellow} con las distintas ramas en las que quieres hacer el commit. 
+La primera vez te pedirá que escribas la [**rama en REMOTO**]{.hl-yellow} con la quieres sincronizar tu rama en local. [**Consejo**]{.hl-green}: ponle el mismo nombre en remoto que en local.
 
-
-![](img/branch-button.png)
-
-. . .
-
-Imagina que realizas un cambio pero [**no quieres añadirlo a la rama principal**]{.hl-yellow}: puedes hacer el [**commit en tu rama propia en LOCAL**]{.hl-yellow} (lo harás en la rama activa de tu menú de branchs).
-
+![](img/name-branch.png)
 
 ---
 
+## Branchs
 
-la primera vez te pedirá que escribas la [**rama en REMOTO**]{.hl-yellow} con la quieres sincronizar tu rama en local. [**Consejo**]{.hl-green}: ponle el mismo nombre en remoto que en local.
+Fíjate que ahora tenemos el ordenador y el logo en el mismo sitio. Esto no significa que tengas ambas ramas en tu local, solo que [**Gitkraken tiene ambas sincronizadas**]{.hl-yellow}: clickando en cualquiera de ellas, tus archivos en tu ordenador cambiarán.
 
----
-
-Fíjate que ahora tenemos el ordenador y el logo en el mismo sitio. Esto no significa que tengas ambas ramas en tu local, solo que Gitkraken tiene ambas sincronizadas: clickando en cualquiera de ellas, tus archivos en tu ordenador cambiarán.
+![](img/both-branchs.png)
 
 ---
 
@@ -4928,13 +4926,50 @@ En el cuadro que no se abre deberemos escribir:
 * La [**rama**]{.hl-yellow} a la que hacer el `merge` (normalmente la `main`)
 * Título y resumen de los cambios
 * Puedes incluso asignar un [**revisor**]{.hl-yellow} entre los colaboradores del repo.
-* Puedes asignar [**etiquetas**]
+* Puedes asignar [**etiquetas**]{.hl-yellow}
 :::
 ::::
 
+---
+
+## Pull request
+
+Mientras no se acepte aparecerá un [**icono de rama**]{.hl-yellow} y un +1 en Pull Requests
+
+![](img/pending-branch.png){width=500}
+
+. . .
+
+Si somos al mantenedor del repositorio, haciendo click en el menú nos saldrán las ramas que nos quieren hacer hacer `merge`
+
+![](img/menu-pr.png){width=500}
 
 ---
 
+## Pull request
+
+Al hacer click se abrirá un [**cuadro de Pull Request**]{.hl-yellow} para decidir si
+
+* [**Revisar**]{.hl-yellow} los cambios
+* [**Aprobar**]{.hl-yellow} el `merge`
+* [**Añadir comentarios**]{.hl-yellow} al que ha solicitado el `merge` por si queremos solicitar algún cambio [**antes de ser aprobado**]{.hl-yellow}
+
+![](img/menu-pr-2.png)
+---
+
+## Pull request
+
+Tras revisar todo y aprobarlo clickaremos en `Confirm merge`, y tras ello podremos decidir si esa rama que era paralela a la principal la queremos [**eliminar**]{.hl-yellow} o dejar visible a todos (consejo: dejar visible para tene [**trazabilidad**]{.hl-yellow} del proyecto)
+
+:::: columns
+::: {.column width="50%"}
+![](img/merge-branch.png)
+:::
+
+::: {.column width="50%"}
+![](img/delete-branch.png)
+:::
+::::
 
 
 # FRIKADAS
