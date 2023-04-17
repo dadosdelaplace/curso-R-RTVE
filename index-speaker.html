@@ -1217,7 +1217,7 @@ Curso impartido en RTVE • 28 y 30 de marzo de 2023
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-04-17 22:26:21 CEST"</code></pre>
+<pre><code>[1] "2023-04-17 23:09:44 CEST"</code></pre>
 </div>
 </div>
 </div>
@@ -5369,7 +5369,66 @@ dplyr 1.1.0.
 <h2>Uso de Gitkraken</h2>
 <p>Mientras eso suceda solo tendrás sincronizado tu ordenador con Gitkraken, pero no con Github. Para ello haremos <span class="hl-yellow"><strong>click en Push</strong></span> (con <code>Pull</code> podrás forzar a tener en local lo mismo que en remoto).</p>
 
-<img data-src="img/push-gitkraken.png" class="r-stretch"></section></section>
+<img data-src="img/push-gitkraken.png" class="r-stretch"></section>
+<section id="branchs" class="slide level2">
+<h2>Branchs</h2>
+<p>Como hemos mencionado ya en varias ocasiones, hay un elefante en la habitación que aún no hemos mentado: las <span class="hl-yellow"><strong>ramas o branchs</strong></span> de un repositorio.</p>
+<div class="fragment">
+<p>Imagina que estáis trabajando varios en un proyecto y teneís una versión que funciona pero que queréis <span class="hl-yellow"><strong>modificar en paralelo a partir del estado actual</strong></span> del repositorio.</p>
+</div>
+<div class="fragment">
+<p>Las <span class="hl-yellow"><strong>ramas</strong></span> nos permiten partir de una versión común del repositorio y hacer cambios que <span class="hl-yellow"><strong>no afecten a los demás</strong></span></p>
+</div>
+</section>
+<section id="branchs-1" class="slide level2">
+<h2>Branchs</h2>
+<p>Para <span class="hl-yellow"><strong>crear una rama</strong></span> a partir del estado actual de repositorio haremos click en <code>Branch</code> y le pondremos un nombre</p>
+
+<img data-src="img/branch-button.png" class="r-stretch"></section>
+<section id="branchs-2" class="slide level2">
+<h2>Branchs</h2>
+<p>Una vez creada verás <span class="hl-yellow"><strong>dos iconos</strong></span> y un <span class="hl-yellow"><strong>menú desplegable</strong></span> con las distintas ramas en las que quieres hacer el commit.</p>
+
+<img data-src="img/branch-button.png" class="r-stretch"><div class="fragment">
+<p>Imagina que realizas un cambio pero <span class="hl-yellow"><strong>no quieres añadirlo a la rama principal</strong></span>: puedes hacer el <span class="hl-yellow"><strong>commit en tu rama propia en LOCAL</strong></span> (lo harás en la rama activa de tu menú de branchs).</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>la primera vez te pedirá que escribas la <span class="hl-yellow"><strong>rama en REMOTO</strong></span> con la quieres sincronizar tu rama en local. <span class="hl-green"><strong>Consejo</strong></span>: ponle el mismo nombre en remoto que en local.</p>
+</section>
+<section class="slide level2">
+
+<p>Fíjate que ahora tenemos el ordenador y el logo en el mismo sitio. Esto no significa que tengas ambas ramas en tu local, solo que Gitkraken tiene ambas sincronizadas: clickando en cualquiera de ellas, tus archivos en tu ordenador cambiarán.</p>
+</section>
+<section id="pull-request" class="slide level2">
+<h2>Pull request</h2>
+<p>Lo más recomendable es que <span class="hl-yellow"><strong>solo se incorpore de una rama secundaria</strong></span> a la rama principal aquello que está <span class="hl-yellow"><strong>validado por un/a coordinador/a</strong></span> del repositorio, asegurándose que todo funciona correctamente.</p>
+<p>Cuando queramos incluirlo haremos <span class="hl-yellow"><strong>click con botón derecho</strong></span> en el icono de la rama secundaria y seleccionamos <code>Start a pull request to origin from...</code></p>
+
+<img data-src="img/pull-request-menu.png" class="r-stretch"><div class="fragment">
+<p>Una <span class="hl-yellow"><strong>pull request</strong></span> será una <span class="hl-yellow"><strong>petición al responsable de la rama principal</strong></span> para incluir los cambios</p>
+</div>
+</section>
+<section id="pull-request-1" class="slide level2">
+<h2>Pull request</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/create-pull-request.png"></p>
+</div><div class="column" style="width:40%;">
+<p>En el cuadro que no se abre deberemos escribir:</p>
+<ul>
+<li>La <span class="hl-yellow"><strong>rama</strong></span> a la que hacer el <code>merge</code> (normalmente la <code>main</code>)</li>
+<li>Título y resumen de los cambios</li>
+<li>Puedes incluso asignar un <span class="hl-yellow"><strong>revisor</strong></span> entre los colaboradores del repo.</li>
+<li>Puedes asignar [<strong>etiquetas</strong>]</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
 <section>
 <section id="frikadas" class="title-slide slide level1 center">
 <h1>FRIKADAS</h1>

@@ -4852,6 +4852,90 @@ Mientras eso suceda solo tendrás sincronizado tu ordenador con Gitkraken, pero 
 
 ![](img/push-gitkraken.png)
 
+---
+
+## Branchs
+
+Como hemos mencionado ya en varias ocasiones, hay un elefante en la habitación que aún no hemos mentado: las [**ramas o branchs**]{.hl-yellow} de un repositorio.
+
+. . .
+
+Imagina que estáis trabajando varios en un proyecto y teneís una versión que funciona pero que queréis [**modificar en paralelo a partir del estado actual**]{.hl-yellow} del repositorio.
+
+. . .
+
+Las [**ramas**]{.hl-yellow} nos permiten partir de una versión común del repositorio y hacer cambios que [**no afecten a los demás**]{.hl-yellow}
+
+---
+
+## Branchs
+
+Para [**crear una rama**]{.hl-yellow} a partir del estado actual de repositorio haremos click en `Branch` y le pondremos un nombre
+
+
+![](img/branch-button.png)
+
+---
+
+## Branchs
+
+Una vez creada verás [**dos iconos**]{.hl-yellow} y un [**menú desplegable**]{.hl-yellow} con las distintas ramas en las que quieres hacer el commit. 
+
+
+![](img/branch-button.png)
+
+. . .
+
+Imagina que realizas un cambio pero [**no quieres añadirlo a la rama principal**]{.hl-yellow}: puedes hacer el [**commit en tu rama propia en LOCAL**]{.hl-yellow} (lo harás en la rama activa de tu menú de branchs).
+
+
+---
+
+
+la primera vez te pedirá que escribas la [**rama en REMOTO**]{.hl-yellow} con la quieres sincronizar tu rama en local. [**Consejo**]{.hl-green}: ponle el mismo nombre en remoto que en local.
+
+---
+
+Fíjate que ahora tenemos el ordenador y el logo en el mismo sitio. Esto no significa que tengas ambas ramas en tu local, solo que Gitkraken tiene ambas sincronizadas: clickando en cualquiera de ellas, tus archivos en tu ordenador cambiarán.
+
+---
+
+## Pull request
+
+Lo más recomendable es que [**solo se incorpore de una rama secundaria**]{.hl-yellow} a la rama principal aquello que está [**validado por un/a coordinador/a**]{.hl-yellow} del repositorio, asegurándose que todo funciona correctamente. 
+
+Cuando queramos incluirlo haremos [**click con botón derecho**]{.hl-yellow} en el icono de la rama secundaria y seleccionamos `Start a pull request to origin from...`
+
+![](img/pull-request-menu.png)
+
+
+. . .
+
+Una [**pull request**]{.hl-yellow} será una [**petición al responsable de la rama principal**]{.hl-yellow} para incluir los cambios
+
+---
+
+## Pull request
+
+:::: columns
+::: {.column width="60%"}
+![](img/create-pull-request.png)
+:::
+
+::: {.column width="40%"}
+En el cuadro que no se abre deberemos escribir:
+
+* La [**rama**]{.hl-yellow} a la que hacer el `merge` (normalmente la `main`)
+* Título y resumen de los cambios
+* Puedes incluso asignar un [**revisor**]{.hl-yellow} entre los colaboradores del repo.
+* Puedes asignar [**etiquetas**]
+:::
+::::
+
+
+---
+
+
 
 # FRIKADAS
 
