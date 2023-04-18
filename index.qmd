@@ -4959,7 +4959,7 @@ Al hacer click se abrirá un [**cuadro de Pull Request**]{.hl-yellow} para decid
 
 ## Pull request
 
-Tras revisar todo y aprobarlo clickaremos en `Confirm merge`, y tras ello podremos decidir si esa rama que era paralela a la principal la queremos [**eliminar**]{.hl-yellow} o dejar visible a todos (consejo: dejar visible para tene [**trazabilidad**]{.hl-yellow} del proyecto)
+Tras revisar todo y aprobarlo clickaremos en `Confirm merge`, y tras ello podremos decidir si esa rama que era paralela a la principal la queremos [**eliminar**]{.hl-yellow} o dejar visible a todos (consejo: dejar visible para tene [**trazabilidad**]{.hl-yellow} del proyecto de trabajo)
 
 :::: columns
 ::: {.column width="50%"}
